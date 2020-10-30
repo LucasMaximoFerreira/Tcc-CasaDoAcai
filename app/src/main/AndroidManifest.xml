@@ -3,7 +3,7 @@
     package="com.example.casadoacaitcc">
 //asdtfghj
     <uses-permission android:name="android.permission.INTERNET" />
-//azeitona
+
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="false"
