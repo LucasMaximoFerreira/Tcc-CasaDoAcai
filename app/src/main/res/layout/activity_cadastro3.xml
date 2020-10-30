@@ -82,4 +82,14 @@
         tools:layout_editor_absoluteX="92dp"
         tools:layout_editor_absoluteY="380dp" />
 
+    <EditText
+        android:id="@+id/txtComplemento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        tools:layout_editor_absoluteX="82dp"
+        tools:layout_editor_absoluteY="372dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
