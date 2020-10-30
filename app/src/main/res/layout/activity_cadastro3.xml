@@ -89,7 +89,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
-        tools:layout_editor_absoluteX="82dp"
-        tools:layout_editor_absoluteY="372dp" />
+        tools:layout_editor_absoluteX="88dp"
+        tools:layout_editor_absoluteY="367dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
