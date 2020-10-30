@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -16,61 +16,70 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="CEP" />
-
-            <EditText
-                android:id="@+id/txtCEP"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Numero" />
-
-            <EditText
-                android:id="@+id/txtNumero"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Complemento" />
-
-            <EditText
-                android:id="@+id/txtComplemento"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName" />
         </TableRow>
 
     </TableLayout>
 
     <Button
         android:id="@+id/btnCad3"
-        android:layout_width="match_parent"
+        android:layout_width="205dp"
+        android:layout_height="42dp"
+        android:text="Cadastrar"
+        tools:layout_editor_absoluteX="103dp"
+        tools:layout_editor_absoluteY="487dp" />
+
+    <EditText
+        android:id="@+id/txtNumero"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cadastrar" />
-</LinearLayout>
+        android:ems="10"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="88dp"
+        tools:layout_editor_absoluteY="303dp" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Numero"
+        tools:layout_editor_absoluteX="92dp"
+        tools:layout_editor_absoluteY="319dp" />
+
+    <EditText
+        android:id="@+id/txtCEP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="88dp"
+        tools:layout_editor_absoluteY="242dp" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CEP"
+        tools:layout_editor_absoluteX="92dp"
+        tools:layout_editor_absoluteY="257dp" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Complemento"
+        tools:layout_editor_absoluteX="92dp"
+        tools:layout_editor_absoluteY="380dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
