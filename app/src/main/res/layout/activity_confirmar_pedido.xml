@@ -11,26 +11,122 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <include
-            layout="@layout/main_toolbar"/>
+            android:id="@+id/include10"
+            layout="@layout/main_toolbar" />
+
+        <EditText
+            android:id="@+id/txtNomeProduto"
+            android:layout_width="287dp"
+            android:layout_height="47dp"
+            android:layout_marginEnd="60dp"
+            android:layout_marginRight="60dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toTopOf="@+id/textView18"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.25"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include10"
+            app:layout_constraintVertical_bias="0.726" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quantidade"
+            app:layout_constraintBottom_toTopOf="@+id/txtQtdDesejada"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.92"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include10"
+            app:layout_constraintVertical_bias="0.768" />
 
         <TextView
             android:id="@+id/textView16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Produto"
-            tools:layout_editor_absoluteX="42dp"
-            tools:layout_editor_absoluteY="107dp" />
+            app:layout_constraintBottom_toTopOf="@+id/txtNomeProduto"
+            app:layout_constraintEnd_toStartOf="@+id/textView17"
+            app:layout_constraintHorizontal_bias="0.088"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include10"
+            app:layout_constraintVertical_bias="0.768" />
 
         <EditText
-            android:id="@+id/txtNomeProduto"
+            android:id="@+id/txtQtdDesejada"
+            android:layout_width="61dp"
+            android:layout_height="44dp"
+            android:ems="10"
+            android:inputType="number|text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.425"
+            app:layout_constraintStart_toEndOf="@+id/txtNomeProduto"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.228" />
+
+        <TextView
+            android:id="@+id/textView18"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Descrição"
+            app:layout_constraintBottom_toTopOf="@+id/txtDescricao"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.126"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include10"
+            app:layout_constraintVertical_bias="0.913" />
+
+        <EditText
+            android:id="@+id/txtDescricao"
+            android:layout_width="248dp"
+            android:layout_height="172dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name"
-            tools:layout_editor_absoluteX="109dp"
-            tools:layout_editor_absoluteY="86dp" />
+            app:layout_constraintBottom_toTopOf="@+id/txtContinuarComprando"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.272"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include10"
+            app:layout_constraintVertical_bias="0.717" />
+
+        <Button
+            android:id="@+id/txtContinuarComprando"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Continuar Comprando"
+            app:layout_constraintBottom_toTopOf="@+id/txtFecharCompra"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include10"
+            app:layout_constraintVertical_bias="0.962" />
+
+        <Button
+            android:id="@+id/txtFecharCompra"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ir para o Carrinho"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include10"
+            app:layout_constraintVertical_bias="0.848" />
+
+        <Button
+            android:id="@+id/txtCancelarPedido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancelar Pedido"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtFecharCompra"
+            app:layout_constraintVertical_bias="0.446" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

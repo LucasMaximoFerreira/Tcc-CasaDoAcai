@@ -7,22 +7,96 @@
     android:id="@+id/drawer_layout"
     tools:context=".Carrinho">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <include
-            layout="@layout/main_toolbar"/>
+
+        <include layout="@layout/main_toolbar" />
+
+        <ListView
+            android:layout_width="362dp"
+            android:layout_height="250dp"
+            tools:layout_editor_absoluteX="24dp"
+            tools:layout_editor_absoluteY="88dp" />
+
+        <EditText
+            android:id="@+id/txtTroco"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            tools:layout_editor_absoluteX="108dp"
+            tools:layout_editor_absoluteY="579dp" />
+
+        <EditText
+            android:id="@+id/txtTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            tools:layout_editor_absoluteX="108dp"
+            tools:layout_editor_absoluteY="457dp" />
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CheckBox"
+            tools:layout_editor_absoluteX="166dp"
+            tools:layout_editor_absoluteY="528dp" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="Home"
-            android:textSize="50sp"
-            android:textStyle="bold" />
+            android:id="@+id/textView20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total"
+            tools:layout_editor_absoluteX="63dp"
+            tools:layout_editor_absoluteY="472dp" />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Troco"
+            tools:layout_editor_absoluteX="58dp"
+            tools:layout_editor_absoluteY="600dp" />
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forma de Pagamento"
+            tools:layout_editor_absoluteX="136dp"
+            tools:layout_editor_absoluteY="356dp" />
+
+        <RadioGroup
+            android:layout_width="227dp"
+            android:layout_height="34dp"
+            android:orientation="horizontal"
+            tools:layout_editor_absoluteX="85dp"
+            tools:layout_editor_absoluteY="397dp">
+
+            <RadioButton
+                android:id="@+id/rbDinheiro"
+                android:layout_width="99dp"
+                android:layout_height="wrap_content"
+                android:text="Dinheiro" />
+
+
+            <Space
+                android:layout_width="15dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <RadioButton
+                android:id="@+id/rbCartao"
+                android:layout_width="97dp"
+                android:layout_height="match_parent"
+                android:text="Cartão" />
+        </RadioGroup>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <RelativeLayout
         android:layout_width="300dp"
