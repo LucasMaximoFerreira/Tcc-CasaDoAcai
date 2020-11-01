@@ -32,6 +32,22 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
 
     int op;
 
+    ////////////////////////////////////////// - Classe produto
+
+
+    private produto prodClasse = new produto();
+
+    public produto getProdClasse() {
+        return prodClasse;
+    }
+
+    public void setProdClasse(produto prodClasse) {
+        this.prodClasse = prodClasse;
+    }
+    //////////////////////////////////////////
+
+    //--------------------------------------//
+
 
     ////////////////////////////////////////// - Boolean Login
 
@@ -164,7 +180,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
             e.printStackTrace();
         }
         try {
-            conexao = DriverManager.getConnection("jdbc:mysql://192.168.15.14:3306/casadoacai", "root", "lucas4max");
+            conexao = DriverManager.getConnection("jdbc:mysql://192.168.0.1:3306/casadoacai", "root", "lucas4max");
             return true;
 
         } catch (SQLException e) {
@@ -225,6 +241,9 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
                 break;
             case 9:
                 resp = listarSorvete();
+                break;
+            case 10:
+                resp = pesqProduto();
                 break;
 
         }
@@ -576,7 +595,32 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
             return false;
         }
     }
+    public Boolean pesqProduto(){
+        try{
+            String sql = "select * from produto where id_prod=? and id_prod=?";
+            PreparedStatement comando = conexao.prepareStatement(sql);
+            comando.setInt(1, prodClasse.getId_prod());
+            comando.setInt(2, prodClasse.getId_tipoProd());
+            ResultSet tabelaMemoria = comando.executeQuery();
 
+            if(tabelaMemoria.next()){
+                prodClasse.setId_prod(tabelaMemoria.getInt("id_prod"));
+                prodClasse.setId_tipoProd(tabelaMemoria.getInt("id_tipoProd"));
+                prodClasse.setNome_prod(cripto.decrypt(tabelaMemoria.getString("nome_prod")));
+                prodClasse.setTam_prod(cripto.decrypt(tabelaMemoria.getString("tam_prod")));
+                prodClasse.setPreco_prod(Double.parseDouble(cripto.decrypt(tabelaMemoria.getString("preco_prod"))));
+
+                return true;
+            }else{
+                prodClasse = null;
+                return false;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 
 
 }

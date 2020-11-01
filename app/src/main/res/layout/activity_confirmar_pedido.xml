@@ -29,7 +29,7 @@
             app:layout_constraintHorizontal_bias="0.25"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/include10"
-            app:layout_constraintVertical_bias="0.726" />
+            app:layout_constraintVertical_bias="0.789" />
 
         <TextView
             android:id="@+id/textView17"
@@ -86,7 +86,7 @@
             android:layout_height="172dp"
             android:ems="10"
             android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/txtContinuarComprando"
+            app:layout_constraintBottom_toTopOf="@+id/btnContinuarComprando"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.272"
             app:layout_constraintStart_toStartOf="parent"
@@ -94,39 +94,39 @@
             app:layout_constraintVertical_bias="0.717" />
 
         <Button
-            android:id="@+id/txtContinuarComprando"
+            android:id="@+id/btnContinuarComprando"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Continuar Comprando"
-            app:layout_constraintBottom_toTopOf="@+id/txtFecharCompra"
+            app:layout_constraintBottom_toTopOf="@+id/btnFecharCompra"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/include10"
             app:layout_constraintVertical_bias="0.962" />
 
         <Button
-            android:id="@+id/txtFecharCompra"
+            android:id="@+id/btnFecharCompra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ir para o Carrinho"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintHorizontal_bias="0.437"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/include10"
-            app:layout_constraintVertical_bias="0.848" />
+            app:layout_constraintVertical_bias="0.819" />
 
         <Button
-            android:id="@+id/txtCancelarPedido"
+            android:id="@+id/btnCancelarPedido"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cancelar Pedido"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.471"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtFecharCompra"
-            app:layout_constraintVertical_bias="0.446" />
+            app:layout_constraintTop_toBottomOf="@+id/btnFecharCompra"
+            app:layout_constraintVertical_bias="0.384" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

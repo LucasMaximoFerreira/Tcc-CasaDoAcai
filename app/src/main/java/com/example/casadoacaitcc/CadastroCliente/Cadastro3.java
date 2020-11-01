@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.casadoacaitcc.Login;
 import com.example.casadoacaitcc.R;
 
 import dao.conectarBD;
@@ -57,7 +58,8 @@ public class Cadastro3 extends AppCompatActivity implements View.OnClickListener
 
                 cad.execute(0);
 
-
+                Intent login = new Intent(this, Login.class);
+                startActivity(login);
                 break;
 
         }
