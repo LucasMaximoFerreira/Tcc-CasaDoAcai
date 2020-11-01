@@ -54,20 +54,25 @@ public class ComprarAcai2 extends AppCompatActivity implements View.OnClickListe
 
         btnComprarAcai2.setOnClickListener(this);
 
+        chkAmendoim.setOnClickListener(this);
+        chkCaramelo.setOnClickListener(this);
+        chkChocobol.setOnClickListener(this);
+        chkChocolate.setOnClickListener(this);
+        chkGranola.setOnClickListener(this);
+        chkGranulado.setOnClickListener(this);
+        chkLeiteCondensado.setOnClickListener(this);
+        chkTutiFruti.setOnClickListener(this);
+        chkPacoca.setOnClickListener(this);
+        chkMorango.setOnClickListener(this);
+        chkLeiteEmPo.setOnClickListener(this);
+        chkMaracuja.setOnClickListener(this);
+        chkMenta.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
 
         switch (v.getId()){
-            case R.id.btnComprarAcai2:
-
-                AdicionarItem();
-
-                Intent telaProd = new Intent(this, ConfirmarPedido.class);
-                startActivity(telaProd);
-
-                break;
 
             case R.id.chkAmendoim:
                 if(chkAmendoim.isChecked()){
@@ -160,17 +165,23 @@ public class ComprarAcai2 extends AppCompatActivity implements View.OnClickListe
                     maracuja = " ";
                 }
                 break;
+            case R.id.btnComprarAcai2:
 
+                adicionais = amendoim + "\r\n" + granulado + "\r\n" + granola + "\r\n" + leiteEmPo + " " + leiteCondensado + " " +
+                        chocobol + " " + pacoca + " " + morango + " " + chocolate + " " + caramelo + " " +
+                        menta + " " + tutiFruti + " " + maracuja;
+
+                //COLCOAR ADICIONAL IGUAL A 0 PARA OS OUTROS PRODUTOS
+
+                utilsProduto.setNomeAdicionais(adicionais);
+                Intent telaProd = new Intent(this, ConfirmarPedido.class);
+                startActivity(telaProd);
+
+                break;
         }
     }
     private void AdicionarItem(){
-        adicionais = amendoim + " " + granulado + " " + granola + " " + leiteEmPo + " " + leiteCondensado + " " +
-                chocobol + " " + pacoca + " " + morango + " " + chocolate + " " + caramelo + " " +
-                menta + " " + tutiFruti + " " + maracuja;
 
-        //COLCOAR ADICIONAL IGUAL A 0 PARA OS OUTROS PRODUTOS
-
-        utilsProduto.setNomeAdicionais(adicionais);
     }
 }
 
