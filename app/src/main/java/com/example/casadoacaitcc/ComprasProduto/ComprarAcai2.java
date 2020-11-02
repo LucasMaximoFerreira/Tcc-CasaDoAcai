@@ -171,7 +171,6 @@ public class ComprarAcai2 extends AppCompatActivity implements View.OnClickListe
                         chocobol + "\n"+ pacoca + "\n" + morango + "\n" + chocolate + "\n" + caramelo + "\n" +
                         menta + "\n" + tutiFruti + "\n" + maracuja;
 
-                //COLCOAR ADICIONAL IGUAL A 0 PARA OS OUTROS PRODUTOS
 
                 utilsProduto.setNomeAdicionais(adicionais);
                 Intent telaProd = new Intent(this, ConfirmarPedido.class);

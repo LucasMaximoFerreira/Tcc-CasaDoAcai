@@ -2,15 +2,21 @@ package com.example.casadoacaitcc;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.casadoacaitcc.Navegacao.MenuProdutos;
+
 import java.util.concurrent.ExecutionException;
 
 import dao.conectarBD;
+import model.it_venda;
 import model.produto;
+import model.vendas;
+import utils.utilsCompra;
 import utils.utilsProduto;
 
 public class ConfirmarPedido extends AppCompatActivity implements View.OnClickListener {
@@ -18,8 +24,12 @@ public class ConfirmarPedido extends AppCompatActivity implements View.OnClickLi
     EditText txtNomeProduto, txtQuantidadeDesejada, txtDescricao;
     Button btnContinuarComprando, btnFrcharCompra, btnCancelarPedido;
 
-    produto prodTela = new produto();
+    int qtd;
+    Double precoFianl, precoProduto;
 
+    produto prodTela = new produto();
+    vendas vendaTela = new vendas();
+    it_venda it_vendaTela = new it_venda();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +73,74 @@ public class ConfirmarPedido extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
+
+        switch (v.getId()){
+            case R.id.btnContinuarComprando:
+
+                AdicionarItemCarrinho();
+
+                Intent conitnuarComprando = new Intent(this, MenuProdutos.class);
+                startActivity(conitnuarComprando);
+                break;
+            case R.id.btnFecharCompra:
+                utilsCompra.setNovaCompra("sim");
+
+
+
+                if(utilsCompra.getNovaCompra().equals("sim")){
+                    try{
+                        conectarBD cadastrarVenda = new conectarBD(this);
+                        vendaTela.setId_cli(1);
+                        vendaTela.setId_forma(1);
+                        vendaTela.setValor_vda(0);
+
+                        cadastrarVenda.setVendaClasse(vendaTela);
+
+                        cadastrarVenda.execute(11).get();
+
+                        utilsCompra.setNovaCompra("não");
+
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                AdicionarItemCarrinho();
+
+
+                Intent Carrinho = new Intent(this, Carrinho.class);
+                startActivity(Carrinho);
+                break;
+            case R.id.btnCancelarPedido:
+
+                Intent cancelarPedido = new Intent(this, MenuProdutos.class);
+                startActivity(cancelarPedido);
+                break;
+
+
+        }
+    }
+    private void AdicionarItemCarrinho(){
+
+
+        qtd = Integer.parseInt(txtQuantidadeDesejada.getText().toString());
+        precoProduto = prodTela.getPreco_prod();
+
+        precoFianl = precoProduto * qtd;
+
+        conectarBD cadastrarIt_venda = new conectarBD(this);
+
+        it_vendaTela.setId_vda(utilsCompra.getUltimaVenda());
+        it_vendaTela.setId_prod(utilsProduto.getIdProdSelecionado());
+        it_vendaTela.setQtd_it(Integer.parseInt(txtQuantidadeDesejada.getText().toString()));
+        it_vendaTela.setTotal_ped(precoFianl);
+        it_vendaTela.setAdicional(utilsProduto.getNomeAdicionais());
+
+        cadastrarIt_venda.setIt_vendaClasse(it_vendaTela);
+
+        cadastrarIt_venda.execute(12);
 
     }
 }

@@ -4,7 +4,6 @@ public class vendas {
     private int id_vda;
     private int id_cli;
     private int id_forma;
-    private String data_vda;
     private double valor_vda;
 
     public int getId_vda() {
@@ -31,13 +30,7 @@ public class vendas {
         this.id_forma = id_forma;
     }
 
-    public String getData_vda() {
-        return data_vda;
-    }
 
-    public void setData_vda(String data_vda) {
-        this.data_vda = data_vda;
-    }
 
     public double getValor_vda() {
         return valor_vda;

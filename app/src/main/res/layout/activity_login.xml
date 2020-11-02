@@ -61,23 +61,28 @@
 
     <Button
         android:id="@+id/btnCadastrarLogin"
-        android:layout_width="205dp"
-        android:layout_height="38dp"
+        android:layout_width="203dp"
+        android:layout_height="31dp"
+        android:background="@drawable/fundo_botao_logar"
         android:text="Cadastrar"
-
+        android:fontFamily="@font/chicken_pie"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.543"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
+        app:layout_constraintVertical_bias="0.991" />
 
     <Button
         android:id="@+id/btnLogar"
         android:layout_width="156dp"
         android:layout_height="40dp"
         android:background="@drawable/fundo_botao_logar"
+        android:fontFamily="@font/chicken_pie"
         android:text="Entrar"
+        android:textColor="#FFFFFF"
+        android:textIsSelectable="true"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
