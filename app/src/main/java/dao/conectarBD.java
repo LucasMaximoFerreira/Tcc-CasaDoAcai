@@ -18,7 +18,9 @@ import java.util.List;
 
 import model.cadastro_cliente;
 import model.produto;
+import model.vendas;
 import utils.criptografia;
+import utils.utilsCompra;
 import utils.utilsProduto;
 
 public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
@@ -31,6 +33,20 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
     ProgressDialog dialogo;
 
     int op;
+
+    ////////////////////////////////////////// - Classe vendas
+    private vendas vendaClasse = new vendas();
+
+    public vendas getVendaClasse() {
+        return vendaClasse;
+    }
+
+    public void setVendaClasse(vendas vendaClasse) {
+        this.vendaClasse = vendaClasse;
+    }
+    //////////////////////////////////////////
+
+    //--------------------------------------//
 
     ////////////////////////////////////////// - Classe produto
 
@@ -245,6 +261,10 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
             case 10:
                 resp = pesqProduto();
                 break;
+            case 11:
+                resp = inserirVenda();
+                break;
+
 
         }
 
@@ -621,6 +641,40 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
             return false;
         }
     }
+    public Boolean inserirVenda(){
+
+        try{
+            Date data = new Date(System.currentTimeMillis());
+
+            java.sql.Date dataMySQL = new java.sql.Date(data.getTime());
+
+            String sql = "insert into vendas values(0,?,?,?,?)";
+            PreparedStatement comando = conexao.prepareStatement(sql);
+            comando.setString(1, cripto.encrypt(String.valueOf(vendaClasse.getId_cli()).getBytes()).replace("\n", ""));
+            comando.setString(2, cripto.encrypt(String.valueOf(vendaClasse.getId_forma()).getBytes()).replace("\n", ""));
+            comando.setString(3, cripto.encrypt(String.valueOf(dataMySQL).getBytes()).replace("\n", ""));
+            comando.setString(4, cripto.encrypt(String.valueOf(vendaClasse.getValor_vda()).getBytes()).replace("\n", ""));
+            comando.executeUpdate();
+
+            String sql2 = "select max(id_venda) as ult_venda from vendas";
+            PreparedStatement comando2 = conexao.prepareStatement(sql2);
+            ResultSet tabelaMemoria = comando2.executeQuery();
+
+            if(tabelaMemoria.next()){
+                utilsCompra.setUltimaVenda(tabelaMemoria.getInt("ult_venda"));
+
+                return true;
+            }else{
+                return false;
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 
 
 }

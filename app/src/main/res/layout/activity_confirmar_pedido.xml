@@ -86,7 +86,7 @@
             android:layout_height="172dp"
             android:autoText="false"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="textMultiLine"
             android:singleLine="true"
             app:layout_constraintBottom_toTopOf="@+id/btnContinuarComprando"
             app:layout_constraintEnd_toEndOf="parent"

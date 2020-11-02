@@ -78,98 +78,98 @@ public class ComprarAcai2 extends AppCompatActivity implements View.OnClickListe
                 if(chkAmendoim.isChecked()){
                     amendoim = "Amendoim";
                 }else{
-                    amendoim = " ";
+                    amendoim = "";
                 }
                 break;
             case R.id.chkGranulado:
                 if(chkGranulado.isChecked()){
                     granulado = "Granulado";
                 }else{
-                    granulado = " ";
+                    granulado = "";
                 }
                 break;
             case R.id.chkGranola:
                 if(chkGranola.isChecked()){
                     granola = "Granola";
                 }else{
-                    granola = " ";
+                    granola = "";
                 }
                 break;
             case R.id.chkLeiteEmPo:
                 if(chkLeiteEmPo.isChecked()){
                     leiteEmPo = "Leite em Po";
                 }else{
-                    leiteEmPo = " ";
+                    leiteEmPo = "";
                 }
                 break;
             case R.id.chkLeiteCondensado:
                 if(chkLeiteCondensado.isChecked()){
                     leiteCondensado = "Leite Condensado";
                 }else{
-                    leiteCondensado = " ";
+                    leiteCondensado = "";
                 }
                 break;
             case R.id.chkChocobol:
                 if(chkChocobol.isChecked()){
                     chocobol = "Chocobol";
                 }else{
-                    chocobol = " ";
+                    chocobol = "";
                 }
                 break;
             case R.id.chkPacoca:
                 if(chkPacoca.isChecked()){
                     pacoca = "Paçoca";
                 }else{
-                    pacoca = " ";
+                    pacoca = "";
                 }
                 break;
             case R.id.chkMorango:
                 if(chkMorango.isChecked()){
                     morango = "Morango";
                 }else{
-                    morango = " ";
+                    morango = "";
                 }
                 break;
             case R.id.chkChocolate:
                 if(chkChocolate.isChecked()){
                     chocolate = "Chocolate";
                 }else{
-                    chocolate = " ";
+                    chocolate = "";
                 }
                 break;
             case R.id.chkCaramelo:
                 if(chkCaramelo.isChecked()){
                     caramelo = "Caramelo";
                 }else{
-                    caramelo = " ";
+                    caramelo = "";
                 }
                 break;
             case R.id.chkMenta:
                 if(chkMenta.isChecked()){
                     menta = "Menta";
                 }else{
-                    menta = " ";
+                    menta = "";
                 }
                 break;
             case R.id.chkTutiFruti:
                 if(chkTutiFruti.isChecked()){
                     tutiFruti = "Tuti-Fruti";
                 }else{
-                    tutiFruti = " ";
+                    tutiFruti = "";
                 }
                 break;
             case R.id.chkMaracuja:
                 if(chkMaracuja.isChecked()){
                     maracuja = "Maracuja";
                 }else{
-                    maracuja = " ";
+                    maracuja = "";
                 }
                 break;
             case R.id.btnComprarAcai2:
 
-                adicionais = amendoim + "\r\n" + granulado + "\r\n" + granola + "\r\n" + leiteEmPo + " " + leiteCondensado + " " +
-                        chocobol + " " + pacoca + " " + morango + " " + chocolate + " " + caramelo + " " +
-                        menta + " " + tutiFruti + " " + maracuja;
+                adicionais = amendoim + "\n" + granulado + "\n" + granola + "\n" + leiteEmPo + "\n" + leiteCondensado + "\n" +
+                        chocobol + "\n"+ pacoca + "\n" + morango + "\n" + chocolate + "\n" + caramelo + "\n" +
+                        menta + "\n" + tutiFruti + "\n" + maracuja;
 
                 //COLCOAR ADICIONAL IGUAL A 0 PARA OS OUTROS PRODUTOS
 
@@ -180,8 +180,6 @@ public class ComprarAcai2 extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
-    private void AdicionarItem(){
 
-    }
 }
 
