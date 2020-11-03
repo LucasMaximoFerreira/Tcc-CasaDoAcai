@@ -52,8 +52,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
         Shader shader = new LinearGradient(0,0,width,lblCadastrar.getTextSize(),
                 new int[]{
-                        Color.parseColor("#BF0085"),
                         Color.parseColor("#9300E9"),
+                        Color.parseColor("#BF0085"),
 
 
                 }, null, Shader.TileMode.CLAMP);
