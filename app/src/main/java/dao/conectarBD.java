@@ -363,12 +363,12 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
                 break;
             case 10:
                 if (aBoolean == false) {
-                    Toast.makeText(tela, "Carrinho de Compras", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(tela, "Confirmar Pedido", Toast.LENGTH_SHORT).show();
                 }
                 break;
             case 11:
                 if (aBoolean == false) {
-                    Toast.makeText(tela, "Nao existe Sorvete", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(tela, "Carrinho de Compras", Toast.LENGTH_SHORT).show();
                 }
                 break;
             case 12:
@@ -546,6 +546,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
                 prodTEMP.setPreco_prod(Double.parseDouble(cripto.decrypt(tabelaMemoria.getString("preco_prod"))));
 
                 listaCremosinho.add(prodTEMP);
+
 
             }
             return true;
