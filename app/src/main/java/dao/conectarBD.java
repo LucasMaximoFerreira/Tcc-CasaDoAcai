@@ -662,7 +662,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
 
     public Boolean pesqProduto() {
         try {
-            String sql = "select * from produto where id_prod=? and id_prod=?";
+            String sql = "select * from produto where id_prod=? and id_tipoProd=?";
             PreparedStatement comando = conexao.prepareStatement(sql);
             comando.setInt(1, prodClasse.getId_prod());
             comando.setInt(2, prodClasse.getId_tipoProd());
