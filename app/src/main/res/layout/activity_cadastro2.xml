@@ -79,12 +79,13 @@
     </RadioGroup>
 
     <EditText
-        android:layout_width="236dp"
-        android:layout_height="41dp"
         android:id="@+id/txtTelefone"
+        android:layout_width="265dp"
+        android:layout_height="42dp"
+        android:background="@drawable/custom_input"
+        android:ems="10"
         android:fontFamily="@font/chicken_pie"
         android:hint="telefone"
-        android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/rgGen"
         app:layout_constraintEnd_toEndOf="parent"
@@ -94,12 +95,13 @@
         app:layout_constraintVertical_bias="0.91" />
 
     <EditText
-        android:layout_width="236dp"
-        android:layout_height="41dp"
         android:id="@+id/txtCPF"
+        android:layout_width="265dp"
+        android:layout_height="42dp"
+        android:background="@drawable/custom_input"
+        android:ems="10"
         android:fontFamily="@font/chicken_pie"
         android:hint="cpf"
-        android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/txtTelefone"
         app:layout_constraintEnd_toEndOf="parent"
