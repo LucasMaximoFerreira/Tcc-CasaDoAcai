@@ -17,12 +17,17 @@
         android:ems="10"
         android:fontFamily="@font/chicken_pie"
         android:hint="cpf"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:drawablePadding="8dp"
+        android:drawableStart="@drawable/costum_cpf_icon"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/txtSenha"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.925" />
+        app:layout_constraintVertical_bias="0.925"
+        android:drawableLeft="@drawable/usu_cpf" />
 
     <EditText
         android:id="@+id/txtSenha"
@@ -32,13 +37,18 @@
         android:ems="10"
         android:fontFamily="@font/chicken_pie"
         android:hint="senha"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:drawablePadding="8dp"
+        android:drawableStart="@drawable/costum_senha_icon"
         android:inputType="textPersonName|textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.521" />
+        app:layout_constraintVertical_bias="0.521"
+        android:drawableLeft="@drawable/usu_senha" />
 
     <Button
         android:id="@+id/btnLogar"

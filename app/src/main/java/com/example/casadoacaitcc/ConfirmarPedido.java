@@ -18,6 +18,7 @@ import model.produto;
 import model.vendas;
 import utils.utilsCompra;
 import utils.utilsProduto;
+import utils.utilsCadastro_cliente;
 
 public class ConfirmarPedido extends AppCompatActivity implements View.OnClickListener {
 
@@ -26,6 +27,7 @@ public class ConfirmarPedido extends AppCompatActivity implements View.OnClickLi
 
     int qtd;
     Double precoFianl, precoProduto;
+
 
     produto prodTela = new produto();
     vendas vendaTela = new vendas();
@@ -83,32 +85,10 @@ public class ConfirmarPedido extends AppCompatActivity implements View.OnClickLi
                 startActivity(conitnuarComprando);
                 break;
             case R.id.btnFecharCompra:
-                utilsCompra.setNovaCompra("sim");
-
-
-
-                if(utilsCompra.getNovaCompra().equals("sim")){
-                    try{
-                        conectarBD cadastrarVenda = new conectarBD(this);
-                        vendaTela.setId_cli(1);
-                        vendaTela.setId_forma(1);
-                        vendaTela.setValor_vda(0);
-
-                        cadastrarVenda.setVendaClasse(vendaTela);
-
-                        cadastrarVenda.execute(11).get();
-
-                        utilsCompra.setNovaCompra("não");
-
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    } catch (ExecutionException e) {
-                        e.printStackTrace();
-                    }
-                }
 
                 AdicionarItemCarrinho();
 
+                utilsCompra.setNovaCompra("sim");
 
                 Intent Carrinho = new Intent(this, Carrinho.class);
                 startActivity(Carrinho);
@@ -124,7 +104,29 @@ public class ConfirmarPedido extends AppCompatActivity implements View.OnClickLi
     }
     private void AdicionarItemCarrinho(){
 
+        if(utilsCompra.getNovaCompra().equals("sim")){
+            try{
+                conectarBD cadastrarVenda = new conectarBD(this);
+                vendaTela.setId_cli(utilsCadastro_cliente.getUid_cli());
+                vendaTela.setId_forma(1);
+                vendaTela.setValor_vda(0);
 
+                cadastrarVenda.setVendaClasse(vendaTela);
+
+                cadastrarVenda.execute(11).get();
+
+                utilsCompra.setNovaCompra("não");
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if(prodTela.getId_prod() != 1){
+            utilsProduto.setNomeAdicionais(" ");
+        }
         qtd = Integer.parseInt(txtQuantidadeDesejada.getText().toString());
         precoProduto = prodTela.getPreco_prod();
 

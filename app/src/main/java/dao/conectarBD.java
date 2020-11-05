@@ -290,6 +290,15 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
             case 12:
                 resp = inserirItemVenda();
                 break;
+            case 13:
+                resp = carrinhoFinalizarCompra();
+                break;
+            case 14:
+                resp = carrinhoCalcularCompra();
+                break;
+            case 15:
+                resp = puxarIdCliente();
+                break;
 
         }
 
@@ -367,13 +376,21 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
                 }
                 break;
             case 11:
-                if (aBoolean == false) {
+                if (aBoolean == true) {
                     Toast.makeText(tela, "Carrinho de Compras", Toast.LENGTH_SHORT).show();
                 }
                 break;
             case 12:
-                if (aBoolean == false) {
+                if (aBoolean == true) {
                     Toast.makeText(tela, "Pedido adicionado ao carrinho", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(tela, "Pedido não adicionado ao carrinho", Toast.LENGTH_SHORT).show();
+
+                }
+                break;
+            case 13:
+                if (aBoolean == true) {
+                    Toast.makeText(tela, "Comrpa efetuada com sucesso", Toast.LENGTH_SHORT).show();
                 }
                 break;
         }
@@ -558,8 +575,9 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
 
     public Boolean listarSorvete() {
         try {
-            String sql = "select * from produto where id_tipoProd=2";
+            String sql = "select * from produto where id_tipoProd=?";
             PreparedStatement comando = conexao.prepareStatement(sql);
+            comando.setInt(1, utilsProduto.getIdTipoProd());
             ResultSet tabelaMemoria = comando.executeQuery();
 
             while (tabelaMemoria.next()) {
@@ -636,8 +654,9 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
 
     public Boolean listarSacole() {
         try {
-            String sql = "select * from produto where id_tipoProd=4";
+            String sql = "select * from produto where id_tipoProd=?";
             PreparedStatement comando = conexao.prepareStatement(sql);
+            comando.setInt(1, utilsProduto.getIdTipoProd());
             ResultSet tabelaMemoria = comando.executeQuery();
 
             while (tabelaMemoria.next()) {
@@ -696,13 +715,13 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
 
             String sql = "insert into vendas values(0,?,?,?,?)";
             PreparedStatement comando = conexao.prepareStatement(sql);
-            comando.setString(1, cripto.encrypt(String.valueOf(vendaClasse.getId_cli()).getBytes()).replace("\n", ""));
-            comando.setString(2, cripto.encrypt(String.valueOf(vendaClasse.getId_forma()).getBytes()).replace("\n", ""));
+            comando.setInt(1, vendaClasse.getId_cli());
+            comando.setInt(2, vendaClasse.getId_forma());
             comando.setString(3, cripto.encrypt(String.valueOf(dataMySQL).getBytes()).replace("\n", ""));
             comando.setString(4, cripto.encrypt(String.valueOf(vendaClasse.getValor_vda()).getBytes()).replace("\n", ""));
             comando.executeUpdate();
 
-            String sql2 = "select max(id_venda) as ult_venda from vendas";
+            String sql2 = "select max(id_vda) as ult_venda from vendas";
             PreparedStatement comando2 = conexao.prepareStatement(sql2);
             ResultSet tabelaMemoria = comando2.executeQuery();
 
@@ -726,8 +745,8 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
             String sql = "insert into it_venda values(0,?,?,?,?,?)";
             PreparedStatement comando = conexao.prepareStatement(sql);
 
-            comando.setString(1, cripto.encrypt(String.valueOf(it_vendaClasse.getId_vda()).getBytes()).replace("\n", ""));
-            comando.setString(2, cripto.encrypt(String.valueOf(it_vendaClasse.getId_prod()).getBytes()).replace("\n", ""));
+            comando.setInt(1, it_vendaClasse.getId_vda());
+            comando.setInt(2, it_vendaClasse.getId_prod());
             comando.setString(3, cripto.encrypt(String.valueOf(it_vendaClasse.getQtd_it()).getBytes()).replace("\n", ""));
             comando.setString(4, cripto.encrypt(String.valueOf(it_vendaClasse.getTotal_ped()).getBytes()).replace("\n", ""));
             comando.setString(5, cripto.encrypt(it_vendaClasse.getAdicional().getBytes()).replace("\n", ""));
@@ -744,8 +763,70 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
         }
 
     }
+    public Boolean carrinhoFinalizarCompra(){
+        try {
+            Date data = new Date(System.currentTimeMillis());
 
+            java.sql.Date dataMySQL = new java.sql.Date(data.getTime());
 
+            String sql = "update vendas set id_forma=?, data_vda=?, valor_vda=? where id_vda=?";
+            PreparedStatement comando = conexao.prepareStatement(sql);
+
+            comando.setInt(1, vendaClasse.getId_forma());
+            comando.setString(2, cripto.encrypt(String.valueOf(dataMySQL).getBytes()).replace("\n", ""));
+            comando.setString(3, cripto.encrypt(String.valueOf(utilsCompra.getTotalCompra()).getBytes()).replace("\n", ""));
+            comando.setInt(4, utilsCompra.getUltimaVenda());
+            comando.executeUpdate();
+
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    public Boolean carrinhoCalcularCompra(){
+        try{
+            String sql = "select sum(total_ped) as total from it_venda where id_vda=?";
+            PreparedStatement comando = conexao.prepareStatement(sql);
+            comando.setInt(1,utilsCompra.getUltimaVenda());
+            ResultSet tabelaMemoria = comando.executeQuery();
+
+            if(tabelaMemoria.next()){
+                utilsCompra.setTotalCompra(Double.parseDouble(cripto.decrypt(tabelaMemoria.getString("total"))));
+                vendaClasse.setValor_vda(Double.parseDouble(cripto.decrypt(tabelaMemoria.getString("total"))));
+            }
+
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    public Boolean puxarIdCliente(){
+
+        try {
+
+            String sql = "select id_cli from cadastro_cliente where cpf_cli=?";
+            PreparedStatement comando = conexao.prepareStatement(sql);
+            comando.setString(1, cripto.encrypt(classeCli.getCpf_cli().getBytes()).replace("\n", ""));
+            ResultSet tabelamemoria = comando.executeQuery();
+
+            if (tabelamemoria.next()) {
+                classeCli.setId_cli(tabelamemoria.getInt("id_cli"));
+                return true;
+
+            } else {
+                classeCli = null;
+
+                return false;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
 
 

@@ -21,6 +21,7 @@ import java.util.concurrent.ExecutionException;
 import dao.conectarBD;
 import model.cadastro_cliente;
 import utils.utilsCadastro_cliente;
+import utils.utilsCompra;
 
 public class Login extends AppCompatActivity implements View.OnClickListener {
     TextView lblCadastrar;
@@ -63,6 +64,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btnLogar:
+
                 try {
                     conectarBD logar = new conectarBD(this);
                     telaCliente.setCpf_cli(txtLogin.getText().toString());
@@ -70,9 +72,22 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                     utilsCadastro_cliente.setCpfPesq(txtLogin.getText().toString());
                     logar.setClasseCli(telaCliente);
 
+                    conectarBD puxarId = new conectarBD(this);
+
+                    puxarId.setClasseCli(telaCliente);
+                    telaCliente.setCpf_cli(txtLogin.getText().toString());
+
+                    puxarId.execute(15).get();
+
+                    utilsCadastro_cliente.setUid_cli(telaCliente.getId_cli());
+
+                    telaCliente = puxarId.getClasseCli();
+
                     logar.execute(1).get();
 
+
                     if(logar.getLogin() == true){
+                        utilsCompra.setNovaCompra("sim");
                         Intent telaLogin = new Intent(this, MenuProdutos.class);
                         startActivity(telaLogin);
                     }else{

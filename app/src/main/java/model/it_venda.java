@@ -1,7 +1,7 @@
 package model;
 
 public class it_venda {
-    private int id_it;
+    private int id_it_venda;
     private int id_vda;
     private int id_prod;
     private int qtd_it;
@@ -10,12 +10,12 @@ public class it_venda {
 
 
     public int getId_it() {
-        return id_it;
+        return id_it_venda;
     }
 
 
     public void setId_it(int id_it) {
-        this.id_it = id_it;
+        this.id_it_venda = id_it;
     }
 
     public int getId_vda() {

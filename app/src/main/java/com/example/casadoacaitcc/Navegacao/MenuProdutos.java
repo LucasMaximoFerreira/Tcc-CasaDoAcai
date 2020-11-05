@@ -106,6 +106,7 @@ public class MenuProdutos extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.btnAcai:
                 utilsProduto.setIdTipoProd(1);
+
                 Intent Acai = new Intent(this, ComprarAcai1.class);
                 startActivity(Acai);
                 break;

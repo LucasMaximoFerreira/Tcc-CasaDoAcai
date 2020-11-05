@@ -12,70 +12,102 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <include layout="@layout/main_toolbar" />
+        <include
+            android:id="@+id/include12"
+            layout="@layout/main_toolbar" />
 
         <ListView
             android:layout_width="362dp"
             android:layout_height="250dp"
-            tools:layout_editor_absoluteX="24dp"
-            tools:layout_editor_absoluteY="88dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.673"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/include12"
+            app:layout_constraintVertical_bias="0.185" />
 
         <EditText
-            android:id="@+id/txtTroco"
+            android:id="@+id/txtDinheiro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            tools:layout_editor_absoluteX="108dp"
-            tools:layout_editor_absoluteY="579dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.545"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.856" />
 
         <EditText
             android:id="@+id/txtTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="228dp"
             android:ems="10"
             android:inputType="textPersonName"
-            tools:layout_editor_absoluteX="108dp"
-            tools:layout_editor_absoluteY="457dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.606"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/include12"
+            app:layout_constraintVertical_bias="1.0" />
 
         <CheckBox
-            android:id="@+id/checkBox"
+            android:id="@+id/chkTroco"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="CheckBox"
-            tools:layout_editor_absoluteX="166dp"
-            tools:layout_editor_absoluteY="528dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.771" />
 
         <TextView
             android:id="@+id/textView20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Total"
-            tools:layout_editor_absoluteX="63dp"
-            tools:layout_editor_absoluteY="472dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/txtTotal"
+            app:layout_constraintHorizontal_bias="0.379"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.662" />
 
         <TextView
             android:id="@+id/textView21"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Troco"
-            tools:layout_editor_absoluteX="58dp"
-            tools:layout_editor_absoluteY="600dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/txtDinheiro"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
         <TextView
             android:id="@+id/textView22"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Forma de Pagamento"
-            tools:layout_editor_absoluteX="136dp"
-            tools:layout_editor_absoluteY="356dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/include12" />
 
         <RadioGroup
-            android:layout_width="227dp"
-            android:layout_height="34dp"
+            android:id="@+id/rgForma"
+            android:layout_width="216dp"
+            android:layout_height="66dp"
             android:orientation="horizontal"
-            tools:layout_editor_absoluteX="85dp"
-            tools:layout_editor_absoluteY="397dp">
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.553"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.563">
 
             <RadioButton
                 android:id="@+id/rbDinheiro"
@@ -95,6 +127,20 @@
                 android:layout_height="match_parent"
                 android:text="Cartão" />
         </RadioGroup>
+
+        <Button
+            android:id="@+id/btnFinalizarCompra"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="136dp"
+            android:layout_marginRight="136dp"
+            android:text="Finalizar Compra"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.96" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
