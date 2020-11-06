@@ -3,10 +3,15 @@ package com.example.casadoacaitcc.CadastroCliente;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.LinearGradient;
+import android.graphics.Shader;
 import android.os.Bundle;
+import android.text.TextPaint;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.casadoacaitcc.Login;
 import com.example.casadoacaitcc.R;
@@ -17,6 +22,7 @@ import utils.utilsCadastro_cliente;
 
 public class Cadastro3 extends AppCompatActivity implements View.OnClickListener {
 
+    TextView lblNaoObrigatorio;
     EditText txtCEP, txtNumero, txtComplemento;
     Button btnCad3;
 
@@ -29,11 +35,26 @@ public class Cadastro3 extends AppCompatActivity implements View.OnClickListener
         txtNumero = findViewById(R.id.txtNumero);
         txtComplemento = findViewById(R.id.txtComplemento);
         btnCad3 = findViewById(R.id.btnCad3);
+        lblNaoObrigatorio = findViewById(R.id.lblNaoObrigatorio);
 
         btnCad3.setOnClickListener(this);
 
+        setTextCorDegrade();
     }
 
+    private void setTextCorDegrade() {
+        TextPaint paint = lblNaoObrigatorio.getPaint();
+        float width = paint.measureText("* não obrigatório");
+
+        Shader shader = new LinearGradient(0, 0, width, lblNaoObrigatorio.getTextSize(),
+                new int[]{
+                        Color.parseColor("#9300E9"),
+                        Color.parseColor("#BF0085"),
+
+
+                }, null, Shader.TileMode.CLAMP);
+        lblNaoObrigatorio.getPaint().setShader(shader);
+    }
     @Override
     public void onClick(View v) {
         switch (v.getId()) {

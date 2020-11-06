@@ -383,7 +383,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
             case 12:
                 if (aBoolean == true) {
                     Toast.makeText(tela, "Pedido adicionado ao carrinho", Toast.LENGTH_SHORT).show();
-                }else{
+                } else {
                     Toast.makeText(tela, "Pedido não adicionado ao carrinho", Toast.LENGTH_SHORT).show();
 
                 }
@@ -739,6 +739,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
             return false;
         }
     }
+
     public Boolean inserirItemVenda() {
 
         try {
@@ -748,7 +749,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
             comando.setInt(1, it_vendaClasse.getId_vda());
             comando.setInt(2, it_vendaClasse.getId_prod());
             comando.setString(3, cripto.encrypt(String.valueOf(it_vendaClasse.getQtd_it()).getBytes()).replace("\n", ""));
-            comando.setString(4, cripto.encrypt(String.valueOf(it_vendaClasse.getTotal_ped()).getBytes()).replace("\n", ""));
+            comando.setDouble(4, it_vendaClasse.getTotal_ped());
             comando.setString(5, cripto.encrypt(it_vendaClasse.getAdicional().getBytes()).replace("\n", ""));
 
 
@@ -763,7 +764,8 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
         }
 
     }
-    public Boolean carrinhoFinalizarCompra(){
+
+    public Boolean carrinhoFinalizarCompra() {
         try {
             Date data = new Date(System.currentTimeMillis());
 
@@ -784,16 +786,17 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
             return false;
         }
     }
-    public Boolean carrinhoCalcularCompra(){
-        try{
+
+    public Boolean carrinhoCalcularCompra() {
+        try {
             String sql = "select sum(total_ped) as total from it_venda where id_vda=?";
             PreparedStatement comando = conexao.prepareStatement(sql);
-            comando.setInt(1,utilsCompra.getUltimaVenda());
+            comando.setInt(1, utilsCompra.getUltimaVenda());
             ResultSet tabelaMemoria = comando.executeQuery();
 
-            if(tabelaMemoria.next()){
-                utilsCompra.setTotalCompra(Double.parseDouble(cripto.decrypt(tabelaMemoria.getString("total"))));
-                vendaClasse.setValor_vda(Double.parseDouble(cripto.decrypt(tabelaMemoria.getString("total"))));
+            if (tabelaMemoria.next()) {
+                utilsCompra.setTotalCompra(tabelaMemoria.getDouble("total"));
+                vendaClasse.setValor_vda(tabelaMemoria.getDouble("total"));
             }
 
             return true;
@@ -803,7 +806,8 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
             return false;
         }
     }
-    public Boolean puxarIdCliente(){
+
+    public Boolean puxarIdCliente() {
 
         try {
 
@@ -814,6 +818,31 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
 
             if (tabelamemoria.next()) {
                 classeCli.setId_cli(tabelamemoria.getInt("id_cli"));
+                return true;
+
+            } else {
+                classeCli = null;
+
+                return false;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public Boolean puxarNomeCliente() {
+
+        try {
+
+            String sql = "select nome_cli from cadastro_cliente where cpf_cli=?";
+            PreparedStatement comando = conexao.prepareStatement(sql);
+            comando.setString(1, cripto.encrypt(classeCli.getCpf_cli().getBytes()).replace("\n", ""));
+            ResultSet tabelamemoria = comando.executeQuery();
+
+            if (tabelamemoria.next()) {
+                classeCli.setNome_cli(cripto.decrypt(tabelamemoria.getString("nome_cli")));
                 return true;
 
             } else {

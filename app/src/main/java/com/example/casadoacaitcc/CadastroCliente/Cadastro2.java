@@ -34,6 +34,8 @@ public class Cadastro2 extends AppCompatActivity implements View.OnClickListener
         rbMasc = findViewById(R.id.rbMasculino);
         rbPnd = findViewById(R.id.rbPND);
 
+
+
         btnCad2.setOnClickListener(this);
     }
 

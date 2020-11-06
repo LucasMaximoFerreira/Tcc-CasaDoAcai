@@ -66,12 +66,14 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             case R.id.btnLogar:
 
                 try {
+                    //fazer login cliente
                     conectarBD logar = new conectarBD(this);
                     telaCliente.setCpf_cli(txtLogin.getText().toString());
                     telaCliente.setSenha_cli(txtSenha.getText().toString());
                     utilsCadastro_cliente.setCpfPesq(txtLogin.getText().toString());
                     logar.setClasseCli(telaCliente);
 
+                    //puxar id do cliente para a tabela vendas
                     conectarBD puxarId = new conectarBD(this);
 
                     puxarId.setClasseCli(telaCliente);
@@ -82,6 +84,20 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                     utilsCadastro_cliente.setUid_cli(telaCliente.getId_cli());
 
                     telaCliente = puxarId.getClasseCli();
+
+                    //puxar nome cliente para o nav_drawer
+                    conectarBD puxarNome = new conectarBD(this);
+
+                    puxarNome.setClasseCli(telaCliente);
+
+                    telaCliente.setCpf_cli(txtLogin.getText().toString());
+
+                    puxarNome.execute(16).get();
+
+                    utilsCadastro_cliente.setNomePesq(telaCliente.getNome_cli());
+
+                    telaCliente = puxarNome.getClasseCli();
+
 
                     logar.execute(1).get();
 

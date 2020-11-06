@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
+
     tools:context=".Navegacao.main_nav_drawer">
 
     <ImageView
@@ -11,15 +12,16 @@
         android:layout_height="120dp"
         android:layout_margin="16dp"
         android:src="@drawable/logo"/>
+
     <TextView
+        android:id="@+id/lblNomeUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Android Coding"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:gravity="center_horizontal"
         android:textAlignment="center"
-        android:textColor="#636363"
-        android:gravity="center_horizontal" />
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <View
         android:layout_width="match_parent"
@@ -34,21 +36,30 @@
         android:gravity="center_vertical"
         android:onClick="ClickMenuProdutos">
 
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/menupng"/>
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="40dp"
+            android:src="@drawable/linha"/>
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Menu"
+            android:fontFamily="@font/chicken_pie"
             android:padding="12dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp" />
+            android:text="Menu"
+            android:textColor="#000000"
+            android:textSize="20sp" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="48dp"
-            android:src="@drawable/ic_home"
-            android:layout_marginRight="48dp" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -58,20 +69,29 @@
         android:gravity="center_vertical"
         android:onClick="ClickPerfil">
 
+        <ImageView
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="40dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_height="40dp"
+            android:src="@drawable/perfilpng" />
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="40dp"
+            android:src="@drawable/linha" />
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Perfil"
+            android:fontFamily="@font/chicken_pie"
             android:padding="12dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp" />
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="48dp"
-            android:src="@drawable/ic_perfil"
-            android:layout_marginRight="48dp" />
+            android:text="Perfil"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
 
     </LinearLayout>
 
@@ -81,21 +101,32 @@
         android:orientation="horizontal"
         android:gravity="center_vertical"
         android:onClick="ClickFavoritos">
+
+        <ImageView
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/pluspng" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="40dp"
+            android:src="@drawable/linha" />
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Favoritos"
+            android:fontFamily="@font/chicken_pie"
             android:padding="12dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp" />
+            android:text="Favoritos"
+            android:textColor="#000000"
+            android:textSize="20sp" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="48dp"
-            android:src="@drawable/ic_fav"
-            android:layout_marginRight="48dp" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -104,21 +135,31 @@
         android:orientation="horizontal"
         android:gravity="center_vertical"
         android:onClick="ClickHistorico">
+        <ImageView
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/historicopng" />
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="40dp"
+            android:src="@drawable/linha" />
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Historico de Compras"
+            android:fontFamily="@font/chicken_pie"
             android:padding="12dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp" />
+            android:text="Historico de Compras"
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="48dp"
-            android:src="@drawable/ic_hist"
-            android:layout_marginRight="48dp" />
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -126,21 +167,31 @@
         android:orientation="horizontal"
         android:gravity="center_vertical"
         android:onClick="ClickSobreApp">
+        <ImageView
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/infopng" />
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="40dp"
+            android:src="@drawable/linha" />
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Sobre o Aplicativo"
+            android:fontFamily="@font/chicken_pie"
             android:padding="12dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp" />
+            android:text="Sobre o Aplicativo"
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="48dp"
-            android:src="@drawable/ic_sobre"
-            android:layout_marginRight="48dp" />
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -148,20 +199,61 @@
         android:orientation="horizontal"
         android:gravity="center_vertical"
         android:onClick="ClickRelatar">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/alertapng" />
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="40dp"
+            android:src="@drawable/linha" />
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Relatar um Problema"
+            android:fontFamily="@font/chicken_pie"
             android:padding="12dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp" />
+            android:text="Relatar um Problema"
+            android:textColor="#000000"
+            android:textSize="20sp" />
 
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:onClick="ClickSair">
         <ImageView
-            android:layout_width="wrap_content"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/sairpng"/>
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="40dp"
+            android:src="@drawable/linha" />
+
+        <TextView
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="48dp"
-            android:src="@drawable/ic_relatar"
-            android:layout_marginRight="48dp" />
+            android:layout_weight="1"
+            android:fontFamily="@font/chicken_pie"
+            android:padding="12dp"
+            android:text="Sair"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+
     </LinearLayout>
 </LinearLayout>

@@ -2,6 +2,7 @@ package utils;
 
 abstract public class utilsCadastro_cliente {
 
+     private static String nomePesq;
      static String cpfPesq;
      private static int uid_cli;
      private static String unome_cli;
@@ -110,5 +111,13 @@ abstract public class utilsCadastro_cliente {
 
     public static void setCpfPesq(String cpfPesq) {
         utilsCadastro_cliente.cpfPesq = cpfPesq;
+    }
+
+    public static String getNomePesq() {
+        return nomePesq;
+    }
+
+    public static void setNomePesq(String nomePesq) {
+        utilsCadastro_cliente.nomePesq = nomePesq;
     }
 }
