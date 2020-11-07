@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.casadoacaitcc.Login;
 import com.example.casadoacaitcc.R;
 
 public class SobreApp extends AppCompatActivity {
@@ -58,6 +59,10 @@ public class SobreApp extends AppCompatActivity {
 
     public void ClickRelatar(View view) {
         Intent perfil = new Intent(this, RelatarProblema.class);
+        startActivity(perfil);
+    }
+    public void ClickSair(View view) {
+        Intent perfil = new Intent(this, Login.class);
         startActivity(perfil);
     }
 

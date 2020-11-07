@@ -3,26 +3,24 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="12dp"
+    android:padding="10dp"
+    android:minHeight="100dp"
     android:gravity="center_vertical">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="41dp"
+        android:layout_height="36dp"
         android:onClick="ClickMenu"
-        android:src="@drawable/ic_submenu"/>
+        android:src="@drawable/treslinhas" />
 
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
         android:layout_weight="1"
-        android:text="Android coding"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        android:textColor="#636363"/>
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_mais"/>
+        android:layout_marginBottom="3dp"
+        android:fontFamily="@font/chicken_pie"
+        android:text="CASA DO AÇ@Í"
+        android:textColor="#ffffff"
+        android:textSize="26sp" />
 </LinearLayout>

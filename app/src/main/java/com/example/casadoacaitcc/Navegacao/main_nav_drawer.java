@@ -5,23 +5,25 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.casadoacaitcc.Login;
 import com.example.casadoacaitcc.R;
 
 import utils.utilsCadastro_cliente;
 
 public class main_nav_drawer extends AppCompatActivity {
 
-    TextView lblNomeUsuario;
+    EditText lblNomeUsuario2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_nav_drawer);
 
-        lblNomeUsuario = findViewById(R.id.lblNomeUsuario);
+        lblNomeUsuario2 = findViewById(R.id.lblNomeUsuario2);
 
-        lblNomeUsuario.setText(utilsCadastro_cliente.getNomePesq());
+        lblNomeUsuario2.setText(utilsCadastro_cliente.getNomePesq());
 
     }
 
@@ -60,6 +62,7 @@ public class main_nav_drawer extends AppCompatActivity {
     }
 
     public void ClickSair(View view) {
-        finish();
+        Intent perfil = new Intent(this, Login.class);
+        startActivity(perfil);
     }
 }

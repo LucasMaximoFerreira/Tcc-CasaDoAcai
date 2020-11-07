@@ -299,6 +299,10 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
             case 15:
                 resp = puxarIdCliente();
                 break;
+            case 16:
+                resp = puxarNomeCliente();
+                break;
+
 
         }
 

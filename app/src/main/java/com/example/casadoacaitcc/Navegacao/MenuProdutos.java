@@ -7,6 +7,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageButton;
 
 import com.example.casadoacaitcc.ComprasProduto.ComprarAcai1;
@@ -15,14 +16,17 @@ import com.example.casadoacaitcc.ComprasProduto.ComprarGeladinho;
 import com.example.casadoacaitcc.ComprasProduto.ComprarPicole;
 import com.example.casadoacaitcc.ComprasProduto.ComprarSacole;
 import com.example.casadoacaitcc.ComprasProduto.ComprarSorvete;
+import com.example.casadoacaitcc.Login;
 import com.example.casadoacaitcc.R;
 
+import utils.utilsCadastro_cliente;
 import utils.utilsProduto;
 
 public class MenuProdutos extends AppCompatActivity implements View.OnClickListener {
 
     ImageButton btnAcai, btnSacole, btnGeladinho, btnSorvete, btnPicole, btnCremosinho;
     DrawerLayout drawerLayout;
+    EditText lblNomeUsu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +38,7 @@ public class MenuProdutos extends AppCompatActivity implements View.OnClickListe
         btnSorvete = findViewById(R.id.btnSorvete);
         btnPicole = findViewById(R.id.btnPicole);
         btnCremosinho = findViewById(R.id.btnCremosinho);
+        lblNomeUsu = findViewById(R.id.lblNomeUsu);
 
         drawerLayout = findViewById(R.id.drawer_layout);
         
@@ -43,6 +48,9 @@ public class MenuProdutos extends AppCompatActivity implements View.OnClickListe
         btnSorvete.setOnClickListener(this);
         btnPicole.setOnClickListener(this);
         btnCremosinho.setOnClickListener(this);
+
+        lblNomeUsu.setText(utilsCadastro_cliente.getNomePesq());
+
     }
 
     public void ClickMenu(View view) {
@@ -98,6 +106,10 @@ public class MenuProdutos extends AppCompatActivity implements View.OnClickListe
 
     public void ClickRelatar(View view) {
         Intent perfil = new Intent(this, RelatarProblema.class);
+        startActivity(perfil);
+    }
+    public void ClickSair(View view) {
+        Intent perfil = new Intent(this, Login.class);
         startActivity(perfil);
     }
 

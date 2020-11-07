@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drawer_layout"
+    android:background="@drawable/fundomenu"
     tools:context=".Navegacao.MenuProdutos">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,7 +15,52 @@
 
         <include
             android:id="@+id/include3"
-            layout="@layout/main_toolbar" />
+            layout="@layout/main_toolbar"
+            android:layout_width="399dp"
+            android:layout_height="75dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.039" />
+
+        <ImageButton
+            android:id="@+id/btnSacole"
+            android:layout_width="156dp"
+            android:layout_height="156dp"
+            android:background="@drawable/imgsacole"
+            app:layout_constraintBottom_toTopOf="@+id/btnSorvete"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.835"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.822" />
+
+        <ImageButton
+            android:id="@+id/btnAcai"
+            android:layout_width="156dp"
+            android:layout_height="156dp"
+            android:background="@drawable/imgacaibtn"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/btnGeladinho"
+            app:layout_constraintEnd_toStartOf="@+id/btnSacole"
+            app:layout_constraintHorizontal_bias="0.596"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.809"
+            tools:visibility="visible" />
+
+        <ImageButton
+            android:id="@+id/btnSorvete"
+            android:layout_width="156dp"
+            android:layout_height="156dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.835"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.535"
+            android:background="@drawable/imgsorvetebtn" />
 
         <ImageButton
             android:id="@+id/btnCremosinho"
@@ -22,40 +68,23 @@
             android:layout_height="156dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.38"
+            app:layout_constraintHorizontal_bias="0.378"
             app:layout_constraintStart_toEndOf="@+id/btnPicole"
             app:layout_constraintTop_toBottomOf="@+id/btnSorvete"
-            app:layout_constraintVertical_bias="0.336"
-            tools:srcCompat="@drawable/cremosinho" />
+            app:layout_constraintVertical_bias="0.27"
+            android:background="@drawable/imgcremosinhobtn"/>
 
         <ImageButton
-            android:id="@+id/btnSacole"
+            android:id="@+id/btnPicole"
             android:layout_width="156dp"
             android:layout_height="156dp"
-            android:background="@drawable/sacole"
-            app:layout_constraintBottom_toTopOf="@+id/btnSorvete"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.847"
+            app:layout_constraintHorizontal_bias="0.129"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/include3"
-            app:layout_constraintVertical_bias="0.64" />
-
-        <ImageButton
-            android:id="@+id/btnAcai"
-            android:layout_width="156dp"
-            android:layout_height="156dp"
-            android:background="@drawable/acai"
-            android:src="@drawable/acai"
-            android:visibility="visible"
-            app:layout_constraintBottom_toTopOf="@+id/btnGeladinho"
-            app:layout_constraintEnd_toStartOf="@+id/btnSacole"
-            app:layout_constraintHorizontal_bias="0.6"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/include3"
-            app:layout_constraintVertical_bias="0.664"
-            tools:src="@drawable/acai"
-            tools:srcCompat="@drawable/acai"
-            tools:visibility="visible" />
+            app:layout_constraintTop_toBottomOf="@+id/btnGeladinho"
+            app:layout_constraintVertical_bias="0.27"
+            android:background="@drawable/imgpicolebtn" />
 
         <ImageButton
             android:id="@+id/btnGeladinho"
@@ -64,35 +93,25 @@
             android:layout_marginTop="176dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/btnSorvete"
-            app:layout_constraintHorizontal_bias="0.6"
+            app:layout_constraintHorizontal_bias="0.596"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/include3"
-            app:layout_constraintVertical_bias="0.275"
-            tools:srcCompat="@drawable/geladinho" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.33"
+            android:background="@drawable/imggeladinhobtn" />
 
-        <ImageButton
-            android:id="@+id/btnSorvete"
-            android:layout_width="156dp"
-            android:layout_height="156dp"
+        <EditText
+            android:id="@+id/lblNomeUsu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name"
+            android:textColor="#ffffff"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.847"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/include3"
-            app:layout_constraintVertical_bias="0.52"
-            tools:srcCompat="@drawable/sorvete" />
-
-        <ImageButton
-            android:id="@+id/btnPicole"
-            android:layout_width="156dp"
-            android:layout_height="156dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.141"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnGeladinho"
-            app:layout_constraintVertical_bias="0.338"
-            tools:srcCompat="@drawable/picole" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.976" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

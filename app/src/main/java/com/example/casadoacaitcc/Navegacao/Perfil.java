@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import com.example.casadoacaitcc.Login;
 import com.example.casadoacaitcc.R;
 
 import java.util.concurrent.ExecutionException;
@@ -138,6 +139,10 @@ public class Perfil extends AppCompatActivity implements View.OnClickListener {
 
     public void ClickRelatar(View view) {
         Intent perfil = new Intent(this, RelatarProblema.class);
+        startActivity(perfil);
+    }
+    public void ClickSair(View view) {
+        Intent perfil = new Intent(this, Login.class);
         startActivity(perfil);
     }
     ///////////////////////////////////////////////////////

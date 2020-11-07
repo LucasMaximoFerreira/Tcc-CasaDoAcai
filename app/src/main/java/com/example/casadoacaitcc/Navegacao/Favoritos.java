@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.casadoacaitcc.Login;
 import com.example.casadoacaitcc.R;
 
 public class Favoritos extends AppCompatActivity {
@@ -60,5 +61,9 @@ public class Favoritos extends AppCompatActivity {
         startActivity(perfil);
     }
 
+    public void ClickSair(View view) {
+        Intent perfil = new Intent(this, Login.class);
+        startActivity(perfil);
+    }
     ///////////////////////////////////////////////////////
 }
