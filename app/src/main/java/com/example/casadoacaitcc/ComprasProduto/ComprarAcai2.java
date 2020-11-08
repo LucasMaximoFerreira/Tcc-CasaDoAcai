@@ -97,7 +97,7 @@ public class ComprarAcai2 extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.chkLeiteEmPo:
                 if(chkLeiteEmPo.isChecked()){
-                    leiteEmPo = "Leite em Po";
+                    leiteEmPo = "Leite em Pó";
                 }else{
                     leiteEmPo = "";
                 }
@@ -160,7 +160,7 @@ public class ComprarAcai2 extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.chkMaracuja:
                 if(chkMaracuja.isChecked()){
-                    maracuja = "Maracuja";
+                    maracuja = "Maracujá";
                 }else{
                     maracuja = "";
                 }
