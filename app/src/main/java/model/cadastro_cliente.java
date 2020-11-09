@@ -1,6 +1,7 @@
 package model;
 
 public class cadastro_cliente {
+
       int id_cli;
       String nome_cli;
       String senha_cli;

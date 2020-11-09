@@ -218,7 +218,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
             e.printStackTrace();
         }
         try {
-            conexao = DriverManager.getConnection("jdbc:mysql://192.168.0.18:3306/casadoacai", "root", "lucas4max");
+                conexao = DriverManager.getConnection("jdbc:mysql://192.168.0.18:3306/casadoacai", "root", "lucas4max");
             return true;
 
         } catch (SQLException e) {
@@ -540,6 +540,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
                 prodTEMP.setTam_prod(cripto.decrypt(tabelaMemoria.getString("tam_prod")));
                 prodTEMP.setPreco_prod(Double.parseDouble(cripto.decrypt(tabelaMemoria.getString("preco_prod"))));
 
+
                 listaAcai.add(prodTEMP);
 
             }
@@ -648,6 +649,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
 
                 listaPicole.add(prodTEMP);
 
+
             }
             return true;
         } catch (SQLException e) {
@@ -753,7 +755,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
             comando.setInt(1, it_vendaClasse.getId_vda());
             comando.setInt(2, it_vendaClasse.getId_prod());
             comando.setString(3, cripto.encrypt(String.valueOf(it_vendaClasse.getQtd_it()).getBytes()).replace("\n", ""));
-            comando.setDouble(4, it_vendaClasse.getTotal_ped());
+            comando.setString(4, cripto.encrypt(String.valueOf(it_vendaClasse.getTotal_ped()).getBytes()).replace("\n", ""));
             comando.setString(5, cripto.encrypt(it_vendaClasse.getAdicional().getBytes()).replace("\n", ""));
 
 
@@ -780,7 +782,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
 
             comando.setInt(1, vendaClasse.getId_forma());
             comando.setString(2, cripto.encrypt(String.valueOf(dataMySQL).getBytes()).replace("\n", ""));
-            comando.setString(3, cripto.encrypt(String.valueOf(utilsCompra.getTotalCompra()).getBytes()).replace("\n", ""));
+            comando.setString(3, cripto.encrypt(String.valueOf(vendaClasse.getValor_vda()).getBytes()).replace("\n", ""));
             comando.setInt(4, utilsCompra.getUltimaVenda());
             comando.executeUpdate();
 

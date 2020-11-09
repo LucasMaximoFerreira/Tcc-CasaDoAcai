@@ -7,9 +7,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.casadoacaitcc.Login;
 import com.example.casadoacaitcc.R;
 
 public class RelatarProblema extends AppCompatActivity {
+    DrawerLayout drawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +21,49 @@ public class RelatarProblema extends AppCompatActivity {
 
     }
     ///////////////////////////////////////////////////////
+    public void ClickMenu(View view){
+        MenuProdutos.openDrawer(drawerLayout);
+    }
+    
+    public void ClickLogo(View view){
+        //Fechar drawer
+        MenuProdutos.closeDrawer(drawerLayout);
+    }
 
+    public void ClickMenuProdutos(View view) {
+        Intent MenuProd = new Intent(this, MenuProdutos.class);
+        startActivity(MenuProd);
+
+    }
+
+    public void ClickPerfil(View view) {
+        Intent MenuProd = new Intent(this, Perfil.class);
+        startActivity(MenuProd);
+    }
+
+    public void ClickFavoritos(View view) {
+        Intent perfil = new Intent(this, Favoritos.class);
+        startActivity(perfil);
+    }
+
+    public void ClickHistorico(View view) {
+        Intent perfil = new Intent(this, Historico.class);
+        startActivity(perfil);
+    }
+
+    public void ClickSobreApp(View view) {
+        Intent perfil = new Intent(this, SobreApp.class);
+        startActivity(perfil);
+    }
+
+    public void ClickRelatar(View view) {
+        Intent perfil = new Intent(this, RelatarProblema.class);
+        startActivity(perfil);
+    }
+    public void ClickSair(View view) {
+        Intent perfil = new Intent(this, Login.class);
+        startActivity(perfil);
+    }
 
     ///////////////////////////////////////////////////////
 }

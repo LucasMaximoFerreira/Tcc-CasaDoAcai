@@ -49,20 +49,12 @@ public class Carrinho extends AppCompatActivity implements View.OnClickListener 
         btnFinalizarCompra.setOnClickListener(this);
         chkTroco.setOnClickListener(this);
 
-        try{
-            conectarBD calcCompra = new conectarBD(this);
+        vendaTela.setValor_vda(utilsCompra.getTotalCompra());
 
-            calcCompra.execute(14).get();
+        txtTotal.setText(new DecimalFormat("#0.00").format(vendaTela.getValor_vda()));
 
-            vendaTela = calcCompra.getVendaClasse();
 
-            txtTotal.setText(new DecimalFormat("#0.00").format(vendaTela.getValor_vda()));
 
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
     }
 
     @Override
@@ -89,6 +81,7 @@ public class Carrinho extends AppCompatActivity implements View.OnClickListener 
                     dinheiro = Double.parseDouble(txtDinheiro.getText().toString().replace(',', '.'));
                     troco = dinheiro - total;
                 }
+
 
                 utilsCompra.setTroco(troco);
 
