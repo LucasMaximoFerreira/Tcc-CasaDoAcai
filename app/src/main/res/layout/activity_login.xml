@@ -47,7 +47,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.521"
-        android:drawableLeft="@drawable/usu_senha" />
+        android:drawableLeft="@drawable/usu_senha"
+        tools:ignore="MissingPrefix" />
 
     <Button
         android:id="@+id/btnLogar"

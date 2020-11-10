@@ -26,7 +26,6 @@ public class MenuProdutos extends AppCompatActivity implements View.OnClickListe
 
     ImageButton btnAcai, btnSacole, btnGeladinho, btnSorvete, btnPicole, btnCremosinho;
     DrawerLayout drawerLayout;
-    EditText lblNomeUsu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +37,6 @@ public class MenuProdutos extends AppCompatActivity implements View.OnClickListe
         btnSorvete = findViewById(R.id.btnSorvete);
         btnPicole = findViewById(R.id.btnPicole);
         btnCremosinho = findViewById(R.id.btnCremosinho);
-        lblNomeUsu = findViewById(R.id.lblNomeUsu);
 
         drawerLayout = findViewById(R.id.drawer_layout);
         
@@ -49,7 +47,6 @@ public class MenuProdutos extends AppCompatActivity implements View.OnClickListe
         btnPicole.setOnClickListener(this);
         btnCremosinho.setOnClickListener(this);
 
-        lblNomeUsu.setText(utilsCadastro_cliente.getNomePesq());
 
     }
 

@@ -23,6 +23,7 @@ import utils.utilsCompra;
 
 public class Carrinho extends AppCompatActivity implements View.OnClickListener {
 
+
     EditText txtTotal, txtDinheiro;
     RadioButton rbDinheiro, rbCartao;
     RadioGroup rgForma;

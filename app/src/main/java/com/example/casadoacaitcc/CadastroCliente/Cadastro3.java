@@ -22,7 +22,7 @@ import utils.utilsCadastro_cliente;
 
 public class Cadastro3 extends AppCompatActivity implements View.OnClickListener {
 
-    TextView lblNaoObrigatorio;
+    TextView lblNaoObrigatorio, lblFacaLogin3;
     EditText txtCEP, txtNumero, txtComplemento;
     Button btnCad3;
 
@@ -36,10 +36,12 @@ public class Cadastro3 extends AppCompatActivity implements View.OnClickListener
         txtComplemento = findViewById(R.id.txtComplemento);
         btnCad3 = findViewById(R.id.btnCad3);
         lblNaoObrigatorio = findViewById(R.id.lblNaoObrigatorio);
-
+        lblFacaLogin3 = findViewById(R.id.lblFacaLogin3);
         btnCad3.setOnClickListener(this);
+        lblFacaLogin3.setOnClickListener(this);
 
         setTextCorDegrade();
+        setTextCorDegrade2();
     }
 
     private void setTextCorDegrade() {
@@ -54,6 +56,22 @@ public class Cadastro3 extends AppCompatActivity implements View.OnClickListener
 
                 }, null, Shader.TileMode.CLAMP);
         lblNaoObrigatorio.getPaint().setShader(shader);
+
+
+    }
+    private void setTextCorDegrade2() {
+        TextPaint paint = lblFacaLogin3.getPaint();
+        float width = paint.measureText("faça o login aqui");
+
+        Shader shader = new LinearGradient(0, 0, width, lblFacaLogin3.getTextSize(),
+                new int[]{
+                        Color.parseColor("#9300E9"),
+                        Color.parseColor("#BF0085"),
+
+
+                }, null, Shader.TileMode.CLAMP);
+        lblFacaLogin3.getPaint().setShader(shader);
+
     }
     @Override
     public void onClick(View v) {
@@ -81,6 +99,10 @@ public class Cadastro3 extends AppCompatActivity implements View.OnClickListener
 
                 Intent login = new Intent(this, Login.class);
                 startActivity(login);
+                break;
+            case R.id.lblFacaLogin3:
+                Intent login3 = new Intent(this, Login.class);
+                startActivity(login3);
                 break;
 
         }
