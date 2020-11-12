@@ -18,6 +18,7 @@
             layout="@layout/main_toolbar" />
 
         <ListView
+            android:id="@+id/lstHistorico"
             android:layout_width="374dp"
             android:layout_height="496dp"
             android:layout_marginBottom="16dp"

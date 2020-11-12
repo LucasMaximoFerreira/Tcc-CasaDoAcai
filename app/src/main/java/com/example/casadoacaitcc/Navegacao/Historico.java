@@ -6,12 +6,28 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
+import com.example.casadoacaitcc.ListaAdapter.ListaAdapterGeladinho;
+import com.example.casadoacaitcc.ListaAdapter.ListaAdapterHistorico;
 import com.example.casadoacaitcc.Login;
 import com.example.casadoacaitcc.R;
 
-public class Historico extends AppCompatActivity {
+import java.util.List;
+import java.util.concurrent.ExecutionException;
+
+import dao.conectarBD;
+import model.produto;
+
+public class Historico extends AppCompatActivity implements AdapterView.OnItemClickListener {
     DrawerLayout drawerLayout;
+
+    conectarBD listar;
+    ListView lstHistorico;
+
+    List<produto> listaHistoricoTela;
+    ListaAdapterHistorico adapterHistorico;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +35,25 @@ public class Historico extends AppCompatActivity {
         setContentView(R.layout.activity_historico);
 
         drawerLayout = findViewById(R.id.drawer_layout);
+
+        try{
+            lstHistorico = findViewById(R.id.lstHistorico);
+
+            listar = new conectarBD(this);
+            listar.execute(17).get();
+
+            listaHistoricoTela = listar.getListaHistorico();
+
+            adapterHistorico = new ListaAdapterHistorico(listaHistoricoTela,this);
+            lstHistorico.setAdapter(adapterHistorico);
+
+            lstHistorico.setOnItemClickListener(this);
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
 
     }
     ///////////////////////////////////////////////////////
@@ -65,5 +100,12 @@ public class Historico extends AppCompatActivity {
         startActivity(perfil);
     }
 
+
     ///////////////////////////////////////////////////////
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+    }
+
 }

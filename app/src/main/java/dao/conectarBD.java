@@ -21,6 +21,7 @@ import model.it_venda;
 import model.produto;
 import model.vendas;
 import utils.criptografia;
+import utils.utilsCadastro_cliente;
 import utils.utilsCompra;
 import utils.utilsProduto;
 
@@ -36,13 +37,13 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
     int op;
     ////////////////////////////////////////// - Lista histórico
 
-    private List<it_venda> listaHistorico = new ArrayList<it_venda>();
+    private List<produto> listaHistorico = new ArrayList<produto>();
 
-    public List<it_venda> getListaHistorico() {
+    public List<produto> getListaHistorico() {
         return listaHistorico;
     }
 
-    public void setListaHistorico(List<it_venda> listaHistorico) {
+    public void setListaHistorico(List<produto> listaHistorico) {
         this.listaHistorico = listaHistorico;
     }
     //////////////////////////////////////////
@@ -880,15 +881,34 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
     public Boolean listarHistorico(){
 
         try{
-            String sql = "select * from it_venda";
+            String sql = "select p.nome_prod, p.preco_prod\n" +
+                    "from produto p inner join it_venda it_v \n" +
+                    "on it_v.id_prod = p.id_prod\n" +
+                    "inner join vendas v\n" +
+                    "on v.id_vda = it_v.id_vda\n" +
+                    "inner join cadastro_cliente cli\n" +
+                    "on cli.id_cli = v.id_cli\n" +
+                    "where cli.id_cli = ?\n";
             PreparedStatement comando = conexao.prepareStatement(sql);
+            comando.setInt(1, utilsCadastro_cliente.getUid_cli());
+            ResultSet tabelaMemoria = comando.executeQuery();
 
+            while(tabelaMemoria.next()){
+
+                produto prodTEMP = new produto();
+
+                prodTEMP.setNome_prod(cripto.decrypt(tabelaMemoria.getString("nome_prod")));
+                prodTEMP.setPreco_prod(Double.parseDouble(cripto.decrypt(tabelaMemoria.getString("preco_prod"))));
+
+                listaHistorico.add(prodTEMP);
+            }
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
             return  false;
         }
     }
+
 
 
 }
