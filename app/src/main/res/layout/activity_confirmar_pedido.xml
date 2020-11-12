@@ -90,10 +90,10 @@
             android:singleLine="true"
             app:layout_constraintBottom_toTopOf="@+id/btnContinuarComprando"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.272"
+            app:layout_constraintHorizontal_bias="0.269"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/include10"
-            app:layout_constraintVertical_bias="0.717" />
+            app:layout_constraintVertical_bias="0.623" />
 
         <Button
             android:id="@+id/btnContinuarComprando"

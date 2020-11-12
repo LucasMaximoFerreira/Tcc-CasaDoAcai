@@ -1,14 +1,21 @@
 package com.example.casadoacaitcc.Navegacao;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.example.casadoacaitcc.ComprasProduto.ComprarAcai1;
 import com.example.casadoacaitcc.ComprasProduto.ComprarCremosinho;
@@ -19,7 +26,9 @@ import com.example.casadoacaitcc.ComprasProduto.ComprarSorvete;
 import com.example.casadoacaitcc.Login;
 import com.example.casadoacaitcc.R;
 
-import utils.utilsCadastro_cliente;
+
+
+import de.hdodenhof.circleimageview.CircleImageView;
 import utils.utilsProduto;
 
 public class MenuProdutos extends AppCompatActivity implements View.OnClickListener {
@@ -39,7 +48,8 @@ public class MenuProdutos extends AppCompatActivity implements View.OnClickListe
         btnCremosinho = findViewById(R.id.btnCremosinho);
 
         drawerLayout = findViewById(R.id.drawer_layout);
-        
+
+
         btnAcai.setOnClickListener(this);
         btnSacole.setOnClickListener(this);
         btnGeladinho.setOnClickListener(this);
@@ -49,7 +59,6 @@ public class MenuProdutos extends AppCompatActivity implements View.OnClickListe
 
 
     }
-
     public void ClickMenu(View view) {
         //Abrir o Drawer
         openDrawer(drawerLayout);
@@ -102,7 +111,7 @@ public class MenuProdutos extends AppCompatActivity implements View.OnClickListe
     }
 
     public void ClickRelatar(View view) {
-        Intent perfil = new Intent(this, RelatarProblema.class);
+        Intent perfil = new Intent(this, EntrarEmContato.class);
         startActivity(perfil);
     }
     public void ClickSair(View view) {

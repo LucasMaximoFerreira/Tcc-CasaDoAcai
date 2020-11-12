@@ -57,7 +57,7 @@ public class Favoritos extends AppCompatActivity {
     }
 
     public void ClickRelatar(View view) {
-        Intent perfil = new Intent(this, RelatarProblema.class);
+        Intent perfil = new Intent(this, EntrarEmContato.class);
         startActivity(perfil);
     }
 

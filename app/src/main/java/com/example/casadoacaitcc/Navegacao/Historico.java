@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.example.casadoacaitcc.ListaAdapter.ListaAdapterGeladinho;
 import com.example.casadoacaitcc.ListaAdapter.ListaAdapterHistorico;
 import com.example.casadoacaitcc.Login;
 import com.example.casadoacaitcc.R;
@@ -92,7 +91,7 @@ public class Historico extends AppCompatActivity implements AdapterView.OnItemCl
     }
 
     public void ClickRelatar(View view) {
-        Intent perfil = new Intent(this, RelatarProblema.class);
+        Intent perfil = new Intent(this, EntrarEmContato.class);
         startActivity(perfil);
     }
     public void ClickSair(View view) {
