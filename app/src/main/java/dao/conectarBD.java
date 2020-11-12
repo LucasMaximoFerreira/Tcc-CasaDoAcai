@@ -34,6 +34,20 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
     ProgressDialog dialogo;
 
     int op;
+    ////////////////////////////////////////// - Lista histórico
+
+    private List<it_venda> listaHistorico = new ArrayList<it_venda>();
+
+    public List<it_venda> getListaHistorico() {
+        return listaHistorico;
+    }
+
+    public void setListaHistorico(List<it_venda> listaHistorico) {
+        this.listaHistorico = listaHistorico;
+    }
+    //////////////////////////////////////////
+
+    //--------------------------------------//
 
     ////////////////////////////////////////// - Classe it_venda
 
@@ -302,7 +316,8 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
             case 16:
                 resp = puxarNomeCliente();
                 break;
-
+            case 17:
+                resp = listarHistorico();
 
         }
 
@@ -862,6 +877,20 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
             return false;
         }
     }
+    public Boolean listarHistorico(){
+
+        try{
+            String sql = "select * from it_venda";
+            PreparedStatement comando = conexao.prepareStatement(sql);
+
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return  false;
+        }
+    }
+
+
 }
 
 
