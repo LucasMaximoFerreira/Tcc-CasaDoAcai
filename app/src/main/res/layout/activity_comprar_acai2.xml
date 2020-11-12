@@ -19,26 +19,29 @@
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="335dp"
-            android:layout_height="250dp"
+            android:layout_width="284dp"
+            android:layout_height="259dp"
+            android:background="@drawable/acaifundo"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/include4"
-            app:layout_constraintVertical_bias="0.023"
-            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+            app:layout_constraintVertical_bias="0.023" />
 
         <TextView
             android:id="@+id/textView19"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/chicken_pie"
             android:text="ADICIONAIS"
+            android:textColor="#fff"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.172"
+            app:layout_constraintHorizontal_bias="0.254"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView3"
-            app:layout_constraintVertical_bias="0.04" />
+            app:layout_constraintVertical_bias="0.035" />
 
         <TableLayout
             android:id="@+id/tableLayout"
@@ -46,10 +49,10 @@
             android:layout_height="237dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.145"
+            app:layout_constraintHorizontal_bias="0.194"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView3"
-            app:layout_constraintVertical_bias="0.303">
+            app:layout_constraintVertical_bias="0.444">
 
             <TableRow
                 android:layout_width="match_parent"
@@ -59,7 +62,12 @@
                     android:id="@+id/chkAmendoim"
                     android:layout_width="135dp"
                     android:layout_height="wrap_content"
-                    android:text="Amendoim" />
+                    android:fontFamily="@font/chicken_pie"
+                    android:text="Amendoim"
+                    android:buttonTint="@color/dd"
+                    android:textColorHighlight="#9300E9"
+                    android:textColorLink="#9300E9"
+                    android:textColor="#fff" />
             </TableRow>
 
             <TableRow
@@ -70,7 +78,12 @@
                     android:id="@+id/chkGranulado"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Granulado" />
+                    android:fontFamily="@font/chicken_pie"
+                    android:text="Granulado"android:buttonTint="@color/dd"
+                    android:textColorHighlight="#9300E9"
+                    android:textColorLink="#9300E9"
+
+                    android:textColor="#fff" />
             </TableRow>
 
             <TableRow
@@ -81,7 +94,12 @@
                     android:id="@+id/chkGranola"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Granola" />
+                    android:fontFamily="@font/chicken_pie"
+                    android:text="Granola"
+                    android:buttonTint="@color/dd"
+                    android:textColorHighlight="#9300E9"
+                    android:textColorLink="#9300E9"
+                    android:textColor="#fff" />
             </TableRow>
 
             <TableRow
@@ -92,7 +110,12 @@
                     android:id="@+id/chkLeiteEmPo"
                     android:layout_width="127dp"
                     android:layout_height="match_parent"
-                    android:text="Leite em Pó" />
+                    android:fontFamily="@font/chicken_pie"
+                    android:text="Leite em Pó"
+                    android:buttonTint="@color/dd"
+                    android:textColorHighlight="#9300E9"
+                    android:textColorLink="#9300E9"
+                    android:textColor="#fff" />
             </TableRow>
 
             <TableRow
@@ -103,7 +126,12 @@
                     android:id="@+id/chkLeiteCondensado"
                     android:layout_width="147dp"
                     android:layout_height="wrap_content"
-                    android:text="Leite Condensado" />
+                    android:fontFamily="@font/chicken_pie"
+                    android:text="Leite Condensado"
+                    android:buttonTint="@color/dd"
+                    android:textColorHighlight="#9300E9"
+                    android:textColorLink="#9300E9"
+                    android:textColor="#fff" />
             </TableRow>
 
             <TableRow
@@ -114,7 +142,12 @@
                     android:id="@+id/chkChocobol"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Chocobol" />
+                    android:fontFamily="@font/chicken_pie"
+                    android:text="Chocobol"
+                    android:buttonTint="@color/dd"
+                    android:textColorHighlight="#9300E9"
+                    android:textColorLink="#9300E9"
+                    android:textColor="#fff" />
             </TableRow>
 
             <TableRow
@@ -125,20 +158,31 @@
                     android:id="@+id/chkPacoca"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Paçoca" />
+                    android:fontFamily="@font/chicken_pie"
+                    android:text="Paçoca"
+                    android:buttonTint="@color/dd"
+                    android:textColorHighlight="#9300E9"
+                    android:textColorLink="#9300E9"
+                    android:textColor="#fff" />
             </TableRow>
         </TableLayout>
 
         <Button
             android:id="@+id/btnComprarAcai2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Continuar"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:background="@drawable/fundo_botao_logar"
+            android:fontFamily="@font/chicken_pie"
+            android:paddingBottom="4dp"
+            android:text="CONTINUAR"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView19"
-            app:layout_constraintVertical_bias="0.844" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.976" />
 
         <TableLayout
             android:id="@+id/tableLayout3"
@@ -159,7 +203,12 @@
                 <CheckBox
                     android:id="@+id/chkMorango"
                     android:layout_width="140dp"
+                    android:textColor="#fff"
+                    android:fontFamily="@font/chicken_pie"
                     android:layout_height="wrap_content"
+                    android:buttonTint="@color/dd"
+                    android:textColorHighlight="#9300E9"
+                    android:textColorLink="#9300E9"
                     android:text="Morango" />
             </TableRow>
 
@@ -171,6 +220,11 @@
                     android:id="@+id/chkChocolate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="#fff"
+                    android:buttonTint="@color/dd"
+                    android:textColorHighlight="#9300E9"
+                    android:textColorLink="#9300E9"
+                    android:fontFamily="@font/chicken_pie"
                     android:text="Chocolate" />
             </TableRow>
 
@@ -182,6 +236,11 @@
                     android:id="@+id/chkCaramelo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="#fff"
+                    android:buttonTint="@color/dd"
+                    android:textColorHighlight="#9300E9"
+                    android:textColorLink="#9300E9"
+                    android:fontFamily="@font/chicken_pie"
                     android:text="Caramelo" />
             </TableRow>
 
@@ -193,6 +252,11 @@
                     android:id="@+id/chkMenta"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="#fff"
+                    android:buttonTint="@color/dd"
+                    android:textColorHighlight="#9300E9"
+                    android:textColorLink="#9300E9"
+                    android:fontFamily="@font/chicken_pie"
                     android:text="Menta" />
             </TableRow>
 
@@ -204,6 +268,11 @@
                     android:id="@+id/chkTutiFruti"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="#fff"
+                    android:buttonTint="@color/dd"
+                    android:textColorHighlight="#9300E9"
+                    android:textColorLink="#9300E9"
+                    android:fontFamily="@font/chicken_pie"
                     android:text="Tuti-Fruti" />
             </TableRow>
 
@@ -215,6 +284,11 @@
                     android:id="@+id/chkMaracuja"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="#fff"
+                    android:buttonTint="@color/dd"
+                    android:textColorHighlight="#9300E9"
+                    android:textColorLink="#9300E9"
+                    android:fontFamily="@font/chicken_pie"
                     android:text="Maracujá" />
             </TableRow>
 
@@ -224,13 +298,16 @@
             android:id="@+id/textView14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/chicken_pie"
             android:text="CALDAS"
+            android:textColor="#fff"
+            android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/tableLayout3"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.482"
+            app:layout_constraintHorizontal_bias="0.411"
             app:layout_constraintStart_toEndOf="@+id/textView19"
             app:layout_constraintTop_toBottomOf="@+id/imageView3"
-            app:layout_constraintVertical_bias="0.372" />
+            app:layout_constraintVertical_bias="0.4" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
