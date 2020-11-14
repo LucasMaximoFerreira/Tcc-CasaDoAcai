@@ -413,6 +413,11 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
                     Toast.makeText(tela, "Comrpa efetuada com sucesso", Toast.LENGTH_SHORT).show();
                 }
                 break;
+            case 17:
+                if (aBoolean == false) {
+                    Toast.makeText(tela, "Nenhuma compra Realizada!", Toast.LENGTH_SHORT).show();
+                }
+                break;
         }
 
         dialogo.dismiss();

@@ -43,7 +43,7 @@
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/include2"
-            app:layout_constraintVertical_bias="0.549" />
+            app:layout_constraintVertical_bias="0.550" />
 
         <ListView
             android:id="@+id/lstAcai"
@@ -61,14 +61,14 @@
         <ImageView
             android:id="@+id/imageView8"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="245dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/include2"
             android:background="@drawable/borda"
             app:layout_constraintHorizontal_bias="0.550"
-            app:layout_constraintVertical_bias="0.980"/>
+            app:layout_constraintVertical_bias="0.970"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

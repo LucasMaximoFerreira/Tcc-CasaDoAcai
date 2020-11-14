@@ -13,6 +13,19 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="wrap_content"
+            android:layout_height="245dp"
+            android:background="@drawable/borda"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.550"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toTopOf="@+id/include8"
+            app:layout_constraintVertical_bias="0.970" />
+
         <include
             android:id="@+id/include8"
             layout="@layout/main_toolbar" />
@@ -30,12 +43,14 @@
 
         <ListView
             android:id="@+id/lstSacole"
-            android:layout_width="309dp"
-            android:layout_height="247dp"
+            android:layout_width="329dp"
+            android:layout_height="241dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.550"
+            app:layout_constraintVertical_bias="0.970"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

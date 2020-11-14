@@ -35,6 +35,7 @@ public class main_nav_drawer extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_nav_drawer);
 
+        imgPerfil = findViewById(R.id.imgPerfil);
 
 
     }

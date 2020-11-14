@@ -51,6 +51,7 @@ public class MenuProdutos extends AppCompatActivity implements View.OnClickListe
         btnSorvete = findViewById(R.id.btnSorvete);
         btnPicole = findViewById(R.id.btnPicole);
         btnCremosinho = findViewById(R.id.btnCremosinho);
+        imgPerfil = findViewById(R.id.imgPerfil);
 
         drawerLayout = findViewById(R.id.drawer_layout);
 
