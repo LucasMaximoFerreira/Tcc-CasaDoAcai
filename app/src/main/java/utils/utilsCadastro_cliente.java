@@ -1,5 +1,9 @@
 package utils;
 
+import android.net.Uri;
+
+import de.hdodenhof.circleimageview.CircleImageView;
+
 abstract public class utilsCadastro_cliente {
 
      private static String nomePesq;
@@ -15,6 +19,7 @@ abstract public class utilsCadastro_cliente {
      private static String uemail_cli;
      private static String udtnasc_cli;
      private static String ugen_cli;
+
 
 
     public static int getUid_cli() {
@@ -120,4 +125,6 @@ abstract public class utilsCadastro_cliente {
     public static void setNomePesq(String nomePesq) {
         utilsCadastro_cliente.nomePesq = nomePesq;
     }
+
+
 }

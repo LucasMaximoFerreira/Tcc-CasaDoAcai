@@ -26,7 +26,7 @@ public class ConfirmarPedido extends AppCompatActivity implements View.OnClickLi
     Button btnContinuarComprando, btnFrcharCompra, btnCancelarPedido;
 
     int qtd;
-    Double precoFianl, precoProduto, total = 0.0;
+    Double precoFianl, precoProduto, total = 0.0, totalVenda = 0.0;
 
 
     produto prodTela = new produto();
@@ -134,7 +134,8 @@ public class ConfirmarPedido extends AppCompatActivity implements View.OnClickLi
 
         total = total + precoFianl;
 
-        utilsCompra.setTotalCompra(total);
+        totalVenda = total + utilsCompra.getTotalCompra();
+        utilsCompra.setTotalCompra(totalVenda);
 
         conectarBD cadastrarIt_venda = new conectarBD(this);
 

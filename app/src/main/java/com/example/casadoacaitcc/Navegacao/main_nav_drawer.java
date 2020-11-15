@@ -11,7 +11,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.casadoacaitcc.Login;
@@ -37,7 +36,6 @@ public class main_nav_drawer extends AppCompatActivity {
 
         imgPerfil = findViewById(R.id.imgPerfil);
 
-
     }
 
 
@@ -54,10 +52,7 @@ public class main_nav_drawer extends AppCompatActivity {
         startActivity(MenuProd);
     }
 
-    public void ClickFavoritos(View view) {
-        Intent perfil = new Intent(this, Favoritos.class);
-        startActivity(perfil);
-    }
+
 
     public void ClickHistorico(View view) {
         Intent perfil = new Intent(this, Historico.class);
@@ -122,6 +117,7 @@ public class main_nav_drawer extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK && requestCode == PICK_IMAGE_CODE) {
             imgPerfil.setImageURI(data.getData());
+
         }
     }
 //////////////////////////////////

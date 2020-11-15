@@ -75,10 +75,7 @@ public class Historico extends AppCompatActivity implements AdapterView.OnItemCl
         startActivity(MenuProd);
     }
 
-    public void ClickFavoritos(View view) {
-        Intent perfil = new Intent(this, Favoritos.class);
-        startActivity(perfil);
-    }
+
 
     public void ClickHistorico(View view) {
         Intent perfil = new Intent(this, Historico.class);

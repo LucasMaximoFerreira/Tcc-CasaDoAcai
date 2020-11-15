@@ -27,7 +27,6 @@
         <activity android:name=".Navegacao.EntrarEmContato" />
         <activity android:name=".Navegacao.SobreApp" />
         <activity android:name=".Navegacao.Historico" />
-        <activity android:name=".Navegacao.Favoritos" />
         <activity android:name=".Navegacao.Perfil" />
         <activity android:name=".Navegacao.MenuProdutos" />
         <activity android:name=".CadastroCliente.Cadastro1" />
