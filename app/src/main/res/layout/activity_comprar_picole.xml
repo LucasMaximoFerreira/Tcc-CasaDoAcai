@@ -31,15 +31,16 @@
             layout="@layout/main_toolbar" />
 
         <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="327dp"
-            android:layout_height="239dp"
+            android:layout_width="328dp"
+            android:layout_height="312dp"
+            android:layout_marginBottom="300dp"
+            android:background="@drawable/fundopicole"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/include7"
-            app:layout_constraintVertical_bias="0.13"
-            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+            app:layout_constraintTop_toTopOf="@+id/include2"
+            app:layout_constraintVertical_bias="1.0" />
 
         <ListView
             android:id="@+id/lstPicole"
