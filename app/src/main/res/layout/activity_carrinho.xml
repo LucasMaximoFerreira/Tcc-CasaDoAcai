@@ -17,6 +17,7 @@
             layout="@layout/main_toolbar" />
 
         <ListView
+            android:id="@+id/lstUltimosPedidos"
             android:layout_width="362dp"
             android:layout_height="250dp"
             app:layout_constraintBottom_toBottomOf="parent"

@@ -35,6 +35,22 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
     ProgressDialog dialogo;
 
     int op;
+
+    ////////////////////////////////////////// - Lista ultimos pedidos
+
+    private List<produto> listaUltPedidos = new ArrayList<produto>();
+
+    public List<produto> getListaUltPedidos() {
+        return listaUltPedidos;
+    }
+
+    public void setListaUltPedidos(List<produto> listaUltPedidos) {
+        this.listaUltPedidos = listaUltPedidos;
+    }
+    //////////////////////////////////////////
+
+    //--------------------------------------//
+
     ////////////////////////////////////////// - Lista histórico
 
     private List<produto> listaHistorico = new ArrayList<produto>();
@@ -319,7 +335,10 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
                 break;
             case 17:
                 resp = listarHistorico();
-
+                break;
+            case 18:
+                resp = listaUltimosPedidos();
+                break;
         }
 
         return resp;
@@ -906,6 +925,36 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
                 prodTEMP.setPreco_prod(Double.parseDouble(cripto.decrypt(tabelaMemoria.getString("preco_prod"))));
 
                 listaHistorico.add(prodTEMP);
+            }
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return  false;
+        }
+    }
+    public Boolean listaUltimosPedidos (){
+        try{
+            String sql = "select p.nome_prod, p.preco_prod\n" +
+                    "from produto p inner join it_venda it_v \n" +
+                    "on it_v.id_prod = p.id_prod\n" +
+                    "inner join vendas v\n" +
+                    "on v.id_vda = it_v.id_vda\n" +
+                    "inner join cadastro_cliente cli\n" +
+                    "on cli.id_cli = v.id_cli\n" +
+                    "where cli.id_cli = ? and v.id_vda = ?";
+            PreparedStatement comando = conexao.prepareStatement(sql);
+            comando.setInt(1, utilsCadastro_cliente.getUid_cli());
+            comando.setInt(2, utilsCompra.getUltimaVenda());
+            ResultSet tabelaMemoria = comando.executeQuery();
+
+            while(tabelaMemoria.next()){
+
+                produto prodTEMP = new produto();
+
+                prodTEMP.setNome_prod(cripto.decrypt(tabelaMemoria.getString("nome_prod")));
+                prodTEMP.setPreco_prod(Double.parseDouble(cripto.decrypt(tabelaMemoria.getString("preco_prod"))));
+
+                getListaUltPedidos().add(prodTEMP);
             }
             return true;
         } catch (SQLException e) {
