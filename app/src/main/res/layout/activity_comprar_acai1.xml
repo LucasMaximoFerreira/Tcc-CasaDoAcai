@@ -30,6 +30,18 @@
             app:layout_constraintTop_toTopOf="@+id/include2"
             app:layout_constraintVertical_bias="1.0" />
 
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="67dp"
+            android:layout_height="2dp"
+            android:background="@drawable/traco"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/include2"
+            app:layout_constraintVertical_bias="0.632" />
+
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
@@ -42,8 +54,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/include2"
-            app:layout_constraintVertical_bias="0.550" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.613" />
 
         <ListView
             android:id="@+id/lstAcai"
@@ -69,6 +81,8 @@
             android:background="@drawable/borda"
             app:layout_constraintHorizontal_bias="0.550"
             app:layout_constraintVertical_bias="0.970"/>
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
