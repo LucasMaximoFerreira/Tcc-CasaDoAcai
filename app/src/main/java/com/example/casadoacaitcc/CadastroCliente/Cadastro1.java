@@ -7,7 +7,9 @@ import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.TextPaint;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,10 +39,37 @@ public class Cadastro1 extends AppCompatActivity implements View.OnClickListener
         btnCad1.setOnClickListener(this);
         lblFacaLogin.setOnClickListener(this);
 
+        txtNome.addTextChangedListener(cadastro1TextWatcher);
+        txtSenha.addTextChangedListener(cadastro1TextWatcher);
+        txtEmail.addTextChangedListener(cadastro1TextWatcher);
+        txtData.addTextChangedListener(cadastro1TextWatcher);
+
         setTextCorDegrade();
 
 
     }
+    private TextWatcher cadastro1TextWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            String nomeInput = txtNome.getText().toString().trim();
+            String senhaInput = txtSenha.getText().toString().trim();
+            String emailInput = txtEmail.getText().toString().trim();
+            String dataInput = txtData.getText().toString().trim();
+
+            btnCad1.setEnabled(!nomeInput.isEmpty() && !senhaInput.isEmpty() && !emailInput.isEmpty() && !dataInput.isEmpty());
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+
+        }
+    };
     private void setTextCorDegrade(){
         TextPaint paint = lblFacaLogin.getPaint();
         float width = paint.measureText("faça o login aqui");

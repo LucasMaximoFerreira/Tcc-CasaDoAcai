@@ -7,7 +7,9 @@ import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.TextPaint;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,7 +27,8 @@ public class Cadastro2 extends AppCompatActivity implements View.OnClickListener
     EditText txtCPF, txtTelefone;
     Button btnCad2;
     RadioGroup rgGen;
-    TextView lblFacaLogin2;    RadioButton rbMasc, rbFem, rbPnd;
+    TextView lblFacaLogin2;
+    RadioButton rbMasc, rbFem, rbPnd;
 
 
     @Override
@@ -42,12 +45,35 @@ public class Cadastro2 extends AppCompatActivity implements View.OnClickListener
         rbPnd = findViewById(R.id.rbPND);
         lblFacaLogin2 = findViewById(R.id.lblFacaLogin2);
 
+        txtCPF.addTextChangedListener(cadastro2TextWatcher);
+        txtTelefone.addTextChangedListener(cadastro2TextWatcher);
 
         btnCad2.setOnClickListener(this);
         lblFacaLogin2.setOnClickListener(this);
         setTextCorDegrade();
 
     }
+    private TextWatcher cadastro2TextWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            String cpfInput = txtCPF.getText().toString().trim();
+            String telInput = txtTelefone.getText().toString().trim();
+
+
+            btnCad2.setEnabled(!cpfInput.isEmpty() && !telInput.isEmpty());
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+
+        }
+    };
     private void setTextCorDegrade(){
         TextPaint paint = lblFacaLogin2.getPaint();
         float width = paint.measureText("faça o login aqui");
