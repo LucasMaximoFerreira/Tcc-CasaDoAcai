@@ -39,6 +39,7 @@ public class Cadastro1 extends AppCompatActivity implements View.OnClickListener
 
         setTextCorDegrade();
 
+
     }
     private void setTextCorDegrade(){
         TextPaint paint = lblFacaLogin.getPaint();

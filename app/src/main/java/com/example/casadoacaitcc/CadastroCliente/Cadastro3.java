@@ -7,7 +7,9 @@ import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.TextPaint;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -40,9 +42,32 @@ public class Cadastro3 extends AppCompatActivity implements View.OnClickListener
         btnCad3.setOnClickListener(this);
         lblFacaLogin3.setOnClickListener(this);
 
+        txtCEP.addTextChangedListener(cadastro3TextWatcher);
+        txtNumero.addTextChangedListener(cadastro3TextWatcher);
+
         setTextCorDegrade();
         setTextCorDegrade2();
     }
+    private TextWatcher cadastro3TextWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            String cepInput = txtCEP.getText().toString().trim();
+            String numInput = txtNumero.getText().toString().trim();
+
+            btnCad3.setEnabled(!cepInput.isEmpty() && !numInput.isEmpty());
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+
+        }
+    };
 
     private void setTextCorDegrade() {
         TextPaint paint = lblNaoObrigatorio.getPaint();
