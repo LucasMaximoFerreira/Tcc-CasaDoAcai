@@ -10,7 +10,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/fundobranco"
         android:orientation="vertical">
+
 
         <include
             android:id="@+id/include10"
@@ -24,12 +26,12 @@
             android:layout_marginRight="60dp"
             android:ems="10"
             android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/textView18"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.25"
+            app:layout_constraintHorizontal_bias="0.39"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/include10"
-            app:layout_constraintVertical_bias="0.789" />
+            app:layout_constraintVertical_bias="0.14" />
 
         <TextView
             android:id="@+id/textView17"
@@ -68,67 +70,129 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.228" />
 
-        <TextView
-            android:id="@+id/textView18"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Descrição"
-            app:layout_constraintBottom_toTopOf="@+id/txtDescricao"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.126"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/include10"
-            app:layout_constraintVertical_bias="0.913" />
-
-        <EditText
-            android:id="@+id/txtDescricao"
-            android:layout_width="248dp"
-            android:layout_height="172dp"
-            android:autoText="false"
-            android:ems="10"
-            android:inputType="textMultiLine"
-            android:singleLine="true"
-            app:layout_constraintBottom_toTopOf="@+id/btnContinuarComprando"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.269"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/include10"
-            app:layout_constraintVertical_bias="0.623" />
 
         <Button
             android:id="@+id/btnContinuarComprando"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Continuar Comprando"
-            app:layout_constraintBottom_toTopOf="@+id/btnFecharCompra"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:background="@drawable/fundo_botao_logar"
+            android:fontFamily="@font/chicken_pie"
+            android:paddingBottom="4dp"
+            android:text="COMPRAR MAIS"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/include10"
-            app:layout_constraintVertical_bias="0.962" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.823" />
 
         <Button
             android:id="@+id/btnFecharCompra"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ir para o Carrinho"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:background="@drawable/fundo_botao_logar"
+            android:fontFamily="@font/chicken_pie"
+            android:paddingBottom="4dp"
+            android:text="CARRINHO"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.437"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/include10"
-            app:layout_constraintVertical_bias="0.819" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.9" />
 
         <Button
             android:id="@+id/btnCancelarPedido"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cancelar Pedido"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:background="@drawable/fundo_botao_logar"
+            android:fontFamily="@font/chicken_pie"
+            android:paddingBottom="4dp"
+            android:text="CANCELAR"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.471"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnFecharCompra"
-            app:layout_constraintVertical_bias="0.384" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.976" />
+
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="413dp"
+            android:layout_height="274dp"
+            android:background="@drawable/fundodegrade"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.575" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/chicken_pie"
+            android:text="ADICIONAIS"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/include10"
+            app:layout_constraintVertical_bias="0.383" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="52dp"
+            android:layout_height="3dp"
+            android:background="@drawable/linhabranca"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.746"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.388" />
+
+        <ImageView
+            android:id="@+id/linhabranca"
+            android:layout_width="52dp"
+            android:layout_height="3dp"
+            android:background="@drawable/linhabranca"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.233"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.388" />
+
+        <TextView
+            android:id="@+id/txtAdicionais"
+            android:layout_width="238dp"
+            android:layout_height="233dp"
+            android:ems="10"
+            android:fontFamily="@font/chicken_pie"
+            android:gravity="center_horizontal"
+            android:inputType="textMultiLine"
+            android:singleLine="true"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.52"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include10"
+            app:layout_constraintVertical_bias="0.497"
+            tools:visibility="visible" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

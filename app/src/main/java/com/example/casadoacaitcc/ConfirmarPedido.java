@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.casadoacaitcc.Navegacao.EntrarEmContato;
 import com.example.casadoacaitcc.Navegacao.Historico;
@@ -28,7 +29,8 @@ import utils.utilsCadastro_cliente;
 public class ConfirmarPedido extends AppCompatActivity implements View.OnClickListener {
     DrawerLayout drawerLayout;
 
-    EditText txtNomeProduto, txtQuantidadeDesejada, txtDescricao;
+    TextView txtAdicionais;
+    EditText txtNomeProduto, txtQuantidadeDesejada;
     Button btnContinuarComprando, btnFrcharCompra, btnCancelarPedido;
 
     int qtd;
@@ -44,7 +46,7 @@ public class ConfirmarPedido extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_confirmar_pedido);
 
         txtNomeProduto = findViewById(R.id.txtNomeProduto);
-        txtDescricao = findViewById(R.id.txtDescricao);
+        txtAdicionais = findViewById(R.id.txtAdicionais);
         txtQuantidadeDesejada = findViewById(R.id.txtQtdDesejada);
         btnCancelarPedido = findViewById(R.id.btnCancelarPedido);
         btnContinuarComprando = findViewById(R.id.btnContinuarComprando);
@@ -69,7 +71,7 @@ public class ConfirmarPedido extends AppCompatActivity implements View.OnClickLi
             prodTela = pesq.getProdClasse();
 
             txtNomeProduto.setText(prodTela.getNome_prod());
-            txtDescricao.setText(utilsProduto.getNomeAdicionais());
+            txtAdicionais.setText(utilsProduto.getNomeAdicionaisText());
 
         } catch (InterruptedException e) {
             e.printStackTrace();

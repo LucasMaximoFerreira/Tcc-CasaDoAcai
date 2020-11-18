@@ -34,6 +34,9 @@ public class ComprarAcai2 extends AppCompatActivity implements View.OnClickListe
     String amendoim, granulado, granola, leiteEmPo, leiteCondensado, chocobol, pacoca, morango, chocolate,
             caramelo, menta, tutiFruti, maracuja, adicionais;
 
+    String amendoimText, granuladoText, granolaText, leiteEmPoText, leiteCondensadoText, chocobolText, pacocaText, morangoText, chocolateText,
+            carameloText, mentaText, tutiFrutiText, maracujaText, adicionaisText;
+
     produto prodTela = new produto();
     it_venda itVendaTela = new it_venda();
     @Override
@@ -60,6 +63,9 @@ public class ComprarAcai2 extends AppCompatActivity implements View.OnClickListe
         amendoim = granulado = granola = leiteEmPo = leiteCondensado = chocobol = pacoca = morango =
                 chocolate = caramelo = menta = tutiFruti = maracuja = "";
 
+        amendoimText = granuladoText = granolaText = leiteEmPoText = leiteCondensadoText = chocobolText = pacocaText = morangoText =
+                chocolateText = carameloText = mentaText = tutiFrutiText = maracujaText = " - ";
+
         btnComprarAcai2.setOnClickListener(this);
 
         chkAmendoim.setOnClickListener(this);
@@ -85,92 +91,121 @@ public class ComprarAcai2 extends AppCompatActivity implements View.OnClickListe
             case R.id.chkAmendoim:
                 if(chkAmendoim.isChecked()){
                     amendoim = "Amendoim";
+                    amendoimText = "~ Amendoim ~";
                 }else{
                     amendoim = "";
+                    amendoimText = " - ";
                 }
                 break;
             case R.id.chkGranulado:
                 if(chkGranulado.isChecked()){
                     granulado = "Granulado";
+                    granuladoText = "~ Granulado ~";
                 }else{
                     granulado = "";
+                    granuladoText = " - ";
+
                 }
                 break;
             case R.id.chkGranola:
                 if(chkGranola.isChecked()){
                     granola = "Granola";
+                    granolaText = "~ Granola ~";
+
                 }else{
                     granola = "";
+                    granolaText = " - ";
                 }
                 break;
             case R.id.chkLeiteEmPo:
                 if(chkLeiteEmPo.isChecked()){
                     leiteEmPo = "Leite em Pó";
+                    leiteEmPoText = "~ Leite em Pó ~";
+
                 }else{
                     leiteEmPo = "";
+                    leiteEmPoText = " - ";
                 }
                 break;
             case R.id.chkLeiteCondensado:
                 if(chkLeiteCondensado.isChecked()){
                     leiteCondensado = "Leite Condensado";
+                    leiteCondensadoText = "~ Leite Condensado ~";
                 }else{
                     leiteCondensado = "";
+                    leiteCondensadoText = " - ";
+
                 }
                 break;
             case R.id.chkChocobol:
                 if(chkChocobol.isChecked()){
                     chocobol = "Chocobol";
+                    chocobolText = "~ Chocobol ~";
                 }else{
                     chocobol = "";
+                    chocobolText = " - ";
                 }
                 break;
             case R.id.chkPacoca:
                 if(chkPacoca.isChecked()){
                     pacoca = "Paçoca";
+                    pacocaText = "~ Paçoca ~";
                 }else{
                     pacoca = "";
+                    pacocaText = " - ";
                 }
                 break;
             case R.id.chkMorango:
                 if(chkMorango.isChecked()){
                     morango = "Morango";
+                    morangoText = "~ Morango ~";
                 }else{
                     morango = "";
+                    morangoText = " - ";
                 }
                 break;
             case R.id.chkChocolate:
                 if(chkChocolate.isChecked()){
                     chocolate = "Chocolate";
+                    chocolateText = "~ Chocolate ~";
                 }else{
                     chocolate = "";
+                    chocolateText = " - ";
                 }
                 break;
             case R.id.chkCaramelo:
                 if(chkCaramelo.isChecked()){
                     caramelo = "Caramelo";
+                    carameloText = "~ Caramelo ~";
                 }else{
-                    caramelo = "";
+                    carameloText = " - ";
                 }
                 break;
             case R.id.chkMenta:
                 if(chkMenta.isChecked()){
                     menta = "Menta";
+                    mentaText = "~ Menta ~";
                 }else{
                     menta = "";
+                    mentaText = " - ";
                 }
                 break;
             case R.id.chkTutiFruti:
                 if(chkTutiFruti.isChecked()){
                     tutiFruti = "Tuti-Fruti";
+                    tutiFrutiText = "~ Tuti-Fruti ~";
                 }else{
                     tutiFruti = "";
+                    tutiFrutiText = " - ";
                 }
                 break;
             case R.id.chkMaracuja:
                 if(chkMaracuja.isChecked()){
                     maracuja = "Maracujá";
+                    maracujaText = "~ Maracujá ~";
                 }else{
                     maracuja = "";
+                    maracujaText = " - ";
                 }
                 break;
             case R.id.btnComprarAcai2:
@@ -179,7 +214,11 @@ public class ComprarAcai2 extends AppCompatActivity implements View.OnClickListe
                         chocobol + "\n"+ pacoca + "\n" + morango + "\n" + chocolate + "\n" + caramelo + "\n" +
                         menta + "\n" + tutiFruti + "\n" + maracuja;
 
+                adicionaisText = amendoimText + "\n" + granuladoText + "\n" + granolaText + "\n" + leiteEmPoText + "\n" + leiteCondensadoText + "\n" +
+                        chocobolText + "\n"+ pacocaText + "\n" + morangoText + "\n" + chocolateText + "\n" + carameloText + "\n" +
+                        mentaText + "\n" + tutiFrutiText + "\n" + maracujaText;
 
+                utilsProduto.setNomeAdicionaisText(adicionaisText);
                 utilsProduto.setNomeAdicionais(adicionais);
                 Intent telaProd = new Intent(this, ConfirmarPedido.class);
                 startActivity(telaProd);
