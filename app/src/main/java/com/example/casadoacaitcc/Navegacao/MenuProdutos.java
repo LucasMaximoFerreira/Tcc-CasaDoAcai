@@ -9,12 +9,14 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.casadoacaitcc.ComprasProduto.ComprarAcai1;
@@ -173,32 +175,42 @@ public class MenuProdutos extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.btnAcai:
                 utilsProduto.setIdTipoProd(1);
+                utilsProduto.setNomeTipoProd("AÇAÍ");
 
                 Intent Acai = new Intent(this, ComprarAcai1.class);
                 startActivity(Acai);
                 break;
             case R.id.btnSacole:
                 utilsProduto.setIdTipoProd(2);
+                utilsProduto.setNomeTipoProd("SACOLÉ");
                 Intent sacole = new Intent(this, ComprarSacole.class);
                 startActivity(sacole);
                 break;
             case R.id.btnGeladinho:
                 utilsProduto.setIdTipoProd(3);
+                utilsProduto.setNomeTipoProd("GELADINHO");
+
                 Intent geladinho = new Intent(this, ComprarGeladinho.class);
                 startActivity(geladinho);
                 break;
             case R.id.btnSorvete:
                 utilsProduto.setIdTipoProd(4);
+                utilsProduto.setNomeTipoProd("SORVETE");
+
                 Intent sorvete = new Intent(this, ComprarSorvete.class);
                 startActivity(sorvete);
                 break;
             case R.id.btnPicole:
                 utilsProduto.setIdTipoProd(5);
+                utilsProduto.setNomeTipoProd("PICOLÉ");
+
                 Intent picole = new Intent(this, ComprarPicole.class);
                 startActivity(picole);
                 break;
             case R.id.btnCremosinho:
                 utilsProduto.setIdTipoProd(6);
+                utilsProduto.setNomeTipoProd("CREMOSINHO");
+
                 Intent cremosinho = new Intent(this, ComprarCremosinho.class);
                 startActivity(cremosinho);
                 break;

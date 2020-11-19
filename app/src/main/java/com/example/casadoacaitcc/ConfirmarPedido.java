@@ -8,8 +8,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.casadoacaitcc.Navegacao.EntrarEmContato;
 import com.example.casadoacaitcc.Navegacao.Historico;
 import com.example.casadoacaitcc.Navegacao.MenuProdutos;
@@ -29,9 +31,10 @@ import utils.utilsCadastro_cliente;
 public class ConfirmarPedido extends AppCompatActivity implements View.OnClickListener {
     DrawerLayout drawerLayout;
 
-    TextView txtAdicionais;
-    EditText txtNomeProduto, txtQuantidadeDesejada;
+    TextView txtAdicionais, lblNomeDoProduto, lblPrecoDoProduto, lblTamanhoDoProduto;
+    EditText txtQuantidadeDesejada;
     Button btnContinuarComprando, btnFrcharCompra, btnCancelarPedido;
+    ImageView imgDoProduto;
 
     int qtd;
     Double precoFianl, precoProduto, total = 0.0, totalVenda = 0.0;
@@ -45,16 +48,40 @@ public class ConfirmarPedido extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirmar_pedido);
 
-        txtNomeProduto = findViewById(R.id.txtNomeProduto);
         txtAdicionais = findViewById(R.id.txtAdicionais);
         txtQuantidadeDesejada = findViewById(R.id.txtQtdDesejada);
         btnCancelarPedido = findViewById(R.id.btnCancelarPedido);
         btnContinuarComprando = findViewById(R.id.btnContinuarComprando);
         btnFrcharCompra = findViewById(R.id.btnFecharCompra);
+        lblNomeDoProduto = findViewById(R.id.lblNomeDoProduto);
+        lblPrecoDoProduto = findViewById(R.id.lblPrecoDoProduto);
+        lblTamanhoDoProduto = findViewById(R.id.lblTamanhaDoProduto);
+        imgDoProduto = findViewById(R.id.imgDoProduto);
 
         btnFrcharCompra.setOnClickListener(this);
         btnCancelarPedido.setOnClickListener(this);
         btnContinuarComprando.setOnClickListener(this);
+
+
+        if(utilsProduto.getIdTipoProd() == 1) {
+            Glide.with(this).load(R.drawable.acaifundo).into(imgDoProduto);
+        }else if(utilsProduto.getIdTipoProd() == 2){
+            Glide.with(this).load(R.drawable.fundosacole).into(imgDoProduto);
+
+        }else if(utilsProduto.getIdTipoProd() == 3){
+            Glide.with(this).load(R.drawable.fundogeladinho).into(imgDoProduto);
+
+        }else if(utilsProduto.getIdTipoProd() == 4){
+            Glide.with(this).load(R.drawable.fundosorvete).into(imgDoProduto);
+
+        }else if(utilsProduto.getIdTipoProd() == 5){
+            Glide.with(this).load(R.drawable.fundopicole).into(imgDoProduto);
+
+        }else if(utilsProduto.getIdTipoProd() == 6){
+            Glide.with(this).load(R.drawable.fundocremosinho).into(imgDoProduto);
+        }
+
+        lblNomeDoProduto.setText(utilsProduto.getNomeTipoProd());
 
         try {
 
@@ -70,7 +97,8 @@ public class ConfirmarPedido extends AppCompatActivity implements View.OnClickLi
 
             prodTela = pesq.getProdClasse();
 
-            txtNomeProduto.setText(prodTela.getNome_prod());
+            lblTamanhoDoProduto.setText(prodTela.getTam_prod());
+            lblPrecoDoProduto.setText(String.valueOf(prodTela.getPreco_prod()));
             txtAdicionais.setText(utilsProduto.getNomeAdicionaisText());
 
         } catch (InterruptedException e) {
