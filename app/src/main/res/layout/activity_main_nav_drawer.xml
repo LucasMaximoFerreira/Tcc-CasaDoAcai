@@ -165,7 +165,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:onClick="ClickRelatar">
+        android:onClick="ClickContate">
 
         <ImageView
             android:layout_width="40dp"
@@ -186,7 +186,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/chicken_pie"
             android:padding="12dp"
-            android:text="Relatar um Problema"
+            android:text="Contate-nos"
             android:textColor="#000000"
             android:textSize="20sp" />
 
