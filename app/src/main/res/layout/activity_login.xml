@@ -11,7 +11,7 @@
 
     <EditText
         android:id="@+id/txtLogin"
-        android:layout_width="240dp"
+        android:layout_width="210dp"
         android:layout_height="42dp"
         android:background="@drawable/custom_input"
         android:ems="10"
@@ -31,7 +31,7 @@
 
     <EditText
         android:id="@+id/txtSenha"
-        android:layout_width="240dp"
+        android:layout_width="210dp"
         android:layout_height="42dp"
         android:background="@drawable/custom_input"
         android:ems="10"
@@ -52,7 +52,7 @@
 
     <Button
         android:id="@+id/btnLogar"
-        android:layout_width="190dp"
+        android:layout_width="160dp"
         android:layout_height="40dp"
         android:background="@drawable/fundo_botao_logar"
         android:fontFamily="@font/chicken_pie"
