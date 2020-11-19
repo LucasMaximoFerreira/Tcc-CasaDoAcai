@@ -115,7 +115,7 @@ public class MenuProdutos extends AppCompatActivity implements View.OnClickListe
         startActivity(perfil);
     }
 
-    public void ClickRelatar(View view) {
+    public void ClickContate(View view) {
         Intent perfil = new Intent(this, EntrarEmContato.class);
         startActivity(perfil);
     }

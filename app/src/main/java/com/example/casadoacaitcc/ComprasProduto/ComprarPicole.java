@@ -78,24 +78,14 @@ public class ComprarPicole extends AppCompatActivity implements AdapterView.OnIt
         finish();
     }
     ///////////////////////////////////////////////////////
-    public void ClickMenu(View view){
-        MenuProdutos.openDrawer(drawerLayout);
-    }
-
-    public void ClickLogo(View view){
-        //Fechar drawer
-        MenuProdutos.closeDrawer(drawerLayout);
-    }
-
     public void ClickMenuProdutos(View view) {
         Intent MenuProd = new Intent(this, MenuProdutos.class);
         startActivity(MenuProd);
-
     }
 
     public void ClickPerfil(View view) {
-        Intent MenuProd = new Intent(this, Perfil.class);
-        startActivity(MenuProd);
+        Intent perfil = new Intent(this, Perfil.class);
+        startActivity(perfil);
     }
 
 
@@ -110,7 +100,7 @@ public class ComprarPicole extends AppCompatActivity implements AdapterView.OnIt
         startActivity(perfil);
     }
 
-    public void ClickRelatar(View view) {
+    public void ClickContate(View view) {
         Intent perfil = new Intent(this, EntrarEmContato.class);
         startActivity(perfil);
     }

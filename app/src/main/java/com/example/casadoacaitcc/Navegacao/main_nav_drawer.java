@@ -38,18 +38,14 @@ public class main_nav_drawer extends AppCompatActivity {
 
     }
 
-
-
-
     public void ClickMenuProdutos(View view) {
         Intent MenuProd = new Intent(this, MenuProdutos.class);
         startActivity(MenuProd);
-
     }
 
     public void ClickPerfil(View view) {
-        Intent MenuProd = new Intent(this, Perfil.class);
-        startActivity(MenuProd);
+        Intent perfil = new Intent(this, Perfil.class);
+        startActivity(perfil);
     }
 
 
@@ -64,11 +60,10 @@ public class main_nav_drawer extends AppCompatActivity {
         startActivity(perfil);
     }
 
-    public void ClickRelatar(View view) {
+    public void ClickContate(View view) {
         Intent perfil = new Intent(this, EntrarEmContato.class);
         startActivity(perfil);
     }
-
     public void ClickSair(View view) {
         Intent perfil = new Intent(this, Login.class);
         startActivity(perfil);
