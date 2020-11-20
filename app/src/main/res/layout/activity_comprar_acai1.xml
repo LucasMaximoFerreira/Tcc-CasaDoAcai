@@ -59,8 +59,8 @@
 
         <ListView
             android:id="@+id/lstAcai"
-            android:layout_width="329dp"
-            android:layout_height="241dp"
+            android:layout_width="313dp"
+            android:layout_height="244dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.551"

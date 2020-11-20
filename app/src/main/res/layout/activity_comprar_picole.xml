@@ -72,14 +72,14 @@
 
         <ListView
             android:id="@+id/lstPicole"
-            android:layout_width="329dp"
-            android:layout_height="241dp"
+            android:layout_width="318dp"
+            android:layout_height="244dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.550"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/include7"
-            app:layout_constraintHorizontal_bias="0.550"
-            app:layout_constraintVertical_bias="0.970"/>
+            app:layout_constraintVertical_bias="0.970" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

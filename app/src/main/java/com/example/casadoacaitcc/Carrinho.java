@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
 import com.example.casadoacaitcc.ListaAdapter.ListaAdapterHistorico;
 import com.example.casadoacaitcc.ListaAdapter.ListaAdapterPicole;
@@ -44,7 +45,7 @@ public class Carrinho extends AppCompatActivity implements View.OnClickListener,
     RadioGroup rgForma;
     CheckBox chkTroco;
     Button btnFinalizarCompra;
-
+    TextView lblTroco, lblTroco2;
     double total, troco, dinheiro;
 
     vendas vendaTela = new vendas();
@@ -61,6 +62,10 @@ public class Carrinho extends AppCompatActivity implements View.OnClickListener,
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_carrinho);
 
+
+
+        lblTroco = findViewById(R.id.lblTroco);
+        lblTroco2 = findViewById(R.id.lblTroco2);
         txtTotal = findViewById(R.id.txtTotal);
         txtDinheiro = findViewById(R.id.txtDinheiro);
         rbDinheiro = findViewById(R.id.rbDinheiro);
@@ -119,7 +124,6 @@ public class Carrinho extends AppCompatActivity implements View.OnClickListener,
 
                 if(chkTroco.isChecked()){
                     total = utilsCompra.getTotalCompra();
-                    // deixar visible o txtdinheiro aqui
                     dinheiro = Double.parseDouble(txtDinheiro.getText().toString().replace(',', '.'));
                     troco = dinheiro - total;
 

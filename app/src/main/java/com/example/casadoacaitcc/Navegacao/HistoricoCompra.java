@@ -124,7 +124,7 @@ public class HistoricoCompra extends AppCompatActivity implements AdapterView.On
         Intent hist = new Intent(this, Historico.class);
         startActivity(hist);
 
-        finish();
+
     }
 
     ///////////////////////////////////////////////////////

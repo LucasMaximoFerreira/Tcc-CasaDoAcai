@@ -54,9 +54,10 @@
                 android:paddingStart="10dp"
                 android:paddingLeft="10dp"
                 android:paddingBottom="10dp"
-                android:text="TextView"
+                android:text="preco"
                 android:textColor="#9300E9"
                 android:textSize="24sp" />
+
         </LinearLayout>
 
     </LinearLayout>

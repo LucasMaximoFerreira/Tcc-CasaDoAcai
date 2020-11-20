@@ -973,7 +973,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
                 prodTEMP.setNome_prod(cripto.decrypt(tabelaMemoria.getString("nome_prod")));
                 prodTEMP.setPreco_prod(Double.parseDouble(cripto.decrypt(tabelaMemoria.getString("preco_prod"))));
 
-                getListaUltPedidos().add(prodTEMP);
+                listaUltPedidos.add(prodTEMP);
             }
             return true;
         } catch (SQLException e) {
@@ -984,7 +984,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
 
     public Boolean listarHistoricoDeCompras(){
         try{
-            String sql = "select data_vda, valor_vda from vendas where id_cli = ? order by id_vda desc";
+            String sql = "select id_vda, data_vda, valor_vda from vendas where id_cli = ? order by id_vda desc";
             PreparedStatement comando = conexao.prepareStatement(sql);
             comando.setInt(1, utilsCadastro_cliente.getUid_cli());
             ResultSet tabelaMemoria = comando.executeQuery();
@@ -992,7 +992,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
             while(tabelaMemoria.next()){
 
                 vendas vendasTEMP = new vendas();
-
+                vendasTEMP.setId_vda(tabelaMemoria.getInt("id_vda"));
                 vendasTEMP.setData_vda(cripto.decrypt(tabelaMemoria.getString("data_vda")));
                 vendasTEMP.setValor_vda(Double.parseDouble(cripto.decrypt(tabelaMemoria.getString("valor_vda"))));
 
