@@ -33,7 +33,7 @@
 
         <Button
             android:id="@+id/btnContinuarComprando"
-            android:layout_width="200dp"
+            android:layout_width="160dp"
             android:layout_height="40dp"
             android:background="@drawable/fundo_botao_logar"
             android:fontFamily="@font/chicken_pie"
@@ -50,7 +50,7 @@
 
         <Button
             android:id="@+id/btnFecharCompra"
-            android:layout_width="200dp"
+            android:layout_width="160dp"
             android:layout_height="40dp"
             android:background="@drawable/fundo_botao_logar"
             android:fontFamily="@font/chicken_pie"
@@ -67,7 +67,7 @@
 
         <Button
             android:id="@+id/btnCancelarPedido"
-            android:layout_width="200dp"
+            android:layout_width="160dp"
             android:layout_height="40dp"
             android:background="@drawable/fundo_botao_logar"
             android:fontFamily="@font/chicken_pie"
