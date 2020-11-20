@@ -1,6 +1,7 @@
 package com.example.casadoacaitcc;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
@@ -19,6 +20,7 @@ import com.example.casadoacaitcc.ListaAdapter.ListaAdapterPicole;
 import com.example.casadoacaitcc.ListaAdapter.ListaAdapterUltimosProdutos;
 import com.example.casadoacaitcc.Navegacao.EntrarEmContato;
 import com.example.casadoacaitcc.Navegacao.Historico;
+import com.example.casadoacaitcc.Navegacao.HistoricoCompra;
 import com.example.casadoacaitcc.Navegacao.MenuProdutos;
 import com.example.casadoacaitcc.Navegacao.Perfil;
 import com.example.casadoacaitcc.Navegacao.SobreApp;
@@ -66,7 +68,7 @@ public class Carrinho extends AppCompatActivity implements View.OnClickListener,
         rgForma = findViewById(R.id.rgForma);
         chkTroco = findViewById(R.id.chkTroco);
         btnFinalizarCompra = findViewById(R.id.btnFinalizarCompra);
-
+        drawerLayout = findViewById(R.id.drawer_layout);
         btnFinalizarCompra.setOnClickListener(this);
         chkTroco.setOnClickListener(this);
 
@@ -117,8 +119,10 @@ public class Carrinho extends AppCompatActivity implements View.OnClickListener,
 
                 if(chkTroco.isChecked()){
                     total = utilsCompra.getTotalCompra();
+                    // deixar visible o txtdinheiro aqui
                     dinheiro = Double.parseDouble(txtDinheiro.getText().toString().replace(',', '.'));
                     troco = dinheiro - total;
+
                 }
 
 
@@ -141,6 +145,27 @@ public class Carrinho extends AppCompatActivity implements View.OnClickListener,
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
     }
+    public void ClickMenu(View view) {
+        //Abrir o Drawer
+        openDrawer(drawerLayout);
+    }
+
+    public static void openDrawer(DrawerLayout drawerLayout) {
+        //Abrir o layout do Drawer
+        drawerLayout.openDrawer(GravityCompat.START);
+    }
+
+
+    public static void closeDrawer(DrawerLayout drawerLayout) {
+        //Fechar o layout do Drawer
+        //Verificar condição
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            //Quando o Drawer estiver aberto
+            //Fechar Drawer
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+    }
+
     ///////////////////////////////////////////////////////
     public void ClickMenuProdutos(View view) {
         Intent MenuProd = new Intent(this, MenuProdutos.class);
@@ -155,7 +180,7 @@ public class Carrinho extends AppCompatActivity implements View.OnClickListener,
 
 
     public void ClickHistorico(View view) {
-        Intent perfil = new Intent(this, Historico.class);
+        Intent perfil = new Intent(this, HistoricoCompra.class);
         startActivity(perfil);
     }
 

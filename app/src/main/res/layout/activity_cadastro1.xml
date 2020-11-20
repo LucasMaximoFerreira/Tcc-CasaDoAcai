@@ -27,7 +27,7 @@
 
      <EditText
         android:id="@+id/txtNome"
-        android:layout_width="265dp"
+        android:layout_width="230dp"
         android:layout_height="42dp"
         android:background="@drawable/custom_input"
         android:drawableStart="@drawable/costum_cpf_icon"
@@ -50,7 +50,7 @@
 
     <EditText
         android:id="@+id/txtSenha"
-        android:layout_width="265dp"
+        android:layout_width="230dp"
         android:layout_height="42dp"
         android:background="@drawable/custom_input"
         android:drawableStart="@drawable/costum_senha_icon"
@@ -74,7 +74,7 @@
 
     <EditText
         android:id="@+id/txtEmail"
-        android:layout_width="265dp"
+        android:layout_width="230dp"
         android:layout_height="42dp"
         android:background="@drawable/custom_input"
         android:drawableStart="@drawable/costum_email_icon"
@@ -97,7 +97,7 @@
 
     <EditText
         android:id="@+id/txtData"
-        android:layout_width="265dp"
+        android:layout_width="230dp"
         android:layout_height="42dp"
         android:background="@drawable/custom_input"
         android:drawableStart="@drawable/costum_data_icon"

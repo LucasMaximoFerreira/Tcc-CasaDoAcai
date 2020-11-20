@@ -93,7 +93,7 @@
 
     <EditText
         android:id="@+id/txtTelefone"
-        android:layout_width="265dp"
+        android:layout_width="230dp"
         android:layout_height="42dp"
         android:background="@drawable/custom_input"
         android:drawableStart="@drawable/custom_telefone_icon"
@@ -117,7 +117,7 @@
 
     <EditText
         android:id="@+id/txtCPF"
-        android:layout_width="265dp"
+        android:layout_width="230dp"
         android:layout_height="42dp"
         android:background="@drawable/custom_input"
         android:drawableStart="@drawable/costum_doc_icon"

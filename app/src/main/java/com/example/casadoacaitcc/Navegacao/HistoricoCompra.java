@@ -5,44 +5,59 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.LinearGradient;
-import android.graphics.Shader;
 import android.os.Bundle;
-import android.text.TextPaint;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
+import com.example.casadoacaitcc.ConfirmarPedido;
+import com.example.casadoacaitcc.ListaAdapter.ListaAdapterHistorico;
+import com.example.casadoacaitcc.ListaAdapter.ListaHistoricoDeCompra;
 import com.example.casadoacaitcc.Login;
 import com.example.casadoacaitcc.R;
 
-public class SobreApp extends AppCompatActivity {
+import java.util.List;
+import java.util.concurrent.ExecutionException;
+
+import dao.conectarBD;
+import model.produto;
+import model.vendas;
+import utils.utilsCompra;
+import utils.utilsProduto;
+
+public class HistoricoCompra extends AppCompatActivity implements AdapterView.OnItemClickListener {
     DrawerLayout drawerLayout;
 
-    TextView lblSobreOApp;
+    conectarBD listar;
+    ListView lstHistoricoCompra;
+
+    List<vendas> listaHistoricoDeCompraTela;
+    ListaHistoricoDeCompra adapterHistoricoDeCompra;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sobre_app);
+        setContentView(R.layout.activity_historico_compra);
 
         drawerLayout = findViewById(R.id.drawer_layout);
-        lblSobreOApp = findViewById(R.id.lblSobreOApp);
 
-        setTextCorDegrade();
+        try{
+            lstHistoricoCompra = findViewById(R.id.lstHistoricoDeCompras);
 
-    }
-    private void setTextCorDegrade(){
-        TextPaint paint = lblSobreOApp.getPaint();
-        float width = paint.measureText("SOBRE O APLICATIVO");
+            listar = new conectarBD(this);
+            listar.execute(19).get();
 
-        Shader shader = new LinearGradient(0,0,width,lblSobreOApp.getTextSize(),
-                new int[]{
-                        Color.parseColor("#9300E9"),
-                        Color.parseColor("#BF0085"),
+            listaHistoricoDeCompraTela = listar.getListaHistoricoDeCompras();
 
+            adapterHistoricoDeCompra = new ListaHistoricoDeCompra(listaHistoricoDeCompraTela,this);
+            lstHistoricoCompra.setAdapter(adapterHistoricoDeCompra);
 
-                }, null, Shader.TileMode.CLAMP);
-        lblSobreOApp.getPaint().setShader(shader);
+            lstHistoricoCompra.setOnItemClickListener(this);
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
     }
     public void ClickMenu(View view) {
         //Abrir o Drawer
@@ -96,5 +111,21 @@ public class SobreApp extends AppCompatActivity {
         Intent perfil = new Intent(this, Login.class);
         startActivity(perfil);
     }
+    ///////////////////////////////////////////////////////
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        vendas compraSelecionada;
+
+        compraSelecionada = (vendas) adapterHistoricoDeCompra.getItem(position);
+
+        utilsCompra.setIdCompraSelecionada(compraSelecionada.getId_vda());
+
+        Intent hist = new Intent(this, Historico.class);
+        startActivity(hist);
+
+        finish();
+    }
+
     ///////////////////////////////////////////////////////
 }

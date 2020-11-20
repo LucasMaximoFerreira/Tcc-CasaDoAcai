@@ -38,6 +38,21 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
 
     ////////////////////////////////////////// - Lista ultimos pedidos
 
+    private List<vendas> listaHistoricoDeCompras = new ArrayList<vendas>();
+
+    public List<vendas> getListaHistoricoDeCompras() {
+        return listaHistoricoDeCompras;
+    }
+
+    public void setListaHistoricoDeCompras(List<vendas> listaHistoricoDeCompras) {
+        this.listaHistoricoDeCompras = listaHistoricoDeCompras;
+    }
+    //////////////////////////////////////////
+
+    //--------------------------------------//
+
+    ////////////////////////////////////////// - Lista ultimos pedidos
+
     private List<produto> listaUltPedidos = new ArrayList<produto>();
 
     public List<produto> getListaUltPedidos() {
@@ -249,7 +264,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
             e.printStackTrace();
         }
         try {
-                conexao = DriverManager.getConnection("jdbc:mysql://192.168.15.22:3306/casadoacai", "root", "lucas4max");
+                conexao = DriverManager.getConnection("jdbc:mysql://192.168.0.18:3306/casadoacai", "root", "lucas4max");
             return true;
 
         } catch (SQLException e) {
@@ -338,6 +353,9 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
                 break;
             case 18:
                 resp = listaUltimosPedidos();
+                break;
+            case 19:
+                resp = listarHistoricoDeCompras();
                 break;
         }
 
@@ -912,9 +930,10 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
                     "on v.id_vda = it_v.id_vda\n" +
                     "inner join cadastro_cliente cli\n" +
                     "on cli.id_cli = v.id_cli\n" +
-                    "where cli.id_cli = ?\n";
+                    "where cli.id_cli = ? and v.id_vda = ?";
             PreparedStatement comando = conexao.prepareStatement(sql);
             comando.setInt(1, utilsCadastro_cliente.getUid_cli());
+            comando.setInt(2, utilsCompra.getIdCompraSelecionada());
             ResultSet tabelaMemoria = comando.executeQuery();
 
             while(tabelaMemoria.next()){
@@ -963,6 +982,28 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
         }
     }
 
+    public Boolean listarHistoricoDeCompras(){
+        try{
+            String sql = "select data_vda, valor_vda from vendas where id_cli = ? order by id_vda desc";
+            PreparedStatement comando = conexao.prepareStatement(sql);
+            comando.setInt(1, utilsCadastro_cliente.getUid_cli());
+            ResultSet tabelaMemoria = comando.executeQuery();
+
+            while(tabelaMemoria.next()){
+
+                vendas vendasTEMP = new vendas();
+
+                vendasTEMP.setData_vda(cripto.decrypt(tabelaMemoria.getString("data_vda")));
+                vendasTEMP.setValor_vda(Double.parseDouble(cripto.decrypt(tabelaMemoria.getString("valor_vda"))));
+
+                listaHistoricoDeCompras.add(vendasTEMP);
+            }
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 
 
 }

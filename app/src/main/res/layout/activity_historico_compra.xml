@@ -4,9 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:background="@drawable/fundomenu"
     android:id="@+id/drawer_layout"
-    tools:context=".Navegacao.Historico">
+    tools:context=".Navegacao.HistoricoCompra">
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -30,8 +32,8 @@
             layout="@layout/main_toolbar" />
 
         <ListView
-            android:id="@+id/lstHistorico"
-            android:layout_width="374dp"
+            android:id="@+id/lstHistoricoDeCompras"
+            android:layout_width="347dp"
             android:layout_height="496dp"
             android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -47,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="168dp"
             android:fontFamily="@font/chicken_pie"
-            android:text="Histórico de Pedidos"
+            android:text="Histórico de Compras"
             android:textColor="#fff"
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/_dynamic"

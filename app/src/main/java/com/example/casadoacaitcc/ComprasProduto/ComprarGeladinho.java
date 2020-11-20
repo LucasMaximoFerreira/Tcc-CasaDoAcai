@@ -1,6 +1,7 @@
 package com.example.casadoacaitcc.ComprasProduto;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
@@ -15,6 +16,7 @@ import com.example.casadoacaitcc.ListaAdapter.ListaAdapterGeladinho;
 import com.example.casadoacaitcc.Login;
 import com.example.casadoacaitcc.Navegacao.EntrarEmContato;
 import com.example.casadoacaitcc.Navegacao.Historico;
+import com.example.casadoacaitcc.Navegacao.HistoricoCompra;
 import com.example.casadoacaitcc.Navegacao.MenuProdutos;
 import com.example.casadoacaitcc.Navegacao.Perfil;
 import com.example.casadoacaitcc.Navegacao.SobreApp;
@@ -40,7 +42,7 @@ public class ComprarGeladinho extends AppCompatActivity implements AdapterView.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comprar_geladinho);
-
+        drawerLayout = findViewById(R.id.drawer_layout);
         try{
             lstGeladinho = findViewById(R.id.lstGeladinho);
 
@@ -76,6 +78,27 @@ public class ComprarGeladinho extends AppCompatActivity implements AdapterView.O
 
         finish();
     }
+    public void ClickMenu(View view) {
+        //Abrir o Drawer
+        openDrawer(drawerLayout);
+    }
+
+    public static void openDrawer(DrawerLayout drawerLayout) {
+        //Abrir o layout do Drawer
+        drawerLayout.openDrawer(GravityCompat.START);
+    }
+
+
+    public static void closeDrawer(DrawerLayout drawerLayout) {
+        //Fechar o layout do Drawer
+        //Verificar condição
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            //Quando o Drawer estiver aberto
+            //Fechar Drawer
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+    }
+
     ///////////////////////////////////////////////////////
     public void ClickMenuProdutos(View view) {
         Intent MenuProd = new Intent(this, MenuProdutos.class);
@@ -90,7 +113,7 @@ public class ComprarGeladinho extends AppCompatActivity implements AdapterView.O
 
 
     public void ClickHistorico(View view) {
-        Intent perfil = new Intent(this, Historico.class);
+        Intent perfil = new Intent(this, HistoricoCompra.class);
         startActivity(perfil);
     }
 

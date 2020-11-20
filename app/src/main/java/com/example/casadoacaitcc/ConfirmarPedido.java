@@ -1,6 +1,7 @@
 package com.example.casadoacaitcc;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.casadoacaitcc.Navegacao.EntrarEmContato;
 import com.example.casadoacaitcc.Navegacao.Historico;
+import com.example.casadoacaitcc.Navegacao.HistoricoCompra;
 import com.example.casadoacaitcc.Navegacao.MenuProdutos;
 import com.example.casadoacaitcc.Navegacao.Perfil;
 import com.example.casadoacaitcc.Navegacao.SobreApp;
@@ -31,12 +33,14 @@ import utils.utilsCadastro_cliente;
 public class ConfirmarPedido extends AppCompatActivity implements View.OnClickListener {
     DrawerLayout drawerLayout;
 
+    private TextView txtQuantidadeDesejada;
+    Button btnMais, btnMenos;
     TextView txtAdicionais, lblNomeDoProduto, lblPrecoDoProduto, lblTamanhoDoProduto;
-    EditText txtQuantidadeDesejada;
     Button btnContinuarComprando, btnFrcharCompra, btnCancelarPedido;
     ImageView imgDoProduto;
 
-    int qtd;
+
+    int qtd, contador;
     Double precoFianl, precoProduto, total = 0.0, totalVenda = 0.0;
 
 
@@ -57,11 +61,17 @@ public class ConfirmarPedido extends AppCompatActivity implements View.OnClickLi
         lblPrecoDoProduto = findViewById(R.id.lblPrecoDoProduto);
         lblTamanhoDoProduto = findViewById(R.id.lblTamanhaDoProduto);
         imgDoProduto = findViewById(R.id.imgDoProduto);
+        btnMais = findViewById(R.id.btnMais);
+        btnMenos = findViewById(R.id.btnMenos);
 
+        drawerLayout = findViewById(R.id.drawer_layout);
+        btnMais.setOnClickListener(this);
+        btnMenos.setOnClickListener(this);
         btnFrcharCompra.setOnClickListener(this);
         btnCancelarPedido.setOnClickListener(this);
         btnContinuarComprando.setOnClickListener(this);
-
+        contador = 1;
+        txtQuantidadeDesejada.setText(String.valueOf(contador));
 
         if(utilsProduto.getIdTipoProd() == 1) {
             Glide.with(this).load(R.drawable.acaifundo).into(imgDoProduto);
@@ -96,7 +106,6 @@ public class ConfirmarPedido extends AppCompatActivity implements View.OnClickLi
             pesq.execute(10).get();
 
             prodTela = pesq.getProdClasse();
-
             lblTamanhoDoProduto.setText(prodTela.getTam_prod());
             lblPrecoDoProduto.setText(String.valueOf(prodTela.getPreco_prod()));
             txtAdicionais.setText(utilsProduto.getNomeAdicionaisText());
@@ -107,8 +116,23 @@ public class ConfirmarPedido extends AppCompatActivity implements View.OnClickLi
             e.printStackTrace();
         }
 
+
     }
 
+    private void contadorMais(){
+        contador++;
+        txtQuantidadeDesejada.setText(String.valueOf(contador));
+    }
+    private void contadorMenos(){
+        if(contador > 1){
+            contador--;
+            txtQuantidadeDesejada.setText(String.valueOf(contador));
+        }else{
+            contador = 1;
+            txtQuantidadeDesejada.setText(String.valueOf(contador));
+        }
+
+    }
     @Override
     public void onClick(View v) {
 
@@ -133,6 +157,12 @@ public class ConfirmarPedido extends AppCompatActivity implements View.OnClickLi
 
                 Intent cancelarPedido = new Intent(this, MenuProdutos.class);
                 startActivity(cancelarPedido);
+                break;
+            case R.id.btnMais:
+                contadorMais();
+                break;
+            case R.id.btnMenos:
+                contadorMenos();
                 break;
 
 
@@ -186,6 +216,27 @@ public class ConfirmarPedido extends AppCompatActivity implements View.OnClickLi
         cadastrarIt_venda.execute(12);
 
     }
+    public void ClickMenu(View view) {
+        //Abrir o Drawer
+        openDrawer(drawerLayout);
+    }
+
+    public static void openDrawer(DrawerLayout drawerLayout) {
+        //Abrir o layout do Drawer
+        drawerLayout.openDrawer(GravityCompat.START);
+    }
+
+
+    public static void closeDrawer(DrawerLayout drawerLayout) {
+        //Fechar o layout do Drawer
+        //Verificar condição
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            //Quando o Drawer estiver aberto
+            //Fechar Drawer
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+    }
+
     ///////////////////////////////////////////////////////
     public void ClickMenuProdutos(View view) {
         Intent MenuProd = new Intent(this, MenuProdutos.class);
@@ -200,7 +251,7 @@ public class ConfirmarPedido extends AppCompatActivity implements View.OnClickLi
 
 
     public void ClickHistorico(View view) {
-        Intent perfil = new Intent(this, Historico.class);
+        Intent perfil = new Intent(this, HistoricoCompra.class);
         startActivity(perfil);
     }
 
@@ -217,6 +268,5 @@ public class ConfirmarPedido extends AppCompatActivity implements View.OnClickLi
         Intent perfil = new Intent(this, Login.class);
         startActivity(perfil);
     }
-
     ///////////////////////////////////////////////////////
 }

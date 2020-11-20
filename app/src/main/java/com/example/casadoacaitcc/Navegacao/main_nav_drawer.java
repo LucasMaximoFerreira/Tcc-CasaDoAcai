@@ -51,7 +51,7 @@ public class main_nav_drawer extends AppCompatActivity {
 
 
     public void ClickHistorico(View view) {
-        Intent perfil = new Intent(this, Historico.class);
+        Intent perfil = new Intent(this, HistoricoCompra.class);
         startActivity(perfil);
     }
 

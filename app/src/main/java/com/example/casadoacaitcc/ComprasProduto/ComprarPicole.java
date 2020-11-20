@@ -1,6 +1,7 @@
 package com.example.casadoacaitcc.ComprasProduto;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
@@ -15,6 +16,7 @@ import com.example.casadoacaitcc.ListaAdapter.ListaAdapterPicole;
 import com.example.casadoacaitcc.Login;
 import com.example.casadoacaitcc.Navegacao.EntrarEmContato;
 import com.example.casadoacaitcc.Navegacao.Historico;
+import com.example.casadoacaitcc.Navegacao.HistoricoCompra;
 import com.example.casadoacaitcc.Navegacao.MenuProdutos;
 import com.example.casadoacaitcc.Navegacao.Perfil;
 import com.example.casadoacaitcc.Navegacao.SobreApp;
@@ -40,7 +42,7 @@ public class ComprarPicole extends AppCompatActivity implements AdapterView.OnIt
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comprar_picole);
-
+        drawerLayout = findViewById(R.id.drawer_layout);
 
         try{
             lstPicole = findViewById(R.id.lstPicole);
@@ -77,6 +79,27 @@ public class ComprarPicole extends AppCompatActivity implements AdapterView.OnIt
 
         finish();
     }
+    public void ClickMenu(View view) {
+        //Abrir o Drawer
+        openDrawer(drawerLayout);
+    }
+
+    public static void openDrawer(DrawerLayout drawerLayout) {
+        //Abrir o layout do Drawer
+        drawerLayout.openDrawer(GravityCompat.START);
+    }
+
+
+    public static void closeDrawer(DrawerLayout drawerLayout) {
+        //Fechar o layout do Drawer
+        //Verificar condição
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            //Quando o Drawer estiver aberto
+            //Fechar Drawer
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+    }
+
     ///////////////////////////////////////////////////////
     public void ClickMenuProdutos(View view) {
         Intent MenuProd = new Intent(this, MenuProdutos.class);
@@ -91,7 +114,7 @@ public class ComprarPicole extends AppCompatActivity implements AdapterView.OnIt
 
 
     public void ClickHistorico(View view) {
-        Intent perfil = new Intent(this, Historico.class);
+        Intent perfil = new Intent(this, HistoricoCompra.class);
         startActivity(perfil);
     }
 
@@ -108,6 +131,5 @@ public class ComprarPicole extends AppCompatActivity implements AdapterView.OnIt
         Intent perfil = new Intent(this, Login.class);
         startActivity(perfil);
     }
-
     ///////////////////////////////////////////////////////
 }

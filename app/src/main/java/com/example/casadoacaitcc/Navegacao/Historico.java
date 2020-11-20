@@ -1,6 +1,7 @@
 package com.example.casadoacaitcc.Navegacao;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
@@ -55,6 +56,27 @@ public class Historico extends AppCompatActivity implements AdapterView.OnItemCl
         }
 
     }
+    public void ClickMenu(View view) {
+        //Abrir o Drawer
+        openDrawer(drawerLayout);
+    }
+
+    public static void openDrawer(DrawerLayout drawerLayout) {
+        //Abrir o layout do Drawer
+        drawerLayout.openDrawer(GravityCompat.START);
+    }
+
+
+    public static void closeDrawer(DrawerLayout drawerLayout) {
+        //Fechar o layout do Drawer
+        //Verificar condição
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            //Quando o Drawer estiver aberto
+            //Fechar Drawer
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+    }
+
     ///////////////////////////////////////////////////////
     public void ClickMenuProdutos(View view) {
         Intent MenuProd = new Intent(this, MenuProdutos.class);
@@ -69,7 +91,7 @@ public class Historico extends AppCompatActivity implements AdapterView.OnItemCl
 
 
     public void ClickHistorico(View view) {
-        Intent perfil = new Intent(this, Historico.class);
+        Intent perfil = new Intent(this, HistoricoCompra.class);
         startActivity(perfil);
     }
 
@@ -86,7 +108,6 @@ public class Historico extends AppCompatActivity implements AdapterView.OnItemCl
         Intent perfil = new Intent(this, Login.class);
         startActivity(perfil);
     }
-
     ///////////////////////////////////////////////////////
 
     @Override

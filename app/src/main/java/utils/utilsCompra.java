@@ -5,6 +5,7 @@ abstract public class utilsCompra {
     private static int ultimaVenda;
     private static double totalCompra;
     private static double troco;
+    private static int idCompraSelecionada;
 
 
     public static String getNovaCompra() {
@@ -37,5 +38,13 @@ abstract public class utilsCompra {
 
     public static void setTroco(double troco) {
         utilsCompra.troco = troco;
+    }
+
+    public static int getIdCompraSelecionada() {
+        return idCompraSelecionada;
+    }
+
+    public static void setIdCompraSelecionada(int idCompraSelecionada) {
+        utilsCompra.idCompraSelecionada = idCompraSelecionada;
     }
 }
