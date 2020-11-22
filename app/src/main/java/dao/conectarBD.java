@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import model.adm;
 import model.cadastro_cliente;
 import model.it_venda;
 import model.produto;
@@ -35,6 +36,39 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
     ProgressDialog dialogo;
 
     int op;
+
+
+
+    ////////////////////////////////////////// - Classe adm
+
+    private Boolean loginAdm;
+
+    public Boolean getLoginAdm() {
+        return loginAdm;
+    }
+
+    public void setLoginAdm(Boolean loginAdm) {
+        this.loginAdm = loginAdm;
+    }
+    //////////////////////////////////////////
+
+    //--------------------------------------//
+
+    ////////////////////////////////////////// - Classe adm
+
+    private adm admClass;
+
+    public adm getAdmClass() {
+        return admClass;
+    }
+
+    public void setAdmClass(adm admClass) {
+        this.admClass = admClass;
+    }
+
+    //////////////////////////////////////////
+
+    //--------------------------------------//
 
     ////////////////////////////////////////// - Lista ultimos pedidos
 
@@ -357,6 +391,9 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
             case 19:
                 resp = listarHistoricoDeCompras();
                 break;
+            case 20:
+                resp = loginAdm();
+                break;
         }
 
         return resp;
@@ -453,6 +490,11 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
             case 17:
                 if (aBoolean == false) {
                     Toast.makeText(tela, "Nenhuma compra Realizada!", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case 20:
+                if (aBoolean == false) {
+                    Toast.makeText(tela, "ADM N CADASTRADO", Toast.LENGTH_SHORT).show();
                 }
                 break;
         }
@@ -1005,8 +1047,28 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
         }
     }
 
+    public Boolean loginAdm(){
+
+        try{
+            String sql = "select * from adm where login_adm = ? and senha_adm = ?";
+            PreparedStatement comando = conexao.prepareStatement(sql);
+            comando.setString(1,  cripto.encrypt(admClass.getLogin_adm().getBytes()).replace("\n", ""));
+            comando.setString(2, cripto.encrypt(admClass.getSenha_adm().getBytes()).replace("\n", ""));
+
+            ResultSet tabelaMemoriaAdmin = comando.executeQuery();
+
+            if (tabelaMemoriaAdmin.next()) {
+                loginAdm = true;
+                return true;
+            } else {
+                loginAdm = false;
+                return false;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 
 }
-
-
-

@@ -19,7 +19,9 @@ import com.example.casadoacaitcc.Navegacao.MenuProdutos;
 import java.util.concurrent.ExecutionException;
 
 import dao.conectarBD;
+import model.adm;
 import model.cadastro_cliente;
+import utils.telaLogada;
 import utils.utilsCadastro_cliente;
 import utils.utilsCompra;
 
@@ -29,6 +31,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     Button btnLogar;
 
     cadastro_cliente telaCliente;
+    adm telaAdm;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +43,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         btnLogar = findViewById(R.id.btnLogar);
 
         telaCliente = new cadastro_cliente();
+        telaAdm = new adm();
 
         btnLogar.setOnClickListener(this);
         lblCadastrar.setOnClickListener(this);
@@ -65,6 +69,34 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         switch (v.getId()){
             case R.id.btnLogar:
 
+                try{
+                    //fazer login adm
+                    conectarBD logarAdm = new conectarBD(this);
+                    telaAdm.setLogin_adm(txtLogin.getText().toString());
+                    telaAdm.setSenha_adm(txtSenha.getText().toString());
+                    logarAdm.setAdmClass(telaAdm);
+
+                    logarAdm.execute(20).get();
+
+                    if (logarAdm.getLoginAdm() == true){
+
+                        telaLogada.setNumeroDaTela(1);
+                        Intent telaAdm = new Intent(this, MenuProdutos.class);
+                        startActivity(telaAdm);
+
+                    } else {
+
+                        telaAdm = new adm();
+
+                    }
+
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
+
+
                 try {
                     //fazer login cliente
                     conectarBD logar = new conectarBD(this);
@@ -85,25 +117,15 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
                     telaCliente = puxarId.getClasseCli();
 
-                    //puxar nome cliente para o nav_drawer
-                    conectarBD puxarNome = new conectarBD(this);
-
-                    puxarNome.setClasseCli(telaCliente);
-
-                    telaCliente.setCpf_cli(txtLogin.getText().toString());
-
-                    puxarNome.execute(16).get();
-
-                    utilsCadastro_cliente.setNomePesq(telaCliente.getNome_cli());
-
-                    telaCliente = puxarNome.getClasseCli();
 
 
                     logar.execute(1).get();
 
 
                     if(logar.getLogin() == true){
+
                         utilsCompra.setNovaCompra("sim");
+                        telaLogada.setNumeroDaTela(2);
                         Intent telaLogin = new Intent(this, MenuProdutos.class);
                         startActivity(telaLogin);
                     }else{

@@ -102,6 +102,23 @@
             app:layout_constraintVertical_bias="0.33"
             android:background="@drawable/imggeladinhobtn" />
 
+        <Button
+            android:id="@+id/btnPedidos"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:background="@drawable/fundo_botao_logar"
+            android:fontFamily="@font/chicken_pie"
+            android:paddingBottom="4dp"
+            android:text="Ver pedidos"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.958" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <RelativeLayout

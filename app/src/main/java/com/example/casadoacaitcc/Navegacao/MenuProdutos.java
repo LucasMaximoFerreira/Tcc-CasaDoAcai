@@ -15,6 +15,7 @@ import android.os.Build;
 import android.os.Bundle;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -26,16 +27,19 @@ import com.example.casadoacaitcc.ComprasProduto.ComprarPicole;
 import com.example.casadoacaitcc.ComprasProduto.ComprarSacole;
 import com.example.casadoacaitcc.ComprasProduto.ComprarSorvete;
 import com.example.casadoacaitcc.Login;
+import com.example.casadoacaitcc.PedidosRealizados;
 import com.example.casadoacaitcc.R;
 
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import utils.telaLogada;
 import utils.utilsProduto;
 
 public class MenuProdutos extends AppCompatActivity implements View.OnClickListener {
 
     ImageButton btnAcai, btnSacole, btnGeladinho, btnSorvete, btnPicole, btnCremosinho;
     DrawerLayout drawerLayout;
+    Button btnPedidos;
 
     private CircleImageView imgPerfil;
     private static final int PICK_IMAGE_CODE = 1000;
@@ -54,10 +58,17 @@ public class MenuProdutos extends AppCompatActivity implements View.OnClickListe
         btnPicole = findViewById(R.id.btnPicole);
         btnCremosinho = findViewById(R.id.btnCremosinho);
         imgPerfil = findViewById(R.id.imgPerfil);
+        btnPedidos = findViewById(R.id.btnPedidos);
 
         drawerLayout = findViewById(R.id.drawer_layout);
 
+        if(telaLogada.getNumeroDaTela() == 1){
+            btnPedidos.setVisibility(View.VISIBLE);
+        }else{
+            btnPedidos.setVisibility(View.INVISIBLE);
+        }
 
+        btnPedidos.setOnClickListener(this);
         btnAcai.setOnClickListener(this);
         btnSacole.setOnClickListener(this);
         btnGeladinho.setOnClickListener(this);
@@ -173,6 +184,10 @@ public class MenuProdutos extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.btnPedidos:
+                Intent pedidos = new Intent(this, PedidosRealizados.class);
+                startActivity(pedidos);
+                break;
             case R.id.btnAcai:
                 utilsProduto.setIdTipoProd(1);
                 utilsProduto.setNomeTipoProd("AÇAÍ");
