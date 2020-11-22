@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.casadoacaitcc.ListaAdapter.ListaAdapterHistorico;
 import com.example.casadoacaitcc.Login;
@@ -18,7 +19,9 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 import dao.conectarBD;
+import model.it_venda;
 import model.produto;
+import model.vendas;
 
 public class Historico extends AppCompatActivity implements AdapterView.OnItemClickListener {
     DrawerLayout drawerLayout;

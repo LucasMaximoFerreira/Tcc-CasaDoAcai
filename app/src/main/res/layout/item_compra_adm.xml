@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="104dp"
+        android:background="@drawable/fundo_item"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/lblTextId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/chicken_pie"
+                android:paddingStart="20dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="15dp"
+                android:text="Id da compra: "
+                android:textColor="#000000"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/lblIdDaCompra"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/chicken_pie"
+                android:paddingTop="15dp"
+                android:text="id"
+                android:textColor="#9300E9"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/TextRs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/chicken_pie"
+                android:paddingStart="20dp"
+                android:paddingLeft="20dp"
+                android:paddingBottom="10dp"
+                android:text="R$ :"
+                android:textColor="#9300E9"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/lblPrecoTotalDaCompra"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/chicken_pie"
+                android:paddingStart="10dp"
+                android:paddingLeft="10dp"
+                android:paddingBottom="10dp"
+                android:text="total"
+                android:textColor="#9300E9"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="1dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/chicken_pie"
+                android:paddingBottom="10dp"
+                android:text="/"
+                android:textColor="#000"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/lblDataCompra"
+                android:layout_width="151dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/chicken_pie"
+                android:paddingStart="10dp"
+                android:paddingLeft="10dp"
+                android:paddingBottom="10dp"
+                android:text="data"
+                android:textColor="#000"
+                android:textSize="24sp"  />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

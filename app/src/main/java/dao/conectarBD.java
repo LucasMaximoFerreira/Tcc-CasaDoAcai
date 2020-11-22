@@ -38,8 +38,22 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
     int op;
 
 
+    ////////////////////////////////////////// - Lista Compras adm
 
-    ////////////////////////////////////////// - Classe adm
+    private List<vendas> listaComprasAdm = new ArrayList<vendas>();
+
+    public List<vendas> getListaComprasAdm() {
+        return listaComprasAdm;
+    }
+
+    public void setListaComprasAdm(List<vendas> listaComprasAdm) {
+        listaComprasAdm = listaComprasAdm;
+    }
+    //////////////////////////////////////////
+
+    //--------------------------------------//
+
+    ////////////////////////////////////////// - Boolean LoginAdm
 
     private Boolean loginAdm;
 
@@ -70,7 +84,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
 
     //--------------------------------------//
 
-    ////////////////////////////////////////// - Lista ultimos pedidos
+    ////////////////////////////////////////// - Lista Compras Realizadas
 
     private List<vendas> listaHistoricoDeCompras = new ArrayList<vendas>();
 
@@ -394,6 +408,8 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
             case 20:
                 resp = loginAdm();
                 break;
+            case 21:
+                resp = listarComprasAdm();
         }
 
         return resp;
@@ -1070,5 +1086,29 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
             return false;
         }
     }
+
+    public Boolean listarComprasAdm(){
+        try{
+            String sql = "select id_vda, data_vda, valor_vda from vendas order by id_vda desc";
+            PreparedStatement comando = conexao.prepareStatement(sql);
+            ResultSet tabelaMemoria = comando.executeQuery();
+
+            while(tabelaMemoria.next()){
+
+                vendas comprasTEMP = new vendas();
+
+                comprasTEMP.setId_vda(tabelaMemoria.getInt("id_vda"));
+                comprasTEMP.setData_vda(cripto.decrypt(tabelaMemoria.getString("data_vda")));
+                comprasTEMP.setValor_vda(Double.parseDouble(cripto.decrypt(tabelaMemoria.getString("valor_vda"))));
+
+                listaComprasAdm.add(comprasTEMP);
+            }
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 
 }
