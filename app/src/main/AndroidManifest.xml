@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PedidosDaVenda"></activity>
+        <activity android:name=".DetalhesDoPedido"></activity>
+        <activity android:name=".PedidosDaVenda" />
         <activity android:name=".PedidosRealizados" />
         <activity android:name=".Navegacao.HistoricoCompra" />
         <activity android:name=".ConfirmarPedido" />

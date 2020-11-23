@@ -7,56 +7,61 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
+import android.widget.TextView;
 
-import com.example.casadoacaitcc.ListaAdapter.ListaAdapterComprasAdm;
-import com.example.casadoacaitcc.ListaAdapter.ListaAdapterPedidosDaVenda;
 import com.example.casadoacaitcc.Navegacao.EntrarEmContato;
 import com.example.casadoacaitcc.Navegacao.HistoricoCompra;
 import com.example.casadoacaitcc.Navegacao.MenuProdutos;
 import com.example.casadoacaitcc.Navegacao.Perfil;
 import com.example.casadoacaitcc.Navegacao.SobreApp;
 
-import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 import dao.conectarBD;
 import model.it_venda;
 import model.produto;
-import model.vendas;
 import utils.utilsCompra;
 
-public class PedidosDaVenda extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class DetalhesDoPedido extends AppCompatActivity {
     DrawerLayout drawerLayout;
 
-    conectarBD listar;
-    ListView lstIdDoPedidoRealizadoDaCompra;
+    TextView lblQtdDoPedidoRealizado, lblAdicionalDoPedidoRealizado, lblNomePedidoRealizado;
 
-    List<it_venda> listIdDoPedidoRealizadoDaCompraTela;
-    ListaAdapterPedidosDaVenda adapterIdDoPedidoRealizadoDaCompra;
+    it_venda it_vendaTela = new it_venda();
+
+    produto prodTela = new produto();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pedidos_da_venda);
+        setContentView(R.layout.activity_detalhes_do_pedido);
 
         drawerLayout = findViewById(R.id.drawer_layout);
 
+        lblAdicionalDoPedidoRealizado = findViewById(R.id.lblAdicionalDoPedidoRealizado);
+        lblQtdDoPedidoRealizado = findViewById(R.id.lblQtdDoPedidoRealizado);
+        lblNomePedidoRealizado = findViewById(R.id.lblNomePedidoRealizado);
 
         try{
-            lstIdDoPedidoRealizadoDaCompra = findViewById(R.id.lstPedidosRealizadosDaCompra);
+            conectarBD detalhes = new conectarBD(this);
 
-            listar = new conectarBD(this);
-            listar.execute(22).get();
+            detalhes.setIt_vendaClasse(it_vendaTela);
 
-
-            listIdDoPedidoRealizadoDaCompraTela = listar.getListaIdDoPedidoRealizado();
-
-            adapterIdDoPedidoRealizadoDaCompra = new ListaAdapterPedidosDaVenda(listIdDoPedidoRealizadoDaCompraTela,this);
-            lstIdDoPedidoRealizadoDaCompra.setAdapter(adapterIdDoPedidoRealizadoDaCompra);
+            detalhes.setProdClasse(prodTela);
+            detalhes.execute(23).get();
 
 
-            lstIdDoPedidoRealizadoDaCompra.setOnItemClickListener(this);
+            prodTela = detalhes.getProdClasse();
+
+            lblNomePedidoRealizado.setText(prodTela.getNome_prod());
+
+
+
+            it_vendaTela = detalhes.getIt_vendaClasse();
+
+            lblQtdDoPedidoRealizado.setText(String.valueOf(it_vendaTela.getQtd_it()));
+            lblAdicionalDoPedidoRealizado.setText(it_vendaTela.getAdicional());
+
 
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -117,19 +122,4 @@ public class PedidosDaVenda extends AppCompatActivity implements AdapterView.OnI
         startActivity(perfil);
     }
     ///////////////////////////////////////////////////////
-
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        it_venda pedidoSelecionado;
-
-        pedidoSelecionado = (it_venda) adapterIdDoPedidoRealizadoDaCompra.getItem(position);
-
-        utilsCompra.setIdPedidoRealizado(pedidoSelecionado.getId_it());
-
-
-
-        Intent hist = new Intent(this, DetalhesDoPedido.class);
-        startActivity(hist);
-
-    }
 }

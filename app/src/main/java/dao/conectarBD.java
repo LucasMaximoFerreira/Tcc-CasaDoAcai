@@ -37,6 +37,22 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
 
     int op;
 
+    ////////////////////////////////////////// - Lista Nome do Pedido Realizado
+
+    private List<it_venda> listaIdDoPedidoRealizado = new ArrayList<it_venda>();
+
+
+    public List<it_venda> getListaIdDoPedidoRealizado() {
+        return listaIdDoPedidoRealizado;
+    }
+
+    public void setListaIdDoPedidoRealizado(List<it_venda> listaIdDoPedidoRealizado) {
+        this.listaIdDoPedidoRealizado = listaIdDoPedidoRealizado;
+    }
+
+    //////////////////////////////////////////
+
+    //--------------------------------------//
 
     ////////////////////////////////////////// - Lista Compras adm
 
@@ -410,6 +426,13 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
                 break;
             case 21:
                 resp = listarComprasAdm();
+                break;
+            case 22:
+                resp = listarIdDoPedidoRealizado();
+                break;
+            case 23:
+                resp = DetalhesVenda();
+                break;
         }
 
         return resp;
@@ -1104,6 +1127,67 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
                 listaComprasAdm.add(comprasTEMP);
             }
             return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    public Boolean listarIdDoPedidoRealizado(){
+        try{
+            String sql = "select it_v.id_it_venda\n" +
+                    "from it_venda it_v \n" +
+                    "inner join vendas v\n" +
+                    "on v.id_vda = it_v.id_vda\n" +
+                    "where v.id_vda = ?";
+            PreparedStatement comando = conexao.prepareStatement(sql);
+            comando.setInt(1, utilsCompra.getIdVendaSelecionada());
+            ResultSet tabelaMemoria = comando.executeQuery();
+
+            while(tabelaMemoria.next()){
+
+                it_venda it_vendaTEMP = new it_venda();
+
+                it_vendaTEMP.setId_it(tabelaMemoria.getInt("id_it_venda"));
+
+                getListaIdDoPedidoRealizado().add(it_vendaTEMP);
+            }
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return  false;
+        }
+    }
+
+    public Boolean DetalhesVenda(){
+        try{
+            String sql = "select it_v.qtd_it, it_v.adicional, p.nome_prod\n" +
+                    "from produto p inner join it_venda it_v \n" +
+                    "on it_v.id_prod = p.id_prod\n" +
+                    "inner join vendas v\n" +
+                    "on v.id_vda = it_v.id_vda\n" +
+                    "inner join cadastro_cliente cli\n" +
+                    "on cli.id_cli = v.id_cli\n" +
+                    "where v.id_vda = ? and it_v.id_it_venda = ?";
+            PreparedStatement comando = conexao.prepareStatement(sql);
+            comando.setInt(1, utilsCompra.getIdVendaSelecionada());
+            comando.setInt(2, utilsCompra.getIdPedidoRealizado());
+            ResultSet tabelaMemoria = comando.executeQuery();
+
+            if (tabelaMemoria.next()) {
+
+                prodClasse.setNome_prod(cripto.decrypt(tabelaMemoria.getString("nome_prod")));
+                it_vendaClasse.setQtd_it(Integer.parseInt(cripto.decrypt(tabelaMemoria.getString("qtd_it"))));
+                it_vendaClasse.setAdicional(cripto.decrypt(tabelaMemoria.getString("adicional")));
+
+                return true;
+
+            } else {
+                prodClasse = null;
+                it_vendaClasse = null;
+
+                return false;
+            }
+
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
