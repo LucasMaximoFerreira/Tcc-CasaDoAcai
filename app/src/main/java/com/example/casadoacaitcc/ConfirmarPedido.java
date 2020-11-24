@@ -35,9 +35,10 @@ public class ConfirmarPedido extends AppCompatActivity implements View.OnClickLi
 
     private TextView txtQuantidadeDesejada;
     Button btnMais, btnMenos;
-    TextView txtAdicionais, lblNomeDoProduto, lblPrecoDoProduto, lblTamanhoDoProduto;
+    TextView txtAdicionais, lblNomeDoProduto, lblPrecoDoProduto, lblTamanhoDoProduto, lblNomeCompletoDoProduto,
+            lbladicionais;
     Button btnContinuarComprando, btnFrcharCompra, btnCancelarPedido;
-    ImageView imgDoProduto;
+    ImageView imgDoProduto, imgDoProduto2, linhabranca1, linhabranca2;
 
 
     int qtd, contador;
@@ -61,8 +62,13 @@ public class ConfirmarPedido extends AppCompatActivity implements View.OnClickLi
         lblPrecoDoProduto = findViewById(R.id.lblPrecoDoProduto);
         lblTamanhoDoProduto = findViewById(R.id.lblTamanhaDoProduto);
         imgDoProduto = findViewById(R.id.imgDoProduto);
+        imgDoProduto2 = findViewById(R.id.imgDoProduto2);
         btnMais = findViewById(R.id.btnMais);
         btnMenos = findViewById(R.id.btnMenos);
+        linhabranca1 = findViewById(R.id.linhabranca1);
+        linhabranca2 = findViewById(R.id.linhabranca2);
+        lblNomeCompletoDoProduto = findViewById(R.id.lblNomeCompletoDoProduto);
+        lbladicionais = findViewById(R.id.lbladicionais);
 
         drawerLayout = findViewById(R.id.drawer_layout);
         btnMais.setOnClickListener(this);
@@ -75,20 +81,27 @@ public class ConfirmarPedido extends AppCompatActivity implements View.OnClickLi
 
         if(utilsProduto.getIdTipoProd() == 1) {
             Glide.with(this).load(R.drawable.acaifundo).into(imgDoProduto);
+            imgDoProduto2.setVisibility(View.INVISIBLE);
         }else if(utilsProduto.getIdTipoProd() == 2){
             Glide.with(this).load(R.drawable.fundosacole).into(imgDoProduto);
-
+            imgDoProduto2.setVisibility(View.VISIBLE);
+            Glide.with(this).load(R.drawable.fundosacole).into(imgDoProduto2);
         }else if(utilsProduto.getIdTipoProd() == 3){
             Glide.with(this).load(R.drawable.fundogeladinho).into(imgDoProduto);
-
+            imgDoProduto2.setVisibility(View.VISIBLE);
+            Glide.with(this).load(R.drawable.fundogeladinho).into(imgDoProduto2);
         }else if(utilsProduto.getIdTipoProd() == 4){
             Glide.with(this).load(R.drawable.fundosorvete).into(imgDoProduto);
-
+            imgDoProduto2.setVisibility(View.VISIBLE);
+            Glide.with(this).load(R.drawable.fundosorvete).into(imgDoProduto2);
         }else if(utilsProduto.getIdTipoProd() == 5){
             Glide.with(this).load(R.drawable.fundopicole).into(imgDoProduto);
-
+            imgDoProduto2.setVisibility(View.VISIBLE);
+            Glide.with(this).load(R.drawable.fundopicole).into(imgDoProduto2);
         }else if(utilsProduto.getIdTipoProd() == 6){
             Glide.with(this).load(R.drawable.fundocremosinho).into(imgDoProduto);
+            imgDoProduto2.setVisibility(View.VISIBLE);
+            Glide.with(this).load(R.drawable.fundocremosinho).into(imgDoProduto2);
         }
 
         lblNomeDoProduto.setText(utilsProduto.getNomeTipoProd());
@@ -107,8 +120,22 @@ public class ConfirmarPedido extends AppCompatActivity implements View.OnClickLi
 
             prodTela = pesq.getProdClasse();
             lblTamanhoDoProduto.setText(prodTela.getTam_prod());
-            lblPrecoDoProduto.setText(String.valueOf(prodTela.getPreco_prod()));
-            txtAdicionais.setText(utilsProduto.getNomeAdicionaisText());
+            if(utilsProduto.getIdTipoProd() == 1) {
+                lbladicionais.setVisibility(View.VISIBLE);
+                linhabranca1.setVisibility(View.VISIBLE);
+                linhabranca2.setVisibility(View.VISIBLE);
+                txtAdicionais.setVisibility(View.VISIBLE);
+                txtAdicionais.setText(utilsProduto.getNomeAdicionaisText());
+                lblNomeCompletoDoProduto.setVisibility(View.INVISIBLE);
+            }else{
+                lbladicionais.setVisibility(View.INVISIBLE);
+                txtAdicionais.setVisibility(View.INVISIBLE);
+                linhabranca1.setVisibility(View.INVISIBLE);
+                linhabranca2.setVisibility(View.INVISIBLE);
+                lblNomeCompletoDoProduto.setVisibility(View.VISIBLE);
+                lblNomeCompletoDoProduto.setText(prodTela.getNome_prod());
+            }
+                lblPrecoDoProduto.setText(String.valueOf(prodTela.getPreco_prod()));
 
         } catch (InterruptedException e) {
             e.printStackTrace();

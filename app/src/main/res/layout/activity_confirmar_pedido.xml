@@ -95,7 +95,7 @@
             app:layout_constraintVertical_bias="0.588" />
 
         <ImageView
-            android:id="@+id/imageView7"
+            android:id="@+id/linhabranca1"
             android:layout_width="52dp"
             android:layout_height="3dp"
             android:background="@drawable/linhabranca"
@@ -107,7 +107,7 @@
             app:layout_constraintVertical_bias="0.396" />
 
         <ImageView
-            android:id="@+id/linhabranca"
+            android:id="@+id/linhabranca2"
             android:layout_width="52dp"
             android:layout_height="3dp"
             android:background="@drawable/linhabranca"
@@ -139,7 +139,7 @@
             tools:visibility="visible" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/lbladicionais"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/chicken_pie"
@@ -236,6 +236,17 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.3" />
 
+        <ImageView
+            android:id="@+id/imgDoProduto2"
+            android:layout_width="232dp"
+            android:layout_height="226dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.557" />
+
         <Button
             android:id="@+id/btnMais"
             android:layout_width="25dp"
@@ -274,6 +285,20 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.306" />
+
+        <TextView
+            android:id="@+id/lblNomeCompletoDoProduto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/chicken_pie"
+            android:text="PRODUTO"
+            android:textColor="#fff"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/include10"
+            app:layout_constraintVertical_bias="0.721" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
