@@ -6,6 +6,7 @@ public class produto {
     private int id_tipoProd;
     private String tam_prod;
     private double preco_prod;
+    private int statusProd;
 
     public int getId_prod() {
         return id_prod;
@@ -45,5 +46,13 @@ public class produto {
 
     public void setPreco_prod(double preco_prod) {
         this.preco_prod = preco_prod;
+    }
+
+    public int getStatusProd() {
+        return statusProd;
+    }
+
+    public void setStatusProd(int statusProd) {
+        this.statusProd = statusProd;
     }
 }

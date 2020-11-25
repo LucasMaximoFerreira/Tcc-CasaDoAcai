@@ -13,40 +13,123 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <ImageView
+            android:id="@+id/testeContorno"
+            android:layout_width="37dp"
+            android:layout_height="35dp"
+            android:background="@drawable/contorno"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.827"
+            app:layout_constraintHorizontal_bias="0.499"/>
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="414dp"
+            android:layout_height="273dp"
+            android:background="@drawable/fundodegrade"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imgDoProduto5"
+            android:layout_width="232dp"
+            android:layout_height="226dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.463"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.499" />
+
         <include
             android:id="@+id/include14"
             layout="@layout/main_toolbar" />
 
-        <TextView
-            android:id="@+id/lblQtdDoPedidoRealizado"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/chicken_pie"
-            android:text="Qtd"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.521"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/include14"
-            app:layout_constraintVertical_bias="0.443" />
 
         <TextView
-            android:id="@+id/lblNomePedidoRealizado"
+            android:id="@+id/lblAdicionalDoPedidoRealizado"
+            android:layout_width="222dp"
+            android:layout_height="233dp"
+            android:ems="10"
+            android:fontFamily="@font/chicken_pie"
+            android:gravity="center_horizontal"
+            android:inputType="textMultiLine"
+            android:singleLine="true"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.492"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/include14"
+            app:layout_constraintVertical_bias="0.491"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/lbladicionais2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/chicken_pie"
-            android:text="Nome"
-            android:textSize="18sp"
+            android:text="ADICIONAIS"
+            android:textColor="#fff"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/include14"
-            app:layout_constraintVertical_bias="0.344" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.34" />
+
+        <ImageView
+            android:id="@+id/linhabranca3"
+            android:layout_width="52dp"
+            android:layout_height="3dp"
+            android:background="@drawable/linhabranca"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.233"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.346" />
+
+        <Button
+            android:id="@+id/btnVoltarDetalhes"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:background="@drawable/fundo_botao_logar"
+            android:fontFamily="@font/chicken_pie"
+            android:paddingBottom="4dp"
+            android:text="VOLTAR"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.929" />
+
+        <ImageView
+            android:id="@+id/linhabranca4"
+            android:layout_width="52dp"
+            android:layout_height="3dp"
+            android:background="@drawable/linhabranca"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.746"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.346" />
 
         <TextView
-            android:id="@+id/lblnomelabel"
+            android:id="@+id/lblNomePedidoRealizado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/chicken_pie"
@@ -57,19 +140,39 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/include14"
-            app:layout_constraintVertical_bias="0.274" />
+            app:layout_constraintVertical_bias="0.25" />
+
 
         <TextView
-            android:id="@+id/lblAdicionalDoPedidoRealizado"
+            android:id="@+id/lblqtd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/chicken_pie"
-            android:textSize="18sp"
-            android:text="Adicional"
+            android:text="Quantidade Desejada"
+            android:textColor="#000"
+            android:textSize="22sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/include14" />
+            app:layout_constraintTop_toTopOf="@+id/include14"
+            app:layout_constraintVertical_bias="0.753" />
+
+        <TextView
+            android:id="@+id/lblQtdDoPedidoRealizado"
+            android:layout_width="40sp"
+            android:layout_height="30sp"
+            android:fontFamily="@font/chicken_pie"
+            android:gravity="center_horizontal"
+            android:text="3"
+            android:textColor="#000"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/include14"
+            app:layout_constraintVertical_bias="0.821" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

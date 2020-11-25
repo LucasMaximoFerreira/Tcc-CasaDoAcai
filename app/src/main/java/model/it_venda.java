@@ -7,6 +7,7 @@ public class it_venda {
     private int qtd_it;
     private double total_ped;
     private String adicional;
+    private int status_it_vda;
 
 
     public int getId_it() {
@@ -56,5 +57,13 @@ public class it_venda {
 
     public void setAdicional(String adicional) {
         this.adicional = adicional;
+    }
+
+    public int getStatus_it_vda() {
+        return status_it_vda;
+    }
+
+    public void setStatus_it_vda(int status_it_vda) {
+        this.status_it_vda = status_it_vda;
     }
 }

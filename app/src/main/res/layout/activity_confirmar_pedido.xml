@@ -19,18 +19,6 @@
             layout="@layout/main_toolbar" />
 
 
-        <TextView
-            android:id="@+id/txtQtdDesejadaEdit"
-            android:layout_width="61dp"
-            android:layout_height="44dp"
-            android:ems="10"
-            android:fontFamily="@font/chicken_pie"
-            android:inputType="number|text"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.295" />
-
         <Button
             android:id="@+id/btnContinuarComprando"
             android:layout_width="160dp"

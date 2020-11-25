@@ -8,6 +8,7 @@ abstract public class utilsCompra {
     private static int idCompraSelecionada;
     private static int idVendaSelecionada;
     private static int idPedidoRealizado;
+    private static int idDetalhesPedido;
 
 
     public static String getNovaCompra() {
@@ -64,5 +65,13 @@ abstract public class utilsCompra {
 
     public static void setIdPedidoRealizado(int idPedidoRealizado) {
         utilsCompra.idPedidoRealizado = idPedidoRealizado;
+    }
+
+    public static int getIdDetalhesPedido() {
+        return idDetalhesPedido;
+    }
+
+    public static void setIdDetalhesPedido(int idDetalhesPedido) {
+        utilsCompra.idDetalhesPedido = idDetalhesPedido;
     }
 }

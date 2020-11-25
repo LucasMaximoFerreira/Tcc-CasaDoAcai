@@ -678,6 +678,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
                 prodTEMP.setId_tipoProd(tabelaMemoria.getInt("id_tipoProd"));
                 prodTEMP.setTam_prod(cripto.decrypt(tabelaMemoria.getString("tam_prod")));
                 prodTEMP.setPreco_prod(Double.parseDouble(cripto.decrypt(tabelaMemoria.getString("preco_prod"))));
+                prodTEMP.setStatusProd(tabelaMemoria.getInt("statusProd"));
 
 
                 listaAcai.add(prodTEMP);
@@ -705,6 +706,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
                 prodTEMP.setId_tipoProd(tabelaMemoria.getInt("id_tipoProd"));
                 prodTEMP.setTam_prod(cripto.decrypt(tabelaMemoria.getString("tam_prod")));
                 prodTEMP.setPreco_prod(Double.parseDouble(cripto.decrypt(tabelaMemoria.getString("preco_prod"))));
+                prodTEMP.setStatusProd(tabelaMemoria.getInt("statusProd"));
 
                 listaCremosinho.add(prodTEMP);
 
@@ -733,6 +735,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
                 prodTEMP.setId_tipoProd(tabelaMemoria.getInt("id_tipoProd"));
                 prodTEMP.setTam_prod(cripto.decrypt(tabelaMemoria.getString("tam_prod")));
                 prodTEMP.setPreco_prod(Double.parseDouble(cripto.decrypt(tabelaMemoria.getString("preco_prod"))));
+                prodTEMP.setStatusProd(tabelaMemoria.getInt("statusProd"));
 
                 listaSorvete.add(prodTEMP);
 
@@ -759,6 +762,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
                 prodTEMP.setId_tipoProd(tabelaMemoria.getInt("id_tipoProd"));
                 prodTEMP.setTam_prod(cripto.decrypt(tabelaMemoria.getString("tam_prod")));
                 prodTEMP.setPreco_prod(Double.parseDouble(cripto.decrypt(tabelaMemoria.getString("preco_prod"))));
+                prodTEMP.setStatusProd(tabelaMemoria.getInt("statusProd"));
 
                 listaGeladinho.add(prodTEMP);
 
@@ -785,6 +789,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
                 prodTEMP.setId_tipoProd(tabelaMemoria.getInt("id_tipoProd"));
                 prodTEMP.setTam_prod(cripto.decrypt(tabelaMemoria.getString("tam_prod")));
                 prodTEMP.setPreco_prod(Double.parseDouble(cripto.decrypt(tabelaMemoria.getString("preco_prod"))));
+                prodTEMP.setStatusProd(tabelaMemoria.getInt("statusProd"));
 
                 listaPicole.add(prodTEMP);
 
@@ -813,7 +818,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
                 prodTEMP.setId_tipoProd(tabelaMemoria.getInt("id_tipoProd"));
                 prodTEMP.setTam_prod(cripto.decrypt(tabelaMemoria.getString("tam_prod")));
                 prodTEMP.setPreco_prod(Double.parseDouble(cripto.decrypt(tabelaMemoria.getString("preco_prod"))));
-
+                prodTEMP.setStatusProd(tabelaMemoria.getInt("statusProd"));
                 listaSacole.add(prodTEMP);
 
             }
@@ -858,7 +863,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
 
             java.sql.Date dataMySQL = new java.sql.Date(data.getTime());
 
-            String sql = "insert into vendas values(0,?,?,?,?)";
+            String sql = "insert into vendas values(0,?,?,?,?,1)";
             PreparedStatement comando = conexao.prepareStatement(sql);
             comando.setInt(1, vendaClasse.getId_cli());
             comando.setInt(2, vendaClasse.getId_forma());
@@ -888,7 +893,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
     public Boolean inserirItemVenda() {
 
         try {
-            String sql = "insert into it_venda values(0,?,?,?,?,?)";
+            String sql = "insert into it_venda values(0,?,?,?,?,?,1)";
             PreparedStatement comando = conexao.prepareStatement(sql);
 
             comando.setInt(1, it_vendaClasse.getId_vda());
@@ -1160,7 +1165,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
 
     public Boolean DetalhesVenda(){
         try{
-            String sql = "select it_v.qtd_it, it_v.adicional, p.nome_prod\n" +
+            String sql = "select it_v.qtd_it, it_v.adicional, p.nome_prod, p.id_tipoProd\n" +
                     "from produto p inner join it_venda it_v \n" +
                     "on it_v.id_prod = p.id_prod\n" +
                     "inner join vendas v\n" +
@@ -1175,6 +1180,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
 
             if (tabelaMemoria.next()) {
 
+                utilsCompra.setIdDetalhesPedido(tabelaMemoria.getInt("id_tipoProd"));
                 prodClasse.setNome_prod(cripto.decrypt(tabelaMemoria.getString("nome_prod")));
                 it_vendaClasse.setQtd_it(Integer.parseInt(cripto.decrypt(tabelaMemoria.getString("qtd_it"))));
                 it_vendaClasse.setAdicional(cripto.decrypt(tabelaMemoria.getString("adicional")));
