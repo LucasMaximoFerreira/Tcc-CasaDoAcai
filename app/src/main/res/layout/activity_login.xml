@@ -21,7 +21,7 @@
         android:drawablePadding="8dp"
         android:hint="cpf"
         android:drawableStart="@drawable/costum_doc_icon"
-        android:inputType="textPersonName"
+        android:inputType="textPersonName|phone"
         app:layout_constraintBottom_toTopOf="@+id/txtSenha"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

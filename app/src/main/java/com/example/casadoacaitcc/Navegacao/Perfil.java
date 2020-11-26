@@ -14,6 +14,8 @@ import android.widget.RadioGroup;
 
 import com.example.casadoacaitcc.Login;
 import com.example.casadoacaitcc.R;
+import com.github.rtoshiro.util.format.SimpleMaskFormatter;
+import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 
 import java.util.concurrent.ExecutionException;
 
@@ -101,6 +103,16 @@ public class Perfil extends AppCompatActivity implements View.OnClickListener {
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
+
+        //MASCARA DO CEP
+        SimpleMaskFormatter novoCepMask = new SimpleMaskFormatter("NNNNN-NNN");
+        MaskTextWatcher ntwNovoCep = new MaskTextWatcher(txtNovoCep, novoCepMask);
+        txtNovoCep.addTextChangedListener(ntwNovoCep);
+
+        //MASCARA DO TELEFONE
+        SimpleMaskFormatter novoTelMask = new SimpleMaskFormatter("(NN)NNNNN-NNNN");
+        MaskTextWatcher ntwnovoTel = new MaskTextWatcher(txtNovotTel, novoTelMask);
+        txtNovotTel.addTextChangedListener(ntwnovoTel);
     }
 
     public void ClickMenu(View view) {

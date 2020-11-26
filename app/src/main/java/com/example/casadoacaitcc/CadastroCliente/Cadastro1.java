@@ -17,6 +17,8 @@ import android.widget.TextView;
 
 import com.example.casadoacaitcc.Login;
 import com.example.casadoacaitcc.R;
+import com.github.rtoshiro.util.format.SimpleMaskFormatter;
+import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 
 import utils.utilsCadastro_cliente;
 
@@ -46,6 +48,10 @@ public class Cadastro1 extends AppCompatActivity implements View.OnClickListener
 
         setTextCorDegrade();
 
+        //MASCARA DA DATA
+        SimpleMaskFormatter dataMask = new SimpleMaskFormatter("NN/NN/NNNN");
+        MaskTextWatcher ntwData = new MaskTextWatcher(txtData, dataMask);
+        txtData.addTextChangedListener(ntwData);
 
     }
     private TextWatcher cadastro1TextWatcher = new TextWatcher() {

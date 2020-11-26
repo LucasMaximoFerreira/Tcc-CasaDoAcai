@@ -40,13 +40,10 @@ public class Carrinho extends AppCompatActivity implements View.OnClickListener,
 
     DrawerLayout drawerLayout;
 
-    EditText txtTotal, txtDinheiro;
+    TextView txtTotal;
     RadioButton rbDinheiro, rbCartao;
     RadioGroup rgForma;
-    CheckBox chkTroco;
     Button btnFinalizarCompra;
-    TextView lblTroco, lblTroco2;
-    double total, troco, dinheiro;
 
     vendas vendaTela = new vendas();
 
@@ -64,18 +61,13 @@ public class Carrinho extends AppCompatActivity implements View.OnClickListener,
 
 
 
-        lblTroco = findViewById(R.id.lblTroco);
-        lblTroco2 = findViewById(R.id.lblTroco2);
         txtTotal = findViewById(R.id.txtTotal);
-        txtDinheiro = findViewById(R.id.txtDinheiro);
         rbDinheiro = findViewById(R.id.rbDinheiro);
         rbCartao = findViewById(R.id.rbCartao);
         rgForma = findViewById(R.id.rgForma);
-        chkTroco = findViewById(R.id.chkTroco);
         btnFinalizarCompra = findViewById(R.id.btnFinalizarCompra);
         drawerLayout = findViewById(R.id.drawer_layout);
         btnFinalizarCompra.setOnClickListener(this);
-        chkTroco.setOnClickListener(this);
 
         vendaTela.setValor_vda(utilsCompra.getTotalCompra());
 
@@ -122,15 +114,8 @@ public class Carrinho extends AppCompatActivity implements View.OnClickListener,
 
                 }
 
-                if(chkTroco.isChecked()){
-                    total = utilsCompra.getTotalCompra();
-                    dinheiro = Double.parseDouble(txtDinheiro.getText().toString().replace(',', '.'));
-                    troco = dinheiro - total;
-
-                }
 
 
-                utilsCompra.setTroco(troco);
 
                 conectarBD finalizar = new conectarBD(this);
 

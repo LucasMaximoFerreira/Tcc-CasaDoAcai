@@ -15,6 +15,8 @@ import android.widget.TextView;
 
 import com.example.casadoacaitcc.CadastroCliente.Cadastro1;
 import com.example.casadoacaitcc.Navegacao.MenuProdutos;
+import com.github.rtoshiro.util.format.SimpleMaskFormatter;
+import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 
 import java.util.concurrent.ExecutionException;
 
@@ -49,6 +51,11 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         lblCadastrar.setOnClickListener(this);
 
         setTextCorDegrade();
+
+        //MASCARA DO LOGIN
+        SimpleMaskFormatter loginMask = new SimpleMaskFormatter("NNN.NNN.NNN-NN");
+        MaskTextWatcher ntwLogin = new MaskTextWatcher(txtLogin, loginMask);
+        txtLogin.addTextChangedListener(ntwLogin);
     }
 
     private void setTextCorDegrade(){

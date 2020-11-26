@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drawer_layout"
-    android:background="@drawable/fundobranco"
+    android:background="@drawable/fundomenu"
     tools:context=".Carrinho">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,145 +17,151 @@
             android:id="@+id/include12"
             layout="@layout/main_toolbar" />
 
+
         <ListView
             android:id="@+id/lstUltimosPedidos"
-            android:layout_width="362dp"
-            android:layout_height="250dp"
+            android:layout_width="350dp"
+            android:layout_height="223dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.673"
+            app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/include12"
-            app:layout_constraintVertical_bias="0.185" />
+            app:layout_constraintVertical_bias="0.405" />
 
-        <EditText
-            android:id="@+id/txtDinheiro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.606"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.822" />
-
-        <TextView
-            android:id="@+id/lblTroco2"
-            android:layout_width="33dp"
-            android:layout_height="15dp"
-            android:text="Troco"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/txtDinheiro"
-            app:layout_constraintHorizontal_bias="0.379"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView20"
-            app:layout_constraintVertical_bias="0.373" />
-
-        <EditText
-            android:id="@+id/txtTotal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.378"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/include12"
-            app:layout_constraintVertical_bias="0.697" />
 
         <TextView
             android:id="@+id/textView20"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Total"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/txtTotal"
-            app:layout_constraintHorizontal_bias="0.38"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.696" />
-
-        <CheckBox
-            android:id="@+id/chkTroco"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sim"
+            android:layout_height="31dp"
+            android:fontFamily="@font/chicken_pie"
+            android:text="TOTAL: R$:"
+            android:textColor="#fff"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.864"
+            app:layout_constraintHorizontal_bias="0.39"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.673" />
+            app:layout_constraintTop_toTopOf="@+id/include12"
+            app:layout_constraintVertical_bias="0.838" />
 
         <TextView
-            android:id="@+id/lblTroco"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Troco?"
+            android:id="@+id/txtTotal"
+            android:layout_width="82dp"
+            android:layout_height="31dp"
+            android:ems="10"
+            android:fontFamily="@font/chicken_pie"
+            android:inputType="textPersonName"
+            android:textColor="#fff"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.869"
+            app:layout_constraintHorizontal_bias="0.696"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.634" />
-
-        <TextView
-            android:id="@+id/textView22"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Forma de Pagamento"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/include12" />
+            app:layout_constraintTop_toTopOf="@+id/include12"
+            app:layout_constraintVertical_bias="0.838" />
 
         <RadioGroup
             android:id="@+id/rgForma"
-            android:layout_width="216dp"
-            android:layout_height="66dp"
+            android:layout_width="223dp"
+            android:layout_height="62dp"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.553"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.563">
+            app:layout_constraintVertical_bias="0.76">
 
             <RadioButton
                 android:id="@+id/rbDinheiro"
-                android:layout_width="99dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Dinheiro" />
+                android:buttonTint="@color/dd"
+                android:fontFamily="@font/chicken_pie"
+                android:text="Dinheiro"
+                android:textColor="#fff"
+                android:textColorHighlight="#9300E9"
+                android:textColorLink="#9300E9"
+                android:textCursorDrawable="@drawable/degrade"
+                android:textSize="17sp" />
 
 
             <Space
-                android:layout_width="15dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1" />
 
             <RadioButton
                 android:id="@+id/rbCartao"
-                android:layout_width="97dp"
-                android:layout_height="match_parent"
-                android:text="Cartão" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/dd"
+                android:fontFamily="@font/chicken_pie"
+                android:text="cartão"
+                android:textColor="#fff"
+                android:textColorHighlight="#9300E9"
+                android:textColorLink="#9300E9"
+                android:textCursorDrawable="@drawable/degrade"
+                android:textSize="17sp" />
         </RadioGroup>
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/chicken_pie"
+            android:text="forma de pagamento"
+            android:textColor="#fff"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/include12"
+            app:layout_constraintVertical_bias="0.66" />
+
+        <TextView
+            android:id="@+id/pedidos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/chicken_pie"
+            android:text="Pedidos realizados"
+            android:textColor="#fff"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/include12"
+            app:layout_constraintVertical_bias="0.236" />
 
         <Button
             android:id="@+id/btnFinalizarCompra"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="136dp"
-            android:layout_marginRight="136dp"
-            android:text="Finalizar Compra"
+            android:layout_width="210dp"
+            android:layout_height="49dp"
+            android:background="@drawable/fundo_botao_logar"
+            android:fontFamily="@font/chicken_pie"
+            android:paddingBottom="4dp"
+            android:text="FINALIZAR COMPRA"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.935" />
+            app:layout_constraintVertical_bias="0.954" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="368dp"
+            android:layout_height="232dp"
+            android:background="@drawable/borda"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/include12"
+            app:layout_constraintVertical_bias="0.404" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -163,9 +169,5 @@
         android:layout_width="300dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="@android:color/white">
-
-        <include
-            layout="@layout/activity_main_nav_drawer"/>
-    </RelativeLayout>
+        android:background="@android:color/white"/>
 </androidx.drawerlayout.widget.DrawerLayout>

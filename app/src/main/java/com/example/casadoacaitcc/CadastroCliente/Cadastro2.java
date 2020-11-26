@@ -19,6 +19,8 @@ import android.widget.TextView;
 
 import com.example.casadoacaitcc.Login;
 import com.example.casadoacaitcc.R;
+import com.github.rtoshiro.util.format.SimpleMaskFormatter;
+import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 
 import utils.utilsCadastro_cliente;
 
@@ -51,6 +53,16 @@ public class Cadastro2 extends AppCompatActivity implements View.OnClickListener
         btnCad2.setOnClickListener(this);
         lblFacaLogin2.setOnClickListener(this);
         setTextCorDegrade();
+
+        //MASCARA DO TELEFONE
+        SimpleMaskFormatter telMask = new SimpleMaskFormatter("(NN)NNNNN-NNNN");
+        MaskTextWatcher ntwTel = new MaskTextWatcher(txtTelefone, telMask);
+        txtTelefone.addTextChangedListener(ntwTel);
+
+        //MASCARA DO CPF
+        SimpleMaskFormatter cpfMask = new SimpleMaskFormatter("NNN.NNN.NNN-NN");
+        MaskTextWatcher ntwCpf = new MaskTextWatcher(txtCPF, cpfMask);
+        txtCPF.addTextChangedListener(ntwCpf);
 
     }
     private TextWatcher cadastro2TextWatcher = new TextWatcher() {
