@@ -431,7 +431,19 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
                 resp = listarIdDoPedidoRealizado();
                 break;
             case 23:
-                resp = DetalhesVenda();
+                resp = detalhesVenda();
+                break;
+            case 24:
+                resp = pesquisaProdAdm();
+                break;
+            case 25:
+                resp = alterarProdAdm();
+                break;
+            case 26:
+                resp = inserirProdutoAdm();
+                break;
+            case 27:
+                resp = excluirProdutoAdm();
                 break;
         }
 
@@ -664,7 +676,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
     public Boolean listarAcai() {
 
         try {
-            String sql = "select * from produto where id_tipoProd=?";
+            String sql = "select * from produto where id_tipoProd=? and statusProd = 1";
             PreparedStatement comando = conexao.prepareStatement(sql);
             comando.setInt(1, utilsProduto.getIdTipoProd());
             ResultSet tabelaMemoria = comando.executeQuery();
@@ -693,7 +705,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
 
     public Boolean listarCremosinho() {
         try {
-            String sql = "select * from produto where id_tipoProd=6";
+            String sql = "select * from produto where id_tipoProd=6 and statusProd = 1";
             PreparedStatement comando = conexao.prepareStatement(sql);
             ResultSet tabelaMemoria = comando.executeQuery();
 
@@ -721,7 +733,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
 
     public Boolean listarSorvete() {
         try {
-            String sql = "select * from produto where id_tipoProd=?";
+            String sql = "select * from produto where id_tipoProd=? and statusProd = 1";
             PreparedStatement comando = conexao.prepareStatement(sql);
             comando.setInt(1, utilsProduto.getIdTipoProd());
             ResultSet tabelaMemoria = comando.executeQuery();
@@ -749,7 +761,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
 
     public Boolean listarGeladinho() {
         try {
-            String sql = "select * from produto where id_tipoProd=3";
+            String sql = "select * from produto where id_tipoProd=3 and statusProd = 1";
             PreparedStatement comando = conexao.prepareStatement(sql);
             ResultSet tabelaMemoria = comando.executeQuery();
 
@@ -776,7 +788,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
 
     public Boolean listarPicole() {
         try {
-            String sql = "select * from produto where id_tipoProd=5";
+            String sql = "select * from produto where id_tipoProd=5 and statusProd = 1";
             PreparedStatement comando = conexao.prepareStatement(sql);
             ResultSet tabelaMemoria = comando.executeQuery();
 
@@ -804,7 +816,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
 
     public Boolean listarSacole() {
         try {
-            String sql = "select * from produto where id_tipoProd=?";
+            String sql = "select * from produto where id_tipoProd=? and statusProd = 1";
             PreparedStatement comando = conexao.prepareStatement(sql);
             comando.setInt(1, utilsProduto.getIdTipoProd());
             ResultSet tabelaMemoria = comando.executeQuery();
@@ -831,7 +843,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
 
     public Boolean pesqProduto() {
         try {
-            String sql = "select * from produto where id_prod=? and id_tipoProd=?";
+            String sql = "select * from produto where id_prod=? and id_tipoProd=? and statusProd = 1";
             PreparedStatement comando = conexao.prepareStatement(sql);
             comando.setInt(1, prodClasse.getId_prod());
             comando.setInt(2, prodClasse.getId_tipoProd());
@@ -939,7 +951,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
 
     public Boolean carrinhoCalcularCompra() {
         try {
-            String sql = "select sum(total_ped) as total from it_venda where id_vda=?";
+            String sql = "select sum(total_ped) as total from it_venda where id_vda=? status_it_vda = 1";
             PreparedStatement comando = conexao.prepareStatement(sql);
             comando.setInt(1, utilsCompra.getUltimaVenda());
             ResultSet tabelaMemoria = comando.executeQuery();
@@ -1070,7 +1082,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
 
     public Boolean listarHistoricoDeCompras(){
         try{
-            String sql = "select id_vda, data_vda, valor_vda from vendas where id_cli = ? order by id_vda desc";
+            String sql = "select id_vda, data_vda, valor_vda from vendas where id_cli = ? and status_vda = 1 order by id_vda desc";
             PreparedStatement comando = conexao.prepareStatement(sql);
             comando.setInt(1, utilsCadastro_cliente.getUid_cli());
             ResultSet tabelaMemoria = comando.executeQuery();
@@ -1117,7 +1129,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
 
     public Boolean listarComprasAdm(){
         try{
-            String sql = "select id_vda, data_vda, valor_vda from vendas order by id_vda desc";
+            String sql = "select id_vda, data_vda, valor_vda from vendas and status_vda = 1 order by id_vda desc";
             PreparedStatement comando = conexao.prepareStatement(sql);
             ResultSet tabelaMemoria = comando.executeQuery();
 
@@ -1143,7 +1155,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
                     "from it_venda it_v \n" +
                     "inner join vendas v\n" +
                     "on v.id_vda = it_v.id_vda\n" +
-                    "where v.id_vda = ?";
+                    "where v.id_vda = ? and it_v.status_it_vda = 1";
             PreparedStatement comando = conexao.prepareStatement(sql);
             comando.setInt(1, utilsCompra.getIdVendaSelecionada());
             ResultSet tabelaMemoria = comando.executeQuery();
@@ -1163,7 +1175,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
         }
     }
 
-    public Boolean DetalhesVenda(){
+    public Boolean detalhesVenda(){
         try{
             String sql = "select it_v.qtd_it, it_v.adicional, p.nome_prod, p.id_tipoProd\n" +
                     "from produto p inner join it_venda it_v \n" +
@@ -1172,7 +1184,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
                     "on v.id_vda = it_v.id_vda\n" +
                     "inner join cadastro_cliente cli\n" +
                     "on cli.id_cli = v.id_cli\n" +
-                    "where v.id_vda = ? and it_v.id_it_venda = ?";
+                    "where v.id_vda = ? and it_v.id_it_venda = ? and it_v.status_it_vda = 1";
             PreparedStatement comando = conexao.prepareStatement(sql);
             comando.setInt(1, utilsCompra.getIdVendaSelecionada());
             comando.setInt(2, utilsCompra.getIdPedidoRealizado());
@@ -1201,4 +1213,44 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
     }
 
 
+    public Boolean pesquisaProdAdm(){
+
+        try{
+            String sql = "select * from produto where nome_prod = ?";
+            PreparedStatement comando = conexao.prepareStatement(sql);
+
+            comando.setString(1, cripto.encrypt(prodClasse.getNome_prod().getBytes()).replace("\n",""));
+            ResultSet tabelaMemoria = comando.executeQuery();
+
+
+            if(tabelaMemoria.next()){
+
+                prodClasse.setId_prod(tabelaMemoria.getInt("id_prod"));
+                prodClasse.setNome_prod(cripto.decrypt(tabelaMemoria.getString("nome_prod")));
+                prodClasse.setPreco_prod(Double.parseDouble(cripto.decrypt(tabelaMemoria.getString("preco_prod"))));
+                prodClasse.setTam_prod(cripto.decrypt(tabelaMemoria.getString("tam_prod")));
+                prodClasse.setId_tipoProd(tabelaMemoria.getInt("id_tipoProd"));
+                prodClasse.setStatusProd(tabelaMemoria.getInt("status_prod"));
+
+                return true;
+            }else{
+                prodClasse = null;
+                return false;
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public  Boolean alterarProdAdm(){
+        return false;
+    }
+    public Boolean inserirProdutoAdm(){
+        return false;
+    }
+    public  Boolean excluirProdutoAdm(){
+        return false;
+    }
 }

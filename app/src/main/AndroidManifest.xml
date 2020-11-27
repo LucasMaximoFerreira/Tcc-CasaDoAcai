@@ -7,7 +7,6 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
-        tools:replace="android:label"
         android:allowBackup="true"
         android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher"
@@ -15,8 +14,10 @@
         android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".DetalhesDoPedido"></activity>
+        android:theme="@style/AppTheme"
+        tools:replace="android:label">
+        <activity android:name=".PesqAltExc"></activity>
+        <activity android:name=".DetalhesDoPedido" />
         <activity android:name=".PedidosDaVenda" />
         <activity android:name=".PedidosRealizados" />
         <activity android:name=".Navegacao.HistoricoCompra" />
