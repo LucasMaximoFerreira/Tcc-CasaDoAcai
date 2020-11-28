@@ -29,6 +29,7 @@ import com.example.casadoacaitcc.ComprasProduto.ComprarSorvete;
 import com.example.casadoacaitcc.InserirProduto;
 import com.example.casadoacaitcc.Login;
 import com.example.casadoacaitcc.PedidosRealizados;
+import com.example.casadoacaitcc.PesqAltExc;
 import com.example.casadoacaitcc.R;
 
 
@@ -195,7 +196,7 @@ public class MenuProdutos extends AppCompatActivity implements View.OnClickListe
                 utilsProduto.setNomeTipoProd("AÇAÍ");
 
                 if(telaLogada.getNumeroDaTela() == 1){
-                    Intent inserir1 = new Intent(this, InserirProduto.class);
+                    Intent inserir1 = new Intent(this, PesqAltExc.class);
                     startActivity(inserir1);
                 }else {
                     Intent Acai = new Intent(this, ComprarAcai1.class);
@@ -206,7 +207,7 @@ public class MenuProdutos extends AppCompatActivity implements View.OnClickListe
                 utilsProduto.setIdTipoProd(2);
                 utilsProduto.setNomeTipoProd("SACOLÉ");
                 if(telaLogada.getNumeroDaTela() == 1){
-                    Intent inserir2 = new Intent(this, InserirProduto.class);
+                    Intent inserir2 = new Intent(this, PesqAltExc.class);
                     startActivity(inserir2);
                 }else {
                     Intent sacole = new Intent(this, ComprarSacole.class);
@@ -217,7 +218,7 @@ public class MenuProdutos extends AppCompatActivity implements View.OnClickListe
                 utilsProduto.setIdTipoProd(3);
                 utilsProduto.setNomeTipoProd("GELADINHO");
                 if(telaLogada.getNumeroDaTela() == 1){
-                    Intent inserir3 = new Intent(this, InserirProduto.class);
+                    Intent inserir3 = new Intent(this, PesqAltExc.class);
                     startActivity(inserir3);
                 }else {
                     Intent geladinho = new Intent(this, ComprarGeladinho.class);
@@ -228,7 +229,7 @@ public class MenuProdutos extends AppCompatActivity implements View.OnClickListe
                 utilsProduto.setIdTipoProd(4);
                 utilsProduto.setNomeTipoProd("SORVETE");
                 if(telaLogada.getNumeroDaTela() == 1){
-                    Intent inserir4 = new Intent(this, InserirProduto.class);
+                    Intent inserir4 = new Intent(this, PesqAltExc.class);
                     startActivity(inserir4);
                 }else {
                     Intent sorvete = new Intent(this, ComprarSorvete.class);
@@ -239,7 +240,7 @@ public class MenuProdutos extends AppCompatActivity implements View.OnClickListe
                 utilsProduto.setIdTipoProd(5);
                 utilsProduto.setNomeTipoProd("PICOLÉ");
                 if(telaLogada.getNumeroDaTela() == 1){
-                    Intent inserir5 = new Intent(this, InserirProduto.class);
+                    Intent inserir5 = new Intent(this, PesqAltExc.class);
                     startActivity(inserir5);
                 }else {
                     Intent picole = new Intent(this, ComprarPicole.class);
@@ -250,7 +251,7 @@ public class MenuProdutos extends AppCompatActivity implements View.OnClickListe
                 utilsProduto.setIdTipoProd(6);
                 utilsProduto.setNomeTipoProd("CREMOSINHO");
                 if(telaLogada.getNumeroDaTela() == 1){
-                    Intent inserir6 = new Intent(this, InserirProduto.class);
+                    Intent inserir6 = new Intent(this, PesqAltExc.class);
                     startActivity(inserir6);
                 }else {
                     Intent cremosinho = new Intent(this, ComprarCremosinho.class);

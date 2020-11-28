@@ -121,8 +121,8 @@ public class InserirProduto extends AppCompatActivity implements View.OnClickLis
                 prodTela.setTam_prod(txtInserirTamanho.getText().toString());
                 prodTela.setPreco_prod(Double.parseDouble(txtInserirPreco.getText().toString()));
 
-                int opGen = rgInserirTipoProd.getCheckedRadioButtonId();
-                switch (opGen) {
+                int opProd = rgInserirTipoProd.getCheckedRadioButtonId();
+                switch (opProd) {
                     case R.id.rbAcai:
                         prodTela.setId_tipoProd(1);
                         break;

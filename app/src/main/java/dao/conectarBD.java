@@ -1216,7 +1216,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
     public Boolean pesquisaProdAdm(){
 
         try{
-            String sql = "select * from produto where nome_prod = ?";
+            String sql = "select * from produto where nome_prod = ? and statusProd = 1";
             PreparedStatement comando = conexao.prepareStatement(sql);
 
             comando.setString(1, cripto.encrypt(prodClasse.getNome_prod().getBytes()).replace("\n",""));
@@ -1246,14 +1246,14 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
 
     public  Boolean alterarProdAdm(){
         try {
-            String sql = "update produto set nome_func=?, id_tipoProd=?, tam_prod=?, preco_prod=? where nome_prod=?";
+            String sql = "update produto set nome_prod=?, id_tipoProd=?, tam_prod=?, preco_prod=? where nome_prod=?";
             PreparedStatement comando = conexao.prepareStatement(sql);
 
             comando.setString(1, cripto.encrypt(prodClasse.getNome_prod().getBytes()).replace("\n",""));
             comando.setInt(2,prodClasse.getId_tipoProd());
             comando.setString(3, cripto.encrypt(prodClasse.getTam_prod().getBytes()).replace("\n",""));
             comando.setString(4, cripto.encrypt(String.valueOf(prodClasse.getPreco_prod()).getBytes()).replace("\n", ""));
-            comando.setString(6,utilsProduto.getNomesPesqProd());
+            comando.setString(5, cripto.encrypt(prodClasse.getNome_prod().getBytes()).replace("\n",""));
             comando.executeUpdate();
 
             return true;
@@ -1289,7 +1289,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
             String sql = "update produto set statusProd = 0 where nome_prod=?";
             PreparedStatement comando = conexao.prepareStatement(sql);
 
-            comando.setString(1, utilsProduto.getNomesPesqProd());
+            comando.setString(1, cripto.encrypt(prodClasse.getNome_prod().getBytes()).replace("\n",""));
             comando.executeUpdate();
 
             return true;
