@@ -10,6 +10,7 @@ abstract public class utilsProduto {
     private static String nomeAdicionaisText;
     private static String nomeTipoProd;
     private static ImageView imgDoProduto;
+    private static String NomesPesqProd;
 
     public static int getIdProdSelecionado() {
         return idProdSelecionado;
@@ -57,5 +58,13 @@ abstract public class utilsProduto {
 
     public static void setImgDoProduto(ImageView imgDoProduto) {
         utilsProduto.imgDoProduto = imgDoProduto;
+    }
+
+    public static String getNomesPesqProd() {
+        return NomesPesqProd;
+    }
+
+    public static void setNomesPesqProd(String nomesPesqProd) {
+        NomesPesqProd = nomesPesqProd;
     }
 }

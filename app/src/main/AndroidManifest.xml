@@ -16,7 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:label">
-        <activity android:name=".PesqAltExc"></activity>
+        <activity android:name=".InserirProduto"></activity>
+        <activity android:name=".PesqAltExc" />
         <activity android:name=".DetalhesDoPedido" />
         <activity android:name=".PedidosDaVenda" />
         <activity android:name=".PedidosRealizados" />

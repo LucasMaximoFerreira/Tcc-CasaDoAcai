@@ -1245,12 +1245,59 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
     }
 
     public  Boolean alterarProdAdm(){
-        return false;
+        try {
+            String sql = "update produto set nome_func=?, id_tipoProd=?, tam_prod=?, preco_prod=? where nome_prod=?";
+            PreparedStatement comando = conexao.prepareStatement(sql);
+
+            comando.setString(1, cripto.encrypt(prodClasse.getNome_prod().getBytes()).replace("\n",""));
+            comando.setInt(2,prodClasse.getId_tipoProd());
+            comando.setString(3, cripto.encrypt(prodClasse.getTam_prod().getBytes()).replace("\n",""));
+            comando.setString(4, cripto.encrypt(String.valueOf(prodClasse.getPreco_prod()).getBytes()).replace("\n", ""));
+            comando.setString(6,utilsProduto.getNomesPesqProd());
+            comando.executeUpdate();
+
+            return true;
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return  false;
+        }
     }
     public Boolean inserirProdutoAdm(){
-        return false;
+        try {
+            String sql = "insert into produto values(0,?,?,?,?,1)";
+            PreparedStatement comando = conexao.prepareStatement(sql);
+
+            comando.setString(1, cripto.encrypt(prodClasse.getNome_prod().getBytes()).replace("\n", ""));
+            comando.setInt(2, prodClasse.getId_tipoProd());
+            comando.setString(3, cripto.encrypt(prodClasse.getTam_prod().getBytes()).replace("\n", ""));
+            comando.setString(4,cripto.encrypt(String.valueOf(prodClasse.getPreco_prod()).getBytes()).replace("\n", ""));
+            comando.executeUpdate();
+
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+
+        }
+
     }
-    public  Boolean excluirProdutoAdm(){
-        return false;
+    public  Boolean excluirProdutoAdm() {
+        try {
+            String sql = "update produto set statusProd = 0 where nome_prod=?";
+            PreparedStatement comando = conexao.prepareStatement(sql);
+
+            comando.setString(1, utilsProduto.getNomesPesqProd());
+            comando.executeUpdate();
+
+            return true;
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }

@@ -54,9 +54,9 @@
         <RadioButton
             android:id="@+id/rbMasculino"
             android:layout_width="match_parent"
+            android:text="masculino"
             android:layout_height="wrap_content"
             android:fontFamily="@font/chicken_pie"
-            android:text="masculino"
             android:textColor="#353232"
             android:buttonTint="@color/dd"
             android:textColorHighlight="#9300E9"

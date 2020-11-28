@@ -26,6 +26,7 @@ import com.example.casadoacaitcc.ComprasProduto.ComprarGeladinho;
 import com.example.casadoacaitcc.ComprasProduto.ComprarPicole;
 import com.example.casadoacaitcc.ComprasProduto.ComprarSacole;
 import com.example.casadoacaitcc.ComprasProduto.ComprarSorvete;
+import com.example.casadoacaitcc.InserirProduto;
 import com.example.casadoacaitcc.Login;
 import com.example.casadoacaitcc.PedidosRealizados;
 import com.example.casadoacaitcc.R;
@@ -185,50 +186,77 @@ public class MenuProdutos extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnPedidos:
-                Intent pedidos = new Intent(this, PedidosRealizados.class);
-                startActivity(pedidos);
+                    Intent pedidos = new Intent(this, PedidosRealizados.class);
+                    startActivity(pedidos);
+
                 break;
             case R.id.btnAcai:
                 utilsProduto.setIdTipoProd(1);
                 utilsProduto.setNomeTipoProd("AÇAÍ");
 
-                Intent Acai = new Intent(this, ComprarAcai1.class);
-                startActivity(Acai);
+                if(telaLogada.getNumeroDaTela() == 1){
+                    Intent inserir1 = new Intent(this, InserirProduto.class);
+                    startActivity(inserir1);
+                }else {
+                    Intent Acai = new Intent(this, ComprarAcai1.class);
+                    startActivity(Acai);
+                }
                 break;
             case R.id.btnSacole:
                 utilsProduto.setIdTipoProd(2);
                 utilsProduto.setNomeTipoProd("SACOLÉ");
-                Intent sacole = new Intent(this, ComprarSacole.class);
-                startActivity(sacole);
+                if(telaLogada.getNumeroDaTela() == 1){
+                    Intent inserir2 = new Intent(this, InserirProduto.class);
+                    startActivity(inserir2);
+                }else {
+                    Intent sacole = new Intent(this, ComprarSacole.class);
+                    startActivity(sacole);
+                }
                 break;
             case R.id.btnGeladinho:
                 utilsProduto.setIdTipoProd(3);
                 utilsProduto.setNomeTipoProd("GELADINHO");
-
-                Intent geladinho = new Intent(this, ComprarGeladinho.class);
-                startActivity(geladinho);
+                if(telaLogada.getNumeroDaTela() == 1){
+                    Intent inserir3 = new Intent(this, InserirProduto.class);
+                    startActivity(inserir3);
+                }else {
+                    Intent geladinho = new Intent(this, ComprarGeladinho.class);
+                    startActivity(geladinho);
+                }
                 break;
             case R.id.btnSorvete:
                 utilsProduto.setIdTipoProd(4);
                 utilsProduto.setNomeTipoProd("SORVETE");
-
-                Intent sorvete = new Intent(this, ComprarSorvete.class);
-                startActivity(sorvete);
+                if(telaLogada.getNumeroDaTela() == 1){
+                    Intent inserir4 = new Intent(this, InserirProduto.class);
+                    startActivity(inserir4);
+                }else {
+                    Intent sorvete = new Intent(this, ComprarSorvete.class);
+                    startActivity(sorvete);
+                }
                 break;
             case R.id.btnPicole:
                 utilsProduto.setIdTipoProd(5);
                 utilsProduto.setNomeTipoProd("PICOLÉ");
-
-                Intent picole = new Intent(this, ComprarPicole.class);
-                startActivity(picole);
+                if(telaLogada.getNumeroDaTela() == 1){
+                    Intent inserir5 = new Intent(this, InserirProduto.class);
+                    startActivity(inserir5);
+                }else {
+                    Intent picole = new Intent(this, ComprarPicole.class);
+                    startActivity(picole);
+                }
                 break;
             case R.id.btnCremosinho:
                 utilsProduto.setIdTipoProd(6);
                 utilsProduto.setNomeTipoProd("CREMOSINHO");
-
-                Intent cremosinho = new Intent(this, ComprarCremosinho.class);
-                startActivity(cremosinho);
-                break;
+                if(telaLogada.getNumeroDaTela() == 1){
+                    Intent inserir6 = new Intent(this, InserirProduto.class);
+                    startActivity(inserir6);
+                }else {
+                    Intent cremosinho = new Intent(this, ComprarCremosinho.class);
+                    startActivity(cremosinho);
+                    break;
+                }
         }
     }
 

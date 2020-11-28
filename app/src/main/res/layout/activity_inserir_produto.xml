@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/fundobranco"
+    android:id="@+id/drawer_layout"
+    android:layout_height="match_parent"
+    tools:context=".InserirProduto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <include
+        android:id="@+id/include13"
+        layout="@layout/main_toolbar" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="223dp"
+            android:layout_height="243dp"
+            android:background="@drawable/borda"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/include13"
+            app:layout_constraintVertical_bias="0.520"/>
+
+        <EditText
+            android:id="@+id/txtInserirPreco"
+            android:layout_width="230dp"
+            android:layout_height="42dp"
+            android:background="@drawable/custom_input"
+            android:drawablePadding="8dp"
+            android:ems="10"
+            android:fontFamily="@font/chicken_pie"
+            android:hint="Preco"
+            android:inputType="textPersonName|phone"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:textColorHighlight="#9300E9"
+            android:textColorLink="#9300E9"
+            android:textCursorDrawable="@drawable/degrade"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.859" />
+
+        <EditText
+            android:id="@+id/txtInserirNomeProd"
+            android:layout_width="230dp"
+            android:layout_height="42dp"
+            android:background="@drawable/custom_input"
+            android:drawablePadding="8dp"
+            android:ems="10"
+            android:fontFamily="@font/chicken_pie"
+            android:hint="Nome do Produto"
+            android:inputType="textPersonName"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:textColorHighlight="#9300E9"
+            android:textColorLink="#9300E9"
+            android:textCursorDrawable="@drawable/degrade"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.274" />
+
+        <TextView
+            android:id="@+id/lblTipoProd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/chicken_pie"
+            android:text="TIPO DO PRODUTO"
+            android:textColor="#000"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/include13"
+            app:layout_constraintVertical_bias="0.373" />
+
+        <RadioGroup
+            android:id="@+id/rgTipoProd"
+            android:layout_width="227dp"
+            android:layout_height="188dp"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.558">
+
+            <RadioButton
+                android:id="@+id/rbAcai"
+                android:layout_width="82dp"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/dd"
+                android:fontFamily="@font/chicken_pie"
+                android:text="Açaí"
+                android:textColor="#353232"
+                android:textColorHighlight="#9300E9"
+                android:textColorLink="#9300E9"
+                android:textCursorDrawable="@drawable/degrade"
+                android:textSize="17sp" />
+
+            <RadioButton
+                android:id="@+id/rbPicole"
+                android:layout_width="92dp"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/dd"
+                android:fontFamily="@font/chicken_pie"
+                android:text="Picolé"
+                android:textColor="#353232"
+                android:textColorHighlight="#9300E9"
+                android:textColorLink="#9300E9"
+                android:textCursorDrawable="@drawable/degrade"
+                android:textSize="17sp" />
+
+            <RadioButton
+                android:id="@+id/rbSacole"
+                android:layout_width="102dp"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/dd"
+                android:fontFamily="@font/chicken_pie"
+                android:text="Sacole"
+                android:textColor="#353232"
+                android:textColorHighlight="#9300E9"
+                android:textColorLink="#9300E9"
+                android:textCursorDrawable="@drawable/degrade"
+                android:textSize="17sp" />
+
+            <RadioButton
+                android:id="@+id/rbSorvete"
+                android:layout_width="113dp"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/dd"
+                android:fontFamily="@font/chicken_pie"
+                android:text="Sorvete"
+                android:textColor="#353232"
+                android:textColorHighlight="#9300E9"
+                android:textColorLink="#9300E9"
+                android:textCursorDrawable="@drawable/degrade"
+                android:textSize="17sp" />
+
+            <RadioButton
+                android:id="@+id/rbGeladinho"
+                android:layout_width="127dp"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/dd"
+                android:fontFamily="@font/chicken_pie"
+                android:text="Geladinho"
+                android:textColor="#353232"
+                android:textColorHighlight="#9300E9"
+                android:textColorLink="#9300E9"
+                android:textCursorDrawable="@drawable/degrade"
+                android:textSize="17sp" />
+
+            <RadioButton
+                android:id="@+id/rbCremosinho"
+                android:layout_width="144dp"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/dd"
+                android:fontFamily="@font/chicken_pie"
+                android:text="Cremosinho"
+                android:textColor="#353232"
+                android:textColorHighlight="#9300E9"
+                android:textColorLink="#9300E9"
+                android:textCursorDrawable="@drawable/degrade"
+                android:textSize="17sp" />
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/txtInserirTamanho"
+            android:layout_width="230dp"
+            android:layout_height="42dp"
+            android:background="@drawable/custom_input"
+            android:drawablePadding="8dp"
+            android:ems="10"
+            android:fontFamily="@font/chicken_pie"
+            android:hint="Tamanho"
+            android:inputType="textPersonName|phone"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:textColorHighlight="#9300E9"
+            android:textColorLink="#9300E9"
+            android:textCursorDrawable="@drawable/degrade"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.756" />
+
+        <Button
+            android:id="@+id/btnInserirProd"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:background="@drawable/fundo_botao_logar"
+            android:fontFamily="@font/chicken_pie"
+            android:paddingBottom="4dp"
+            android:text="INSERIR"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.953" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+<RelativeLayout
+android:layout_width="300dp"
+android:layout_height="match_parent"
+android:layout_gravity="start"
+android:background="@android:color/white">
+
+<include
+    layout="@layout/activity_main_nav_drawer"/>
+</RelativeLayout>
+    </androidx.drawerlayout.widget.DrawerLayout>
