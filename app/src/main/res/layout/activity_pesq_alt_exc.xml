@@ -189,7 +189,7 @@
                 android:textSize="17sp" />
 
             <RadioButton
-                android:id="@+id/btnAltPicole"
+                android:id="@+id/rbAltPicole"
                 android:layout_width="92dp"
                 android:layout_height="wrap_content"
                 android:buttonTint="@color/dd"
@@ -202,7 +202,7 @@
                 android:textSize="17sp" />
 
             <RadioButton
-                android:id="@+id/btnAltSacole"
+                android:id="@+id/rbAltSacole"
                 android:layout_width="102dp"
                 android:layout_height="wrap_content"
                 android:buttonTint="@color/dd"
@@ -215,7 +215,7 @@
                 android:textSize="17sp" />
 
             <RadioButton
-                android:id="@+id/btnAltSorvete"
+                android:id="@+id/rbAltSorvete"
                 android:layout_width="113dp"
                 android:layout_height="wrap_content"
                 android:buttonTint="@color/dd"
@@ -228,7 +228,7 @@
                 android:textSize="17sp" />
 
             <RadioButton
-                android:id="@+id/btnAltGeladinho"
+                android:id="@+id/rbAltGeladinho"
                 android:layout_width="127dp"
                 android:layout_height="wrap_content"
                 android:buttonTint="@color/dd"
@@ -241,7 +241,7 @@
                 android:textSize="17sp" />
 
             <RadioButton
-                android:id="@+id/btnAltCremosinho"
+                android:id="@+id/rbAltCremosinho"
                 android:layout_width="144dp"
                 android:layout_height="wrap_content"
                 android:buttonTint="@color/dd"

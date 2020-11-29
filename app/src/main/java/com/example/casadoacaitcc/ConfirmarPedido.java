@@ -79,6 +79,8 @@ public class ConfirmarPedido extends AppCompatActivity implements View.OnClickLi
         contador = 1;
         txtQuantidadeDesejada.setText(String.valueOf(contador));
 
+
+        //ALTERAR A FOTO DE ACORDO COM O TIPO DO PRODUTO
         if(utilsProduto.getIdTipoProd() == 1) {
             Glide.with(this).load(R.drawable.acaifundo).into(imgDoProduto);
             imgDoProduto2.setVisibility(View.INVISIBLE);
@@ -120,6 +122,8 @@ public class ConfirmarPedido extends AppCompatActivity implements View.OnClickLi
 
             prodTela = pesq.getProdClasse();
             lblTamanhoDoProduto.setText(prodTela.getTam_prod());
+
+            //VIEWS PARA TIPOS DE PRODUTOS DIFERENTES
             if(utilsProduto.getIdTipoProd() == 1) {
                 lbladicionais.setVisibility(View.VISIBLE);
                 linhabranca1.setVisibility(View.VISIBLE);
@@ -146,6 +150,7 @@ public class ConfirmarPedido extends AppCompatActivity implements View.OnClickLi
 
     }
 
+    //QUANTIDADE DESEJADA DO PRODUTO
     private void contadorMais(){
         contador++;
         txtQuantidadeDesejada.setText(String.valueOf(contador));

@@ -73,6 +73,7 @@ public class Carrinho extends AppCompatActivity implements View.OnClickListener,
 
         txtTotal.setText(new DecimalFormat("#0.00").format(vendaTela.getValor_vda()));
 
+        //LISTA DOS PEDIDOS FEITOS
         try{
             lstUltimosPedidos = findViewById(R.id.lstUltimosPedidos);
 
@@ -111,11 +112,7 @@ public class Carrinho extends AppCompatActivity implements View.OnClickListener,
                         vendaTela.setId_forma(2);
                         break;
 
-
                 }
-
-
-
 
                 conectarBD finalizar = new conectarBD(this);
 

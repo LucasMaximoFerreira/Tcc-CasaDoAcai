@@ -445,6 +445,13 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
             case 27:
                 resp = excluirProdutoAdm();
                 break;
+            case 28:
+                resp = excluirVendaDoCliente();
+                break;
+            case 29:
+                resp = excluirPedidoDoCliente();
+                break;
+
         }
 
         return resp;
@@ -1129,7 +1136,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
 
     public Boolean listarComprasAdm(){
         try{
-            String sql = "select id_vda, data_vda, valor_vda from vendas and status_vda = 1 order by id_vda desc";
+            String sql = "select id_vda, data_vda, valor_vda from vendas where status_vda = 1 order by id_vda desc";
             PreparedStatement comando = conexao.prepareStatement(sql);
             ResultSet tabelaMemoria = comando.executeQuery();
 
@@ -1250,10 +1257,10 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
             PreparedStatement comando = conexao.prepareStatement(sql);
 
             comando.setString(1, cripto.encrypt(prodClasse.getNome_prod().getBytes()).replace("\n",""));
-            comando.setInt(2,prodClasse.getId_tipoProd());
+            comando.setInt(2, prodClasse.getId_tipoProd());
             comando.setString(3, cripto.encrypt(prodClasse.getTam_prod().getBytes()).replace("\n",""));
             comando.setString(4, cripto.encrypt(String.valueOf(prodClasse.getPreco_prod()).getBytes()).replace("\n", ""));
-            comando.setString(5, cripto.encrypt(prodClasse.getNome_prod().getBytes()).replace("\n",""));
+            comando.setString(5, cripto.encrypt(utilsProduto.getNomesPesqProd().getBytes()).replace("\n",""));
             comando.executeUpdate();
 
             return true;
@@ -1284,12 +1291,44 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
         }
 
     }
-    public  Boolean excluirProdutoAdm() {
+    public Boolean excluirProdutoAdm() {
         try {
             String sql = "update produto set statusProd = 0 where nome_prod=?";
             PreparedStatement comando = conexao.prepareStatement(sql);
 
             comando.setString(1, cripto.encrypt(prodClasse.getNome_prod().getBytes()).replace("\n",""));
+            comando.executeUpdate();
+
+            return true;
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    public Boolean excluirVendaDoCliente(){
+        try {
+            String sql = "update vendas set status_vda = 0 where id_vda=?";
+            PreparedStatement comando = conexao.prepareStatement(sql);
+
+            comando.setInt(1, utilsCompra.getIdVendaSelecionada());
+            comando.executeUpdate();
+
+            return true;
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    public Boolean excluirPedidoDoCliente(){
+        try {
+            String sql = "update it_venda set status_it_vda = 0 where id_it_venda=?";
+            PreparedStatement comando = conexao.prepareStatement(sql);
+
+            comando.setInt(1, utilsCompra.getIdPedidoRealizado());
             comando.executeUpdate();
 
             return true;

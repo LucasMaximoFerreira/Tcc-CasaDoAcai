@@ -65,6 +65,8 @@ public class Cadastro2 extends AppCompatActivity implements View.OnClickListener
         txtCPF.addTextChangedListener(ntwCpf);
 
     }
+    //FUNCAO PARA NAO CONTINUAR SE CADASTRANDO SEM COMPLETAR AS DEMAIS INFORMAÇÕES
+
     private TextWatcher cadastro2TextWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -86,6 +88,8 @@ public class Cadastro2 extends AppCompatActivity implements View.OnClickListener
 
         }
     };
+    //FUNCAO PARA COLORIR O LABEL EM DEGRADE
+
     private void setTextCorDegrade(){
         TextPaint paint = lblFacaLogin2.getPaint();
         float width = paint.measureText("faça o login aqui");

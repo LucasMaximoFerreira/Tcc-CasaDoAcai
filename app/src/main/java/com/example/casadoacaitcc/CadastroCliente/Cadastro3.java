@@ -56,6 +56,8 @@ public class Cadastro3 extends AppCompatActivity implements View.OnClickListener
         txtCEP.addTextChangedListener(ntwCep);
 
     }
+    //FUNCAO PARA NAO CONTINUAR SE CADASTRANDO SEM COMPLETAR AS DEMAIS INFORMAÇÕES
+
     private TextWatcher cadastro3TextWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -76,6 +78,7 @@ public class Cadastro3 extends AppCompatActivity implements View.OnClickListener
 
         }
     };
+    //FUNCAO PARA COLORIR O LABEL EM DEGRADE
 
     private void setTextCorDegrade() {
         TextPaint paint = lblNaoObrigatorio.getPaint();
@@ -92,6 +95,8 @@ public class Cadastro3 extends AppCompatActivity implements View.OnClickListener
 
 
     }
+    //FUNCAO PARA COLORIR O LABEL EM DEGRADE
+
     private void setTextCorDegrade2() {
         TextPaint paint = lblFacaLogin3.getPaint();
         float width = paint.measureText("faça o login aqui");

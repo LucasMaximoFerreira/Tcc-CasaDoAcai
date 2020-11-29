@@ -51,6 +51,8 @@ public class InserirProduto extends AppCompatActivity implements View.OnClickLis
         rbGeladinho = findViewById(R.id.rbGeladinho);
 
         btnInserirProd.setOnClickListener(this);
+
+
     }
     public void ClickMenu(View view) {
         //Abrir o Drawer
@@ -118,7 +120,6 @@ public class InserirProduto extends AppCompatActivity implements View.OnClickLis
                 produto prodTela = new produto();
 
                 prodTela.setNome_prod(txtInserirNomeProd.getText().toString());
-                prodTela.setTam_prod(txtInserirTamanho.getText().toString());
                 prodTela.setPreco_prod(Double.parseDouble(txtInserirPreco.getText().toString()));
 
                 int opProd = rgInserirTipoProd.getCheckedRadioButtonId();
@@ -143,6 +144,7 @@ public class InserirProduto extends AppCompatActivity implements View.OnClickLis
                         break;
 
                 }
+                prodTela.setTam_prod(txtInserirTamanho.getText().toString());
 
                 inserirProd.setProdClasse(prodTela);
 

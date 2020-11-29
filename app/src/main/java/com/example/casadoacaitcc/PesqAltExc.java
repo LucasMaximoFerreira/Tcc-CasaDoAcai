@@ -52,15 +52,14 @@ public class PesqAltExc extends AppCompatActivity implements View.OnClickListene
         txtAltPreco = findViewById(R.id.txtAltPreco);
         lblInserirProd = findViewById(R.id.lblInserirProd);
         rbAltAcai = findViewById(R.id.rbAltAcai);
-        rbAltSacole = findViewById(R.id.btnAltSacole);
-        rbAltGeladinho = findViewById(R.id.btnAltGeladinho);
-        rbAltSorvete = findViewById(R.id.btnAltSorvete);
-        rbAltPicole = findViewById(R.id.btnAltPicole);
-        rbAltCremosinho = findViewById(R.id.btnAltCremosinho);
+        rbAltSacole = findViewById(R.id.rbAltSacole);
+        rbAltGeladinho = findViewById(R.id.rbAltGeladinho);
+        rbAltSorvete = findViewById(R.id.rbAltSorvete);
+        rbAltPicole = findViewById(R.id.rbAltPicole);
+        rbAltCremosinho = findViewById(R.id.rbAltCremosinho);
         btnExcluirProd = findViewById(R.id.btnExcluirProd);
         btnAlterarProd = findViewById(R.id.btnAlterarProd);
         btnPesqProduto = findViewById(R.id.btnPesqProduto);
-
         prodTela = new produto();
 
         btnAlterarProd.setOnClickListener(this);
@@ -70,6 +69,7 @@ public class PesqAltExc extends AppCompatActivity implements View.OnClickListene
 
         setTextCorDegrade();
     }
+    //MUDAR COR PARA DEGRADE DO LABEL
     private void setTextCorDegrade(){
         TextPaint paint = lblInserirProd.getPaint();
         float width = paint.measureText("Deseja inserir um produto?");
@@ -142,6 +142,7 @@ public class PesqAltExc extends AppCompatActivity implements View.OnClickListene
 
         switch (v.getId()){
 
+            //PESQUISAR PRODUTO
             case R.id.btnPesqProduto:
                 try {
 
@@ -163,26 +164,26 @@ public class PesqAltExc extends AppCompatActivity implements View.OnClickListene
                             rbAltAcai.setChecked(true);
                         } else if (prodTela.getId_tipoProd() == 2) {
                             rbAltSacole.setChecked(true);
+                            txtAltTamanho.setText("Tamanho Indefinido");
                         } else if (prodTela.getId_tipoProd() == 3) {
                             rbAltGeladinho.setChecked(true);
+                            txtAltTamanho.setText("Tamanho Indefinido");
                         } else if (prodTela.getId_tipoProd() == 4) {
                             rbAltSorvete.setChecked(true);
+                            txtAltTamanho.setText("Tamanho Indefinido");
                         } else if (prodTela.getId_tipoProd() == 5) {
                             rbAltPicole.setChecked(true);
-                        } else if (prodTela.getId_tipoProd() == 6) {
+                            txtAltTamanho.setText("Tamanho Indefinido");
+                        } else{
                             rbAltCremosinho.setChecked(true);
+                            txtAltTamanho.setText("Tamanho Indefinido");
                         }
 
                     }else{
                         txtAltNomeProd.setText("");
                         txtAltTamanho.setText("");
                         txtAltPreco.setText("");
-                        rbAltAcai.setChecked(false);
-                        rbAltSacole.setChecked(false);
-                        rbAltGeladinho.setChecked(false);
-                        rbAltSorvete.setChecked(false);
-                        rbAltPicole.setChecked(false);
-                        rbAltCremosinho.setChecked(false);
+                        rgAltTipoProd.clearCheck();
 
 
                         prodTela = new produto();
@@ -196,31 +197,33 @@ public class PesqAltExc extends AppCompatActivity implements View.OnClickListene
 
                 break;
 
+            //ALTERAR PRODUTO
             case R.id.btnAlterarProd:
                 conectarBD alterarProd = new conectarBD(this);
 
+                utilsProduto.setNomesPesqProd(txtPesqProd.getText().toString());
                 prodTela.setNome_prod(txtAltNomeProd.getText().toString());
                 prodTela.setTam_prod(txtAltTamanho.getText().toString());
                 prodTela.setPreco_prod(Double.parseDouble(txtAltPreco.getText().toString()));
 
                 int tipoProdEscolhido = rgAltTipoProd.getCheckedRadioButtonId();
                 switch (tipoProdEscolhido){
-                    case R.id.rbAcai:
+                    case R.id.rbAltAcai:
                         prodTela.setId_tipoProd(1);
                         break;
-                    case R.id.rbSacole:
+                    case R.id.rbAltSacole:
                         prodTela.setId_tipoProd(2);
                         break;
-                    case R.id.rbGeladinho:
+                    case R.id.rbAltGeladinho:
                         prodTela.setId_tipoProd(3);
                         break;
-                    case R.id.rbSorvete:
+                    case R.id.rbAltSorvete:
                         prodTela.setId_tipoProd(4);
                         break;
-                    case R.id.rbPicole:
+                    case R.id.rbAltPicole:
                         prodTela.setId_tipoProd(5);
                         break;
-                    case R.id.rbCremosinho:
+                    case R.id.rbAltCremosinho:
                         prodTela.setId_tipoProd(6);
                         break;
                 }
@@ -233,15 +236,10 @@ public class PesqAltExc extends AppCompatActivity implements View.OnClickListene
                 txtAltNomeProd.setText("");
                 txtAltTamanho.setText("");
                 txtAltPreco.setText("");
-                rbAltAcai.setChecked(false);
-                rbAltSacole.setChecked(false);
-                rbAltGeladinho.setChecked(false);
-                rbAltSorvete.setChecked(false);
-                rbAltPicole.setChecked(false);
-                rbAltCremosinho.setChecked(false);
+                rgAltTipoProd.clearCheck();
 
                 break;
-
+            //EXCLUIR PRODUTO
             case R.id.btnExcluirProd:
                 conectarBD excluirProd = new conectarBD(this);
 
@@ -253,14 +251,11 @@ public class PesqAltExc extends AppCompatActivity implements View.OnClickListene
                 txtAltNomeProd.setText("");
                 txtAltTamanho.setText("");
                 txtAltPreco.setText("");
-                rbAltAcai.setChecked(false);
-                rbAltSacole.setChecked(false);
-                rbAltGeladinho.setChecked(false);
-                rbAltSorvete.setChecked(false);
-                rbAltPicole.setChecked(false);
-                rbAltCremosinho.setChecked(false);
+                rgAltTipoProd.clearCheck();
+
 
                 break;
+                //TRANSFERIR PARA A TELA DE INSERIR PRODUTO
             case R.id.lblInserirProd:
                 Intent inserir = new Intent(this, InserirProduto.class);
                 startActivity(inserir);

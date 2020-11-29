@@ -14,18 +14,6 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/testeContorno"
-            android:layout_width="37dp"
-            android:layout_height="35dp"
-            android:background="@drawable/contorno"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.827"
-            app:layout_constraintHorizontal_bias="0.499"/>
-
-        <ImageView
             android:id="@+id/imageView10"
             android:layout_width="414dp"
             android:layout_height="273dp"
@@ -69,7 +57,7 @@
             app:layout_constraintHorizontal_bias="0.492"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/include14"
-            app:layout_constraintVertical_bias="0.491"
+            app:layout_constraintVertical_bias="0.538"
             tools:visibility="visible" />
 
         <TextView
@@ -99,23 +87,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.346" />
 
-        <Button
-            android:id="@+id/btnVoltarDetalhes"
-            android:layout_width="160dp"
-            android:layout_height="40dp"
-            android:background="@drawable/fundo_botao_logar"
-            android:fontFamily="@font/chicken_pie"
-            android:paddingBottom="4dp"
-            android:text="VOLTAR"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.929" />
-
         <ImageView
             android:id="@+id/linhabranca4"
             android:layout_width="52dp"
@@ -143,20 +114,16 @@
             app:layout_constraintVertical_bias="0.25" />
 
 
-        <TextView
-            android:id="@+id/lblqtd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/chicken_pie"
-            android:text="Quantidade Desejada"
-            android:textColor="#000"
-            android:textSize="22sp"
+        <ImageView
+            android:id="@+id/testeContorno"
+            android:layout_width="37dp"
+            android:layout_height="35dp"
+            android:background="@drawable/contorno"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/include14"
-            app:layout_constraintVertical_bias="0.753" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.831" />
 
         <TextView
             android:id="@+id/lblQtdDoPedidoRealizado"
@@ -172,7 +139,38 @@
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/include14"
-            app:layout_constraintVertical_bias="0.821" />
+            app:layout_constraintVertical_bias="0.825" />
+
+        <TextView
+            android:id="@+id/lblqtd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/chicken_pie"
+            android:text="Quantidade Desejada"
+            android:textColor="#000"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/include14"
+            app:layout_constraintVertical_bias="0.759" />
+
+        <Button
+            android:id="@+id/btnPedidoFeito"
+            android:layout_width="151dp"
+            android:layout_height="33dp"
+            android:background="@drawable/fundo_botao_logar"
+            android:fontFamily="@font/chicken_pie"
+            android:paddingBottom="4dp"
+            android:text="PEDIDO FEITO"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.935" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

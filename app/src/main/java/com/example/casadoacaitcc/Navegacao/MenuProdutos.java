@@ -192,9 +192,12 @@ public class MenuProdutos extends AppCompatActivity implements View.OnClickListe
 
                 break;
             case R.id.btnAcai:
+                //DEFININDO O ID DO PRODUTO
                 utilsProduto.setIdTipoProd(1);
+                //SETTANDO O NOME DO PRODUTO PARA VISUALIZACAO NO LABEL
                 utilsProduto.setNomeTipoProd("AÇAÍ");
 
+                //VERIFICACAO CASO SEJA ADM OU CLINTE
                 if(telaLogada.getNumeroDaTela() == 1){
                     Intent inserir1 = new Intent(this, PesqAltExc.class);
                     startActivity(inserir1);

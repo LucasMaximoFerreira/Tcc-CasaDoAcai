@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.casadoacaitcc.ListaAdapter.ListaAdapterComprasAdm;
@@ -26,9 +27,10 @@ import dao.conectarBD;
 import model.vendas;
 import utils.utilsCompra;
 
-public class PedidosRealizados extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class PedidosRealizados extends AppCompatActivity implements AdapterView.OnItemClickListener, View.OnClickListener {
     DrawerLayout drawerLayout;
 
+    Button btnVoltarAoMenu;
     conectarBD listar;
     ListView lstComprasAdm;
 
@@ -40,7 +42,8 @@ public class PedidosRealizados extends AppCompatActivity implements AdapterView.
         setContentView(R.layout.activity_pedidos_realizados);
 
         drawerLayout = findViewById(R.id.drawer_layout);
-
+        btnVoltarAoMenu = findViewById(R.id.btnVoltarAoMenu);
+        btnVoltarAoMenu.setOnClickListener(this);
         try{
             lstComprasAdm = findViewById(R.id.lstCompraAdm);
 
@@ -125,5 +128,15 @@ public class PedidosRealizados extends AppCompatActivity implements AdapterView.
         Intent hist = new Intent(this, PedidosDaVenda.class);
         startActivity(hist);
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.btnVoltarAoMenu:
+                Intent voltarMenu = new Intent(this, MenuProdutos.class);
+                startActivity(voltarMenu);
+                break;
+        }
     }
 }

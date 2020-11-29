@@ -46,6 +46,7 @@ public class Cadastro1 extends AppCompatActivity implements View.OnClickListener
         txtEmail.addTextChangedListener(cadastro1TextWatcher);
         txtData.addTextChangedListener(cadastro1TextWatcher);
 
+
         setTextCorDegrade();
 
         //MASCARA DA DATA
@@ -54,6 +55,8 @@ public class Cadastro1 extends AppCompatActivity implements View.OnClickListener
         txtData.addTextChangedListener(ntwData);
 
     }
+
+    //FUNCAO PARA NAO CONTINUAR SE CADASTRANDO SEM COMPLETAR AS DEMAIS INFORMAÇÕES
     private TextWatcher cadastro1TextWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -76,6 +79,8 @@ public class Cadastro1 extends AppCompatActivity implements View.OnClickListener
 
         }
     };
+
+    //FUNCAO PARA COLORIR O LABEL EM DEGRADE
     private void setTextCorDegrade(){
         TextPaint paint = lblFacaLogin.getPaint();
         float width = paint.measureText("faça o login aqui");
@@ -89,6 +94,7 @@ public class Cadastro1 extends AppCompatActivity implements View.OnClickListener
                 }, null, Shader.TileMode.CLAMP);
         lblFacaLogin.getPaint().setShader(shader);
     }
+
     @Override
     public void onClick(View v) {
 

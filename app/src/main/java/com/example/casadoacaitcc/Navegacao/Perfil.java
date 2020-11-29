@@ -91,10 +91,7 @@ public class Perfil extends AppCompatActivity implements View.OnClickListener {
                 txtNovoEmail.setText("");
                 txtNovoComp.setText("");
                 txtNovotTel.setText("");
-                rbNovoMasc.setChecked(false);
-                rbNovoFemin.setChecked(false);
-                rbNovoPND.setChecked(false);
-
+                rgNovoGen.clearCheck();
 
                 cliTela = new cadastro_cliente();
             }

@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.casadoacaitcc.ListaAdapter.ListaAdapterComprasAdm;
@@ -27,21 +28,27 @@ import model.produto;
 import model.vendas;
 import utils.utilsCompra;
 
-public class PedidosDaVenda extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class PedidosDaVenda extends AppCompatActivity implements AdapterView.OnItemClickListener, View.OnClickListener {
     DrawerLayout drawerLayout;
 
+    Button btnExcluirVenda;
     conectarBD listar;
     ListView lstIdDoPedidoRealizadoDaCompra;
 
     List<it_venda> listIdDoPedidoRealizadoDaCompraTela;
     ListaAdapterPedidosDaVenda adapterIdDoPedidoRealizadoDaCompra;
+
+    vendas vendTela = new vendas();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pedidos_da_venda);
 
         drawerLayout = findViewById(R.id.drawer_layout);
+        btnExcluirVenda = findViewById(R.id.btnExcluirVenda);
 
+        btnExcluirVenda.setOnClickListener(this);
+        vendTela = new vendas();
 
         try{
             lstIdDoPedidoRealizadoDaCompra = findViewById(R.id.lstPedidosRealizadosDaCompra);
@@ -131,5 +138,21 @@ public class PedidosDaVenda extends AppCompatActivity implements AdapterView.OnI
         Intent hist = new Intent(this, DetalhesDoPedido.class);
         startActivity(hist);
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.btnExcluirVenda:
+                conectarBD excluirVenda = new conectarBD(this);
+
+                excluirVenda.setVendaClasse(vendTela);
+
+                excluirVenda.execute(28);
+
+                Intent compras = new Intent(this, PedidosRealizados.class);
+                startActivity(compras);
+                break;
+        }
     }
 }

@@ -13,17 +13,32 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <Button
+            android:id="@+id/btnExcluirVenda"
+            android:layout_width="180dp"
+            android:layout_height="43dp"
+            android:background="@drawable/fundo_botao_logar"
+            android:fontFamily="@font/chicken_pie"
+            android:paddingBottom="4dp"
+            android:text="VENDA REALIZADA"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.976" />
         <ImageView
             android:id="@+id/imageView8"
             android:layout_width="379dp"
-            android:layout_height="502dp"
+            android:layout_height="452dp"
             android:background="@drawable/borda"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.400"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/include13"
-            app:layout_constraintVertical_bias="0.950" />
+            app:layout_constraintVertical_bias="0.734" />
 
         <include
             android:id="@+id/include13"
@@ -32,14 +47,13 @@
         <ListView
             android:id="@+id/lstPedidosRealizadosDaCompra"
             android:layout_width="347dp"
-            android:layout_height="496dp"
+            android:layout_height="446dp"
             android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.410"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/include13"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="0.784" />
 
         <TextView
             android:id="@+id/textView2"

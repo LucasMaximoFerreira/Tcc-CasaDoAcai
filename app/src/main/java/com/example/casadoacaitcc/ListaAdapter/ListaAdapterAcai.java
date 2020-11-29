@@ -44,6 +44,7 @@ public class ListaAdapterAcai extends BaseAdapter {
         return listaAcai.get(position).getId_prod();
     }
 
+    //PUXANDO OS DADOS PARA O LISTVIEW
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ItemSuporte itemTela;

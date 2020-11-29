@@ -26,12 +26,12 @@ import model.produto;
 import utils.utilsCompra;
 import utils.utilsProduto;
 
-public class DetalhesDoPedido extends AppCompatActivity{
+public class DetalhesDoPedido extends AppCompatActivity implements View.OnClickListener {
     DrawerLayout drawerLayout;
 
     TextView lblQtdDoPedidoRealizado, lblAdicionalDoPedidoRealizado, lblNomePedidoRealizado, lbladicionais2;
     ImageView imgDoProduto5, linhabranca3, linhabranca4;
-
+    Button btnPedidoFeito;
 
     it_venda it_vendaTela = new it_venda();
 
@@ -51,6 +51,9 @@ public class DetalhesDoPedido extends AppCompatActivity{
         linhabranca3 = findViewById(R.id.linhabranca3);
         linhabranca4 = findViewById(R.id.linhabranca4);
         lbladicionais2 = findViewById(R.id.lbladicionais2);
+        btnPedidoFeito = findViewById(R.id.btnPedidoFeito);
+
+        btnPedidoFeito.setOnClickListener(this);
 
 
         try{
@@ -167,6 +170,21 @@ public class DetalhesDoPedido extends AppCompatActivity{
         startActivity(perfil);
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.btnPedidoFeito:
+                conectarBD excluirPed = new conectarBD(this);
+
+                excluirPed.setIt_vendaClasse(it_vendaTela);
+
+                excluirPed.execute(29);
+
+                Intent compras = new Intent(this, PedidosDaVenda.class);
+                startActivity(compras);
+                break;
+        }
+    }
 
 
     ///////////////////////////////////////////////////////
