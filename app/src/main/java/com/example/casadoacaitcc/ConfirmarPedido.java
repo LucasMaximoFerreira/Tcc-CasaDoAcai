@@ -41,7 +41,8 @@ public class ConfirmarPedido extends AppCompatActivity implements View.OnClickLi
     ImageView imgDoProduto, imgDoProduto2, linhabranca1, linhabranca2;
 
 
-    int qtd, contador;
+
+    int qtd, contador, tempoTotal, novoTempo;
     Double precoFianl, precoProduto, total = 0.0, totalVenda = 0.0;
 
 
@@ -78,7 +79,7 @@ public class ConfirmarPedido extends AppCompatActivity implements View.OnClickLi
         btnContinuarComprando.setOnClickListener(this);
         contador = 1;
         txtQuantidadeDesejada.setText(String.valueOf(contador));
-
+        tempoTotal = utilsProduto.getTempoDeEspera();
 
         //ALTERAR A FOTO DE ACORDO COM O TIPO DO PRODUTO
         if(utilsProduto.getIdTipoProd() == 1) {
@@ -222,13 +223,20 @@ public class ConfirmarPedido extends AppCompatActivity implements View.OnClickLi
             }
         }
 
-        if(prodTela.getId_prod() != 1){
+        if(prodTela.getId_tipoProd() != 1){
             utilsProduto.setNomeAdicionais(" ");
         }
         qtd = Integer.parseInt(txtQuantidadeDesejada.getText().toString());
         precoProduto = prodTela.getPreco_prod();
 
-        precoFianl = precoProduto * qtd;
+        if(utilsProduto.getIdTipoProd() == 1) {
+
+
+            novoTempo = qtd * 5;
+            tempoTotal = tempoTotal + novoTempo;
+            utilsProduto.setTempoDeEspera(tempoTotal);
+        }
+            precoFianl = precoProduto * qtd;
 
         total = total + precoFianl;
 

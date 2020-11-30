@@ -35,6 +35,7 @@ import model.produto;
 import model.vendas;
 import utils.utilsCadastro_cliente;
 import utils.utilsCompra;
+import utils.utilsProduto;
 
 public class Carrinho extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
 
@@ -60,7 +61,6 @@ public class Carrinho extends AppCompatActivity implements View.OnClickListener,
         setContentView(R.layout.activity_carrinho);
 
 
-
         txtTotal = findViewById(R.id.txtTotal);
         rbDinheiro = findViewById(R.id.rbDinheiro);
         rbCartao = findViewById(R.id.rbCartao);
@@ -68,6 +68,7 @@ public class Carrinho extends AppCompatActivity implements View.OnClickListener,
         btnFinalizarCompra = findViewById(R.id.btnFinalizarCompra);
         drawerLayout = findViewById(R.id.drawer_layout);
         btnFinalizarCompra.setOnClickListener(this);
+
 
         vendaTela.setValor_vda(utilsCompra.getTotalCompra());
 
@@ -120,8 +121,8 @@ public class Carrinho extends AppCompatActivity implements View.OnClickListener,
 
                 finalizar.execute(13);
 
-                Intent telaInicial = new Intent(this, MenuProdutos.class);
-                startActivity(telaInicial);
+                Intent TelaInfo = new Intent(this, InformacoesCompra.class);
+                startActivity(TelaInfo);
                 break;
 
         }

@@ -11,6 +11,7 @@ abstract public class utilsProduto {
     private static String nomeTipoProd;
     private static ImageView imgDoProduto;
     private static String NomesPesqProd;
+    private static int tempoDeEspera;
 
     public static int getIdProdSelecionado() {
         return idProdSelecionado;
@@ -66,5 +67,13 @@ abstract public class utilsProduto {
 
     public static void setNomesPesqProd(String nomesPesqProd) {
         NomesPesqProd = nomesPesqProd;
+    }
+
+    public static int getTempoDeEspera() {
+        return tempoDeEspera;
+    }
+
+    public static void setTempoDeEspera(int tempoDeEspera) {
+        utilsProduto.tempoDeEspera = tempoDeEspera;
     }
 }

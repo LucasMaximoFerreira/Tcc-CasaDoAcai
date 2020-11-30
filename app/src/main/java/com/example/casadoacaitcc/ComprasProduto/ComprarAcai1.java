@@ -41,6 +41,9 @@ public class ComprarAcai1 extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comprar_acai1);
         drawerLayout = findViewById(R.id.drawer_layout);
+
+
+
         try{
             lstAcai = findViewById(R.id.lstAcai);
 
@@ -69,6 +72,8 @@ public class ComprarAcai1 extends AppCompatActivity implements AdapterView.OnIte
         prodSelecionado = (produto) adapterListaAcai.getItem(position);
 
         utilsProduto.setIdProdSelecionado(prodSelecionado.getId_prod());
+
+
 
 
         Intent carrinho = new Intent(this, ComprarAcai2.class);
