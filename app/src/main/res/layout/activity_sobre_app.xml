@@ -29,8 +29,81 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/include11"
-            app:layout_constraintVertical_bias="0.25" />
+            app:layout_constraintVertical_bias="0.228" />
 
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="387dp"
+            android:layout_height="524dp"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/borda"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/include13"
+            app:layout_constraintVertical_bias="0.950" />
+
+        <TextView
+            android:id="@+id/lbltextoSobre"
+            android:layout_width="388dp"
+            android:layout_height="516dp"
+            android:fontFamily="@font/chicken_pie"
+            android:gravity="left"
+            android:text="  Aqui você encontrará os melhores e deliciosos produtos alimentícios da categoria dos gelados:\n\
+    \n\
+    - Açaí\n\
+    - Sacolé\n\
+    - Geladinho\n\
+    - Picolé\n\
+    - Sorvete de pote\n\
+    - Cremosinho\n\
+    \n\
+    Para realizar a compra é muito simples,\n\
+     basta seguir os passos abaixo:\n\
+\n\
+    1. Faça seu cadastro.\n\
+    2. Faça seu pedido.\n\
+    3. Envie-o para cozinha pelo próprio aplicativo.\n\
+    4. Aguarde ficar pronto pelo indicativo de\n\
+     tempo.\n\
+    5. Pronto, agora é só pagar e retirar o pedido\n\
+     no local informado.\n\
+    \n\
+    Menu\n\
+
+    Explore seus produtos favoritos e descubra nossos lançamentos. Para melhor experiência,
+     por favor, certifique-se de permitir os Serviços
+     de Localização quando iniciar o aplicativo."
+            android:textColor="#000000"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/include11"
+            app:layout_constraintVertical_bias="0.986" />
+
+        <ImageView
+            android:id="@+id/linharoxa1"
+            android:layout_width="247dp"
+            android:layout_height="13dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.54"
+            app:srcCompat="@drawable/traco" />
+
+        <ImageView
+            android:id="@+id/linharoxa2"
+            android:layout_width="247dp"
+            android:layout_height="13dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.834"
+            app:srcCompat="@drawable/traco" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <RelativeLayout
