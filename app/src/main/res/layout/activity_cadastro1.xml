@@ -16,7 +16,6 @@
         android:fontFamily="@font/chicken_pie"
         android:paddingBottom="4dp"
         android:text="CONTINUAR"
-        android:enabled="false"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"

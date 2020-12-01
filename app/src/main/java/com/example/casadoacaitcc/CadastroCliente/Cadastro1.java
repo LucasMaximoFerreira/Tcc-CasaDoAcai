@@ -33,7 +33,7 @@ public class Cadastro1 extends AppCompatActivity implements View.OnClickListener
                     "(?=.*[A-Z])" +
                     "(?=.*[@#$%^&+=])" +
                     "(?=\\S+$)" +
-                    ".{6,}" +
+                    ".{8,}" +
                     "$");
 
     EditText txtNome, txtSenha, txtEmail, txtData;
@@ -56,10 +56,7 @@ public class Cadastro1 extends AppCompatActivity implements View.OnClickListener
         btnVerificar = findViewById(R.id.btnVerificar);
 
         btnVerificar.setOnClickListener(this);
-        txtNome.addTextChangedListener(cadastro1TextWatcher);
-        txtSenha.addTextChangedListener(cadastro1TextWatcher);
-        txtEmail.addTextChangedListener(cadastro1TextWatcher);
-        txtData.addTextChangedListener(cadastro1TextWatcher);
+
 
 
         setTextCorDegrade();
@@ -70,28 +67,6 @@ public class Cadastro1 extends AppCompatActivity implements View.OnClickListener
         txtData.addTextChangedListener(ntwData);
 
     }
-
-    //FUNCAO PARA NAO CONTINUAR SE CADASTRANDO SEM COMPLETAR AS DEMAIS INFORMAÇÕES
-    private TextWatcher cadastro1TextWatcher = new TextWatcher() {
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-        }
-
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {
-            String nomeInput = txtNome.getText().toString().trim();
-            String dataInput = txtData.getText().toString().trim();
-
-            btnCad1.setEnabled(!nomeInput.isEmpty() && !dataInput.isEmpty());
-
-        }
-
-        @Override
-        public void afterTextChanged(Editable s) {
-
-        }
-    };
 
     //FUNCAO PARA COLORIR O LABEL EM DEGRADE
     private void setTextCorDegrade() {
@@ -112,15 +87,18 @@ public class Cadastro1 extends AppCompatActivity implements View.OnClickListener
         String senha = txtSenha.getText().toString();
         if (senha.isEmpty()) {
             txtSenha.setError("campo não pode ser vazio");
-            btnCad1.setEnabled(false);
             return false;
         } else if (!SENHA_VAL.matcher(senha).matches()) {
-            txtSenha.setError("Senha Fraca");
-            btnCad1.setEnabled(false);
+            txtSenha.setError("Deve Possuir: " +
+                    "1 Numero, " +
+                    "1 letra maiuscula, " +
+                    "1 letra minuscula, " +
+                    "1 caractere especial, " +
+                    "ao menos 8 caracteres e " +
+                    "não deve conter espaços");
             return false;
         } else {
             txtSenha.setError(null);
-            btnCad1.setEnabled(true);
             return true;
         }
     }
@@ -128,19 +106,40 @@ public class Cadastro1 extends AppCompatActivity implements View.OnClickListener
     private Boolean validarEmail() {
         String email = txtEmail.getText().toString();
         if (email.isEmpty()) {
-            txtEmail.setError("campo não pode ser vazio");
-            btnCad1.setEnabled(false);
+            txtEmail.setError("Campo Obrigatório");
             return false;
         } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             txtEmail.setError("digite um email válido");
-            btnCad1.setEnabled(false);
             return false;
         } else {
             txtEmail.setError(null);
-            btnCad1.setEnabled(true);
             return true;
         }
     }
+    private Boolean validarData() {
+        String data = txtData.getText().toString();
+        if (data.isEmpty()) {
+            txtData.setError("Campo Obrigatório");
+            return false;
+        } else {
+            txtData.setError(null);
+            return true;
+        }
+    }
+
+    private Boolean validarNome() {
+        String nome = txtNome.getText().toString();
+        if (nome.isEmpty()) {
+        txtNome.setError("Campo Obrigatório");
+        return false;
+        } else {
+            txtNome.setError(null);
+            return true;
+        }
+    }
+
+
+
 
     @Override
     public void onClick(View v) {
@@ -148,17 +147,28 @@ public class Cadastro1 extends AppCompatActivity implements View.OnClickListener
         switch (v.getId()) {
             case R.id.btnCad1:
 
-
-                utilsCadastro_cliente.setUnome_cli(txtNome.getText().toString());
-                utilsCadastro_cliente.setUsenha_cli(txtSenha.getText().toString());
-                utilsCadastro_cliente.setUemail_cli(txtEmail.getText().toString());
-
-                utilsCadastro_cliente.setUdtnasc_cli(txtData.getText().toString());
-
                 validarSenha();
+                validarEmail();
+                validarData();
+                validarNome();
 
-                Intent telaCad2 = new Intent(this, Cadastro2.class);
-                startActivity(telaCad2);
+        if(validarData() & validarEmail() & validarSenha() == true){
+
+                    utilsCadastro_cliente.setUnome_cli(txtNome.getText().toString());
+                    utilsCadastro_cliente.setUsenha_cli(txtSenha.getText().toString());
+                    utilsCadastro_cliente.setUemail_cli(txtEmail.getText().toString());
+
+                    utilsCadastro_cliente.setUdtnasc_cli(txtData.getText().toString());
+
+                    validarSenha();
+
+                    Intent telaCad2 = new Intent(this, Cadastro2.class);
+                    startActivity(telaCad2);
+
+                }else{
+
+                }
+
 
                 break;
             case R.id.lblFacaLogin:
