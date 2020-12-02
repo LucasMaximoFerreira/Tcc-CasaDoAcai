@@ -26,9 +26,10 @@ import utils.utilsCadastro_cliente;
 
 public class Cadastro3 extends AppCompatActivity implements View.OnClickListener {
 
-    TextView lblNaoObrigatorio, lblFacaLogin3;
+    TextView lblNaoObrigatorio, lblFacaLogin3, conferir2;
     EditText txtCEP, txtNumero, txtComplemento;
     Button btnCad3;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +44,7 @@ public class Cadastro3 extends AppCompatActivity implements View.OnClickListener
         lblFacaLogin3 = findViewById(R.id.lblFacaLogin3);
         btnCad3.setOnClickListener(this);
         lblFacaLogin3.setOnClickListener(this);
-
-        txtCEP.addTextChangedListener(cadastro3TextWatcher);
-        txtNumero.addTextChangedListener(cadastro3TextWatcher);
+        conferir2 = findViewById(R.id.conferir2);
 
         setTextCorDegrade();
         setTextCorDegrade2();
@@ -54,30 +53,9 @@ public class Cadastro3 extends AppCompatActivity implements View.OnClickListener
         SimpleMaskFormatter cepMask = new SimpleMaskFormatter("NNNNN-NNN");
         MaskTextWatcher ntwCep = new MaskTextWatcher(txtCEP, cepMask);
         txtCEP.addTextChangedListener(ntwCep);
-
+        conferir2.setVisibility(View.INVISIBLE);
     }
-    //FUNCAO PARA NAO CONTINUAR SE CADASTRANDO SEM COMPLETAR AS DEMAIS INFORMAÇÕES
 
-    private TextWatcher cadastro3TextWatcher = new TextWatcher() {
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-        }
-
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {
-            String cepInput = txtCEP.getText().toString().trim();
-            String numInput = txtNumero.getText().toString().trim();
-
-            btnCad3.setEnabled(!cepInput.isEmpty() && !numInput.isEmpty());
-
-        }
-
-        @Override
-        public void afterTextChanged(Editable s) {
-
-        }
-    };
     //FUNCAO PARA COLORIR O LABEL EM DEGRADE
 
     private void setTextCorDegrade() {
@@ -111,32 +89,64 @@ public class Cadastro3 extends AppCompatActivity implements View.OnClickListener
         lblFacaLogin3.getPaint().setShader(shader);
 
     }
+
+    private Boolean validarCEP() {
+        String cep = txtCEP.getText().toString();
+        if (cep.isEmpty()) {
+            txtCEP.setError("Campo Obrigatório");
+            return false;
+        } else {
+            txtCEP.setError(null);
+            return true;
+        }
+    }
+    private Boolean validarNumero() {
+        String num = txtNumero.getText().toString();
+        if (num.isEmpty()) {
+            txtNumero.setError("Campo Obrigatório");
+            return false;
+        } else {
+            txtNumero.setError(null);
+            return true;
+        }
+    }
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnCad3:
-                conectarBD cad = new conectarBD(this);
 
-                cadastro_cliente clienteTela = new cadastro_cliente();
+                validarNumero();
+                validarCEP();
 
-                clienteTela.setNome_cli(utilsCadastro_cliente.getUnome_cli());
-                clienteTela.setEmail_cli(utilsCadastro_cliente.getUemail_cli());
-                clienteTela.setSenha_cli(utilsCadastro_cliente.getUsenha_cli());
-                clienteTela.setDtnasc_cli(utilsCadastro_cliente.getUdtnasc_cli());
-                clienteTela.setCpf_cli(utilsCadastro_cliente.getUcpf_cli());
-                clienteTela.setTel_cli(utilsCadastro_cliente.getUtel_cli());
-                clienteTela.setGen_cli(utilsCadastro_cliente.getUgen_cli());
-                clienteTela.setCep_cli(txtCEP.getText().toString());
-                clienteTela.setNum_cli(txtNumero.getText().toString());
-                clienteTela.setComp_cli(txtComplemento.getText().toString());
+                if(validarCEP() & validarNumero() == true){
+
+                    conectarBD cad = new conectarBD(this);
+
+                    cadastro_cliente clienteTela = new cadastro_cliente();
+
+                    clienteTela.setNome_cli(utilsCadastro_cliente.getUnome_cli());
+                    clienteTela.setEmail_cli(utilsCadastro_cliente.getUemail_cli());
+                    clienteTela.setSenha_cli(utilsCadastro_cliente.getUsenha_cli());
+                    clienteTela.setDtnasc_cli(utilsCadastro_cliente.getUdtnasc_cli());
+                    clienteTela.setCpf_cli(utilsCadastro_cliente.getUcpf_cli());
+                    clienteTela.setTel_cli(utilsCadastro_cliente.getUtel_cli());
+                    clienteTela.setGen_cli(utilsCadastro_cliente.getUgen_cli());
+                    clienteTela.setCep_cli(txtCEP.getText().toString());
+                    clienteTela.setNum_cli(txtNumero.getText().toString());
+                    clienteTela.setComp_cli(txtComplemento.getText().toString());
 
 
-                cad.setClasseCli(clienteTela);
+                    cad.setClasseCli(clienteTela);
 
-                cad.execute(0);
+                    cad.execute(0);
+                    conferir2.setVisibility(View.INVISIBLE);
+                    Intent login = new Intent(this, Login.class);
+                    startActivity(login);
+                }else{
+                    conferir2.setVisibility(View.VISIBLE);
 
-                Intent login = new Intent(this, Login.class);
-                startActivity(login);
+                }
+
                 break;
             case R.id.lblFacaLogin3:
                 Intent login3 = new Intent(this, Login.class);

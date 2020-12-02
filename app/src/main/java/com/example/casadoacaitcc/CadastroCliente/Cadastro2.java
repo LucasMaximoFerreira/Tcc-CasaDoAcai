@@ -29,7 +29,7 @@ public class Cadastro2 extends AppCompatActivity implements View.OnClickListener
     EditText txtCPF, txtTelefone;
     Button btnCad2;
     RadioGroup rgGen;
-    TextView lblFacaLogin2;
+    TextView lblFacaLogin2, lblobg, conferir3;
     RadioButton rbMasc, rbFem, rbPnd;
 
 
@@ -46,9 +46,8 @@ public class Cadastro2 extends AppCompatActivity implements View.OnClickListener
         rbMasc = findViewById(R.id.rbMasculino);
         rbPnd = findViewById(R.id.rbPND);
         lblFacaLogin2 = findViewById(R.id.lblFacaLogin2);
-
-        txtCPF.addTextChangedListener(cadastro2TextWatcher);
-        txtTelefone.addTextChangedListener(cadastro2TextWatcher);
+        conferir3 = findViewById(R.id.conferir3);
+        lblobg = findViewById(R.id.lblobg);
 
         btnCad2.setOnClickListener(this);
         lblFacaLogin2.setOnClickListener(this);
@@ -64,30 +63,30 @@ public class Cadastro2 extends AppCompatActivity implements View.OnClickListener
         MaskTextWatcher ntwCpf = new MaskTextWatcher(txtCPF, cpfMask);
         txtCPF.addTextChangedListener(ntwCpf);
 
+        lblobg.setVisibility(View.INVISIBLE);
+        conferir3.setVisibility(View.INVISIBLE);
     }
-    //FUNCAO PARA NAO CONTINUAR SE CADASTRANDO SEM COMPLETAR AS DEMAIS INFORMAÇÕES
 
-    private TextWatcher cadastro2TextWatcher = new TextWatcher() {
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
+    private Boolean validarTelefone() {
+        String tel = txtTelefone.getText().toString();
+        if (tel.isEmpty()) {
+            txtTelefone.setError("Campo Obrigatório");
+            return false;
+        } else {
+            txtTelefone.setError(null);
+            return true;
         }
-
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {
-            String cpfInput = txtCPF.getText().toString().trim();
-            String telInput = txtTelefone.getText().toString().trim();
-
-
-            btnCad2.setEnabled(!cpfInput.isEmpty() && !telInput.isEmpty());
-
+    }
+    private Boolean validarGenero() {
+        if (rbFem.isChecked() == false & rbPnd.isChecked() == false & rbMasc.isChecked() == false){
+            lblobg.setVisibility(View.VISIBLE);
+            return false;
+        } else {
+            return true;
         }
+    }
 
-        @Override
-        public void afterTextChanged(Editable s) {
 
-        }
-    };
     //FUNCAO PARA COLORIR O LABEL EM DEGRADE
 
     private void setTextCorDegrade(){
@@ -108,25 +107,36 @@ public class Cadastro2 extends AppCompatActivity implements View.OnClickListener
         switch (v.getId()) {
             case R.id.btnCad2:
 
-                utilsCadastro_cliente.setUcpf_cli(txtCPF.getText().toString());
-                utilsCadastro_cliente.setUtel_cli(txtTelefone.getText().toString());
+                validarGenero();
+                validarTelefone();
 
-                int opGen = rgGen.getCheckedRadioButtonId();
-                switch (opGen) {
-                    case R.id.rbMasculino:
-                        utilsCadastro_cliente.setUgen_cli("M");
-                        break;
-                    case R.id.rbFeminino:
-                        utilsCadastro_cliente.setUgen_cli("F");
-                        break;
-                    case R.id.rbPND:
-                        utilsCadastro_cliente.setUgen_cli("PND");
-                        break;
+                if(validarGenero() & validarTelefone() == true) {
 
+
+                    utilsCadastro_cliente.setUcpf_cli(txtCPF.getText().toString());
+                    utilsCadastro_cliente.setUtel_cli(txtTelefone.getText().toString());
+
+                    int opGen = rgGen.getCheckedRadioButtonId();
+                    switch (opGen) {
+                        case R.id.rbMasculino:
+                            utilsCadastro_cliente.setUgen_cli("M");
+                            break;
+                        case R.id.rbFeminino:
+                            utilsCadastro_cliente.setUgen_cli("F");
+                            break;
+                        case R.id.rbPND:
+                            utilsCadastro_cliente.setUgen_cli("PND");
+                            break;
+
+                    }
+                    conferir3.setVisibility(View.INVISIBLE);
+                    lblobg.setVisibility(View.INVISIBLE);
+
+                    Intent telaCad3 = new Intent(this, Cadastro3.class);
+                    startActivity(telaCad3);
+                }else{
+                    conferir3.setVisibility(View.VISIBLE);
                 }
-
-                Intent telaCad3 = new Intent(this, Cadastro3.class);
-                startActivity(telaCad3);
                 break;
             case R.id.lblFacaLogin2:
                 Intent login2 = new Intent(this, Login.class);

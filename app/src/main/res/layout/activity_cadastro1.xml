@@ -24,22 +24,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.75" />
 
-    <Button
-        android:id="@+id/btnVerificar"
-        android:layout_width="39dp"
-        android:layout_height="34dp"
-        android:background="@drawable/fundo_botao_logar"
-        android:fontFamily="@font/chicken_pie"
-        android:paddingBottom="4dp"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.727"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.445" />
-
     <EditText
         android:id="@+id/txtNome"
         android:layout_width="230dp"
@@ -66,7 +50,7 @@
 
     <EditText
         android:id="@+id/txtSenha"
-        android:layout_width="171dp"
+        android:layout_width="230dp"
         android:layout_height="42dp"
         android:background="@drawable/custom_input"
         android:drawableStart="@drawable/costum_senha_icon"
@@ -83,10 +67,10 @@
         android:textCursorDrawable="@drawable/degrade"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.379"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.443" />
+        app:layout_constraintVertical_bias="0.444" />
 
     <EditText
         android:id="@+id/txtEmail"
@@ -148,5 +132,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.977" />
+
+    <TextView
+        android:id="@+id/conferir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/chicken_pie"
+        android:text="* Confira as informações acima"
+        android:textColor="#FF0000"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.682" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

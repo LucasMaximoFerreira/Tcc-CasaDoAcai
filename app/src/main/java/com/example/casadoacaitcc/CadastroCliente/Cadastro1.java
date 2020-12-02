@@ -38,7 +38,7 @@ public class Cadastro1 extends AppCompatActivity implements View.OnClickListener
 
     EditText txtNome, txtSenha, txtEmail, txtData;
     Button btnCad1, btnVerificar;
-    TextView lblFacaLogin;
+    TextView lblFacaLogin, conferir;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,9 +53,9 @@ public class Cadastro1 extends AppCompatActivity implements View.OnClickListener
         lblFacaLogin = findViewById(R.id.lblFacaLogin);
         btnCad1.setOnClickListener(this);
         lblFacaLogin.setOnClickListener(this);
-        btnVerificar = findViewById(R.id.btnVerificar);
+        conferir = findViewById(R.id.conferir);
+        conferir.setVisibility(View.INVISIBLE);
 
-        btnVerificar.setOnClickListener(this);
 
 
 
@@ -152,21 +152,21 @@ public class Cadastro1 extends AppCompatActivity implements View.OnClickListener
                 validarData();
                 validarNome();
 
-        if(validarData() & validarEmail() & validarSenha() == true){
+
+                if(validarData() & validarEmail() & validarSenha() == true){
 
                     utilsCadastro_cliente.setUnome_cli(txtNome.getText().toString());
                     utilsCadastro_cliente.setUsenha_cli(txtSenha.getText().toString());
                     utilsCadastro_cliente.setUemail_cli(txtEmail.getText().toString());
-
                     utilsCadastro_cliente.setUdtnasc_cli(txtData.getText().toString());
 
-                    validarSenha();
+                    conferir.setVisibility(View.INVISIBLE);
 
                     Intent telaCad2 = new Intent(this, Cadastro2.class);
                     startActivity(telaCad2);
 
                 }else{
-
+                    conferir.setVisibility(View.VISIBLE);
                 }
 
 
@@ -175,9 +175,7 @@ public class Cadastro1 extends AppCompatActivity implements View.OnClickListener
                 Intent login = new Intent(this, Login.class);
                 startActivity(login);
                 break;
-            case R.id.btnVerificar:
-                validarEmail();
-                break;
+
         }
     }
 }

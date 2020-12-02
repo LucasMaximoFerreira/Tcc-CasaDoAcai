@@ -29,6 +29,7 @@ public class InserirProduto extends AppCompatActivity implements View.OnClickLis
     EditText txtInserirTamanho, txtInserirPreco, txtInserirNomeProd;
     Button btnInserirProd;
     RadioGroup rgInserirTipoProd;
+    String tamanho = "";
     RadioButton rbAcai, rbCremosinho, rbSacole, rbPicole, rbGeladinho, rbSorvete;
 
 
@@ -49,6 +50,7 @@ public class InserirProduto extends AppCompatActivity implements View.OnClickLis
         rbSorvete = findViewById(R.id.rbSorvete);
         rbPicole = findViewById(R.id.rbPicole);
         rbGeladinho = findViewById(R.id.rbGeladinho);
+        txtInserirTamanho.setText(tamanho);
 
         btnInserirProd.setOnClickListener(this);
 
