@@ -33,20 +33,21 @@
 
         <ImageView
             android:id="@+id/imageView8"
-            android:layout_width="378dp"
-            android:layout_height="519dp"
-            android:layout_marginBottom="4dp"
+            android:layout_width="377dp"
+            android:layout_height="522dp"
+            android:layout_marginBottom="12dp"
             android:background="@drawable/borda"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.484"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/include13"
             app:layout_constraintVertical_bias="0.950" />
 
         <TextView
             android:id="@+id/lbltextoSobre"
-            android:layout_width="371dp"
-            android:layout_height="512dp"
+            android:layout_width="377dp"
+            android:layout_height="520dp"
             android:fontFamily="@font/chicken_pie"
             android:gravity="left"
             android:text="  Aqui você encontrará os melhores e deliciosos produtos alimentícios da categoria dos gelados:\n\
@@ -63,7 +64,7 @@
 \n\
     1. Faça seu cadastro.\n\
     2. Faça seu pedido.\n\
-    3. Envie-o para cozinha pelo próprio aplicativo.\n\
+    3. Envie-o para cozinha pelo próprio \n\     aplicativo.\n\
     4. Aguarde ficar pronto pelo indicativo de\n\
      tempo.\n\
     5. Pronto, agora é só pagar e retirar o pedido\n\
@@ -71,16 +72,15 @@
     \n\
     Menu\n\
 
-     Explore seus produtos favoritos e descubra\n\ nossos lançamentos. Para melhor experiência,
-     por favor, certifique-se de permitir os Serviços
-     de Localização quando iniciar o aplicativo."
+     Explore seus produtos favoritos e descubra \n\      nossos lançamentos. Para melhor \n\      experiência,
+por favor, certifique-se de\n\      permitir os Serviços de Localização quando\n\      iniciar o aplicativo."
             android:textColor="#000000"
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/include11"
-            app:layout_constraintVertical_bias="0.981" />
+            app:layout_constraintVertical_bias="0.943" />
 
         <ImageView
             android:id="@+id/linharoxa1"
@@ -90,7 +90,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.545"
+            app:layout_constraintVertical_bias="0.523"
             app:srcCompat="@drawable/traco" />
 
         <ImageView
@@ -101,7 +101,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.839"
+            app:layout_constraintVertical_bias="0.842"
             app:srcCompat="@drawable/traco" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

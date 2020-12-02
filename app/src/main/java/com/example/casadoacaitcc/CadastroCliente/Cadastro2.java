@@ -102,6 +102,8 @@ public class Cadastro2 extends AppCompatActivity implements View.OnClickListener
                 }, null, Shader.TileMode.CLAMP);
         lblFacaLogin2.getPaint().setShader(shader);
     }
+
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {

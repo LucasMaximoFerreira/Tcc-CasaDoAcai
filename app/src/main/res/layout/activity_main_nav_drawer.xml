@@ -8,17 +8,13 @@
     android:background="@drawable/fundoperfil"
     tools:context=".Navegacao.main_nav_drawer">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imgPerfil"
-        android:layout_width="110dp"
-        android:layout_height="96dp"
-        android:src="@drawable/geladinho"
-        android:onClick="ClickImg"
-        app:civ_border_width="2dp" />
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="227dp"
+        android:layout_gravity="center"
+        android:layout_height="130dp"
+        android:background="@drawable/logo_casa" />
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="50dp" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
