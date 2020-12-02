@@ -18,7 +18,7 @@ import com.example.casadoacaitcc.R;
 
 public class EntrarEmContato extends AppCompatActivity {
     DrawerLayout drawerLayout;
-    TextView lblContatenos;
+    TextView lblContatenos, estabelecimento, insta, whatsapp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,9 +26,15 @@ public class EntrarEmContato extends AppCompatActivity {
 
         lblContatenos = findViewById(R.id.lblContatenos);
         drawerLayout = findViewById(R.id.drawer_layout);
+        estabelecimento = findViewById(R.id.estabelecimento);
+        insta = findViewById(R.id.insta);
+        whatsapp = findViewById(R.id.whatsapp);
 
 
         setTextCorDegrade();
+        setTextCorDegradeEstabelecimento();
+        setTextCorDegradeInsta();
+        setTextCorDegradeWhats();
 
     }
     private void setTextCorDegrade(){
@@ -43,6 +49,44 @@ public class EntrarEmContato extends AppCompatActivity {
 
                 }, null, Shader.TileMode.CLAMP);
         lblContatenos.getPaint().setShader(shader);
+    }
+    private void setTextCorDegradeInsta(){
+        TextPaint paint = insta.getPaint();
+        float width = paint.measureText("Instagram");
+
+        Shader shader = new LinearGradient(0,0,width,insta.getTextSize(),
+                new int[]{
+                        Color.parseColor("#9300E9"),
+                        Color.parseColor("#BF0085"),
+
+
+                }, null, Shader.TileMode.CLAMP);
+        insta.getPaint().setShader(shader);
+    }
+    private void setTextCorDegradeWhats(){
+        TextPaint paint = whatsapp.getPaint();
+        float width = paint.measureText("whatsapp");
+        Shader shader = new LinearGradient(0,0,width,whatsapp.getTextSize(),
+                new int[]{
+                        Color.parseColor("#9300E9"),
+                        Color.parseColor("#BF0085"),
+
+
+                }, null, Shader.TileMode.CLAMP);
+        whatsapp.getPaint().setShader(shader);
+    }
+    private void setTextCorDegradeEstabelecimento(){
+        TextPaint paint = estabelecimento.getPaint();
+        float width = paint.measureText("estabelecimento");
+
+        Shader shader = new LinearGradient(0,0,width,estabelecimento.getTextSize(),
+                new int[]{
+                        Color.parseColor("#9300E9"),
+                        Color.parseColor("#BF0085"),
+
+
+                }, null, Shader.TileMode.CLAMP);
+        estabelecimento.getPaint().setShader(shader);
     }
     public void ClickMenu(View view) {
         //Abrir o Drawer

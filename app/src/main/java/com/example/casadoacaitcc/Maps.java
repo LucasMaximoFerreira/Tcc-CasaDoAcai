@@ -22,6 +22,7 @@ public class Maps extends FragmentActivity implements OnMapReadyCallback {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
+        //pegando a tela para adicionar o mapa
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
 
         mapFragment.getMapAsync(this);
@@ -31,6 +32,7 @@ public class Maps extends FragmentActivity implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         map = googleMap;
 
+        // redirecionando as coordenadas do local
         LatLng CasaDoAcai = new LatLng(-23.201973, -45.865924);
         map.addMarker(new MarkerOptions().position(CasaDoAcai).title("Casa do Acaí"));
         map.moveCamera(CameraUpdateFactory.newLatLng(CasaDoAcai));
