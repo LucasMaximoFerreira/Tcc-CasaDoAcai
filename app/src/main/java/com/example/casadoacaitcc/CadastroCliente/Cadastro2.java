@@ -22,6 +22,9 @@ import com.example.casadoacaitcc.R;
 import com.github.rtoshiro.util.format.SimpleMaskFormatter;
 import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 
+import java.util.InputMismatchException;
+
+import utils.ValidacaoCPF;
 import utils.utilsCadastro_cliente;
 
 public class Cadastro2 extends AppCompatActivity implements View.OnClickListener {
@@ -59,9 +62,9 @@ public class Cadastro2 extends AppCompatActivity implements View.OnClickListener
         txtTelefone.addTextChangedListener(ntwTel);
 
         //MASCARA DO CPF
-        SimpleMaskFormatter cpfMask = new SimpleMaskFormatter("NNN.NNN.NNN-NN");
-        MaskTextWatcher ntwCpf = new MaskTextWatcher(txtCPF, cpfMask);
-        txtCPF.addTextChangedListener(ntwCpf);
+//        SimpleMaskFormatter cpfMask = new SimpleMaskFormatter("NNN.NNN.NNN-NN");
+//        MaskTextWatcher ntwCpf = new MaskTextWatcher(txtCPF, cpfMask);
+//        txtCPF.addTextChangedListener(ntwCpf);
 
         lblobg.setVisibility(View.INVISIBLE);
         conferir3.setVisibility(View.INVISIBLE);
@@ -112,9 +115,11 @@ public class Cadastro2 extends AppCompatActivity implements View.OnClickListener
                 validarGenero();
                 validarTelefone();
 
-                if(validarGenero() & validarTelefone() == true) {
+
+                if(ValidacaoCPF.ValidarCPF(txtCPF.getText().toString()) & validarGenero() & validarTelefone() == true) {
 
 
+                    txtCPF.setText(ValidacaoCPF.formatarCPF(txtCPF.getText().toString()));
                     utilsCadastro_cliente.setUcpf_cli(txtCPF.getText().toString());
                     utilsCadastro_cliente.setUtel_cli(txtTelefone.getText().toString());
 
@@ -136,8 +141,12 @@ public class Cadastro2 extends AppCompatActivity implements View.OnClickListener
 
                     Intent telaCad3 = new Intent(this, Cadastro3.class);
                     startActivity(telaCad3);
+                }else if(ValidacaoCPF.ValidarCPF(txtCPF.getText().toString()) == false){
+                    txtCPF.setError("Digite um CPF válido e sem pontos ou traços");
+
                 }else{
                     conferir3.setVisibility(View.VISIBLE);
+
                 }
                 break;
             case R.id.lblFacaLogin2:
