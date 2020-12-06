@@ -15,11 +15,12 @@ import android.widget.TextView;
 
 import com.example.casadoacaitcc.Navegacao.MenuProdutos;
 
+import utils.utilsCompra;
 import utils.utilsProduto;
 
 public class InformacoesCompra extends AppCompatActivity implements View.OnClickListener {
 
-    TextView tempo, lblminutos, lblpedidopronto, lbltempodeespera, lblretirarpedido;
+    TextView tempo, lblminutos, lblpedidopronto, lbltempodeespera, lblretirarpedido, cod, lblcodCompra;
     Button btnvoltarcomeco;
     ImageButton btnMaps;
 
@@ -35,12 +36,19 @@ public class InformacoesCompra extends AppCompatActivity implements View.OnClick
         lblretirarpedido = findViewById(R.id.lblretirarPedido);
         lbltempodeespera = findViewById(R.id.lbltempodeespera);
         btnMaps = findViewById(R.id.btnMaps);
+        cod = findViewById(R.id.cod);
+        lblcodCompra = findViewById(R.id.lblcodCompra);
 
+
+
+        lblcodCompra.setText(utilsCompra.getUltimaVenda());
         btnMaps.setOnClickListener(this);
         btnvoltarcomeco.setOnClickListener(this);
 
         setTextCorDegrade();
         setTextCorDegrade2();
+        setTextCorDegrade3();
+
 
         if(utilsProduto.getTempoDeEspera() == 0){
             tempo.setVisibility(View.INVISIBLE);
@@ -81,6 +89,19 @@ public class InformacoesCompra extends AppCompatActivity implements View.OnClick
 
                 }, null, Shader.TileMode.CLAMP);
         lbltempodeespera.getPaint().setShader(shader);
+    }
+    private void setTextCorDegrade3(){
+        TextPaint paint = lblcodCompra.getPaint();
+        float width = paint.measureText("Coódigo da Compra:");
+
+        Shader shader = new LinearGradient(0,0,width,lblcodCompra.getTextSize(),
+                new int[]{
+                        Color.parseColor("#9300E9"),
+                        Color.parseColor("#BF0085"),
+
+
+                }, null, Shader.TileMode.CLAMP);
+        lblcodCompra.getPaint().setShader(shader);
     }
 
     @Override

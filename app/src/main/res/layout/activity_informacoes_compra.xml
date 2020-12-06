@@ -18,20 +18,6 @@
             layout="@layout/main_toolbar" />
 
         <TextView
-            android:id="@+id/lbltempodeespera"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/chicken_pie"
-            android:text="Tempo De Espera:"
-            android:textColor="#000"
-            android:textSize="22sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.26" />
-
-        <TextView
             android:id="@+id/endereco"
             android:layout_width="352dp"
             android:layout_height="63dp"
@@ -45,7 +31,7 @@
             app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.485" />
+            app:layout_constraintVertical_bias="0.425" />
 
         <TextView
             android:id="@+id/lblretirarPedido"
@@ -60,7 +46,51 @@
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.406" />
+            app:layout_constraintVertical_bias="0.349" />
+
+        <TextView
+            android:id="@+id/lbltempodeespera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/chicken_pie"
+            android:text="Tempo De Espera:"
+            android:textColor="#000"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.23" />
+
+        <TextView
+            android:id="@+id/lblcodCompra"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/chicken_pie"
+            android:text="Coódigo da Compra:"
+            android:textColor="#000"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.447"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.858" />
+
+        <TextView
+            android:id="@+id/cod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/chicken_pie"
+            android:text="00"
+            android:textColor="#000"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.795"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.858" />
 
         <TextView
             android:id="@+id/lblpedidopronto"
@@ -68,15 +98,15 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/chicken_pie"
             android:text="Pedido Pronto"
-            android:visibility="invisible"
             android:textColor="#000"
             android:textSize="22sp"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.317" />
+            app:layout_constraintVertical_bias="0.276" />
 
         <TextView
             android:id="@+id/lblminutos"
@@ -91,7 +121,7 @@
             app:layout_constraintHorizontal_bias="0.551"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.317" />
+            app:layout_constraintVertical_bias="0.276" />
 
         <TextView
             android:id="@+id/tempo"
@@ -106,7 +136,8 @@
             app:layout_constraintHorizontal_bias="0.374"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.317" />
+            app:layout_constraintVertical_bias="0.276" />
+
 
         <Button
             android:id="@+id/btnvoltarcomeco"
@@ -132,10 +163,9 @@
             android:background="@drawable/maps"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.493"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.805" />
+            app:layout_constraintVertical_bias="0.712" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
