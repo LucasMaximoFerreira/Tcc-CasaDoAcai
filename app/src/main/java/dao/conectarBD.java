@@ -552,7 +552,7 @@ public class conectarBD extends AsyncTask<Integer, Object, Boolean> {
                 break;
             case 20:
                 if (aBoolean == false) {
-                    Toast.makeText(tela, "ADM N CADASTRADO", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(tela, "ADM NÃO CADASTRADO", Toast.LENGTH_SHORT).show();
                 }
                 break;
         }
