@@ -41,7 +41,7 @@ public class InformacoesCompra extends AppCompatActivity implements View.OnClick
 
 
 
-        lblcodCompra.setText(utilsCompra.getUltimaVenda());
+        cod.setText(String.valueOf(utilsCompra.getUltimaVenda()));
         btnMaps.setOnClickListener(this);
         btnvoltarcomeco.setOnClickListener(this);
 
